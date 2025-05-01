@@ -23,13 +23,14 @@ jobs:
 
       - name: Download Tweego
         run: |
-          TWEEGO_VERSION="2.1.1" # 你可以指定需要的 Tweego 版本
-          TWEEGO_OS="linux-x64" # 根据 runs-on 选择: linux-x64, macos-x64, win64
+          TWEEGO_VERSION="2.1.1"
+          TWEEGO_OS="linux-x64"
           wget "https://github.com/tmedwards/tweego/releases/download/v${TWEEGO_VERSION}/tweego-${TWEEGO_VERSION}-${TWEEGO_OS}.zip"
           unzip "tweego-${TWEEGO_VERSION}-${TWEEGO_OS}.zip"
-          # 将 tweego 可执行文件所在目录添加到 PATH
-          chmod +x tweego-${TWEEGO_VERSION}-${TWEEGO_OS}/tweego
-          echo "$(pwd)/tweego-${TWEEGO_VERSION}-${TWEEGO_OS}" >> $GITHUB_PATH
+          chmod +x tweego
+          echo "$(pwd)" >> $GITHUB_PATH
+          # 调试：查看解压结构
+          ls -R
 
       - name: Compile Story
         run: |

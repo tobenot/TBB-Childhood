@@ -1,0 +1,51 @@
+name: Deploy Twine Story to GitHub Pages
+
+on:
+  # 当推送到 main 分支时触发
+  push:
+    branches:
+      - main # 或者你的主分支名，例如 master
+  # 允许手动触发部署
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # 使用 Linux 环境运行
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # 签出你的仓库代码
+
+      - name: Download Tweego
+        run: |
+          TWEEGO_VERSION="2.1.1" # 你可以指定需要的 Tweego 版本
+          TWEEGO_OS="win64" # 根据 runs-on 选择: linux64, macos, win64
+          wget "https://github.com/tmedwards/tweego/releases/download/v${TWEEGO_VERSION}/tweego-${TWEEGO_VERSION}-${TWEEGO_OS}.zip"
+          unzip "tweego-${TWEEGO_VERSION}-${TWEEGO_OS}.zip"
+          # 将 tweego 添加到 PATH
+          echo "$(pwd)/tweego" >> $GITHUB_PATH
+
+      - name: Compile Story
+        run: |
+          # 确保 assets 文件夹存在 (如果你的仓库里还没有)
+          mkdir -p assets/images assets/audio
+          # 指定源文件目录 src 进行编译
+          tweego -f sugarcube-2 -o index.html ./src # <-- 修改这里
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 上传整个当前目录的内容 (包含 index.html 和 assets)
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

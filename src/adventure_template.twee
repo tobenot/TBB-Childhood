@@ -1,0 +1,242 @@
+:: StoryTitle
+冒险游戏模板
+
+:: StoryData
+{
+  "ifid": "53da9950-3184-48fe-9a24-f9b2b42abbd0",
+  "format": "SugarCube",
+  "format-version": "2.36.1",
+  "start": "Start",
+  "zoom": 1
+}
+
+:: Start [start]
+你迷失在一片古老的森林里，天色渐暗。周围弥漫着不安的气息。
+<<set $savedPerson to false>>
+<<set $foundItem to "none">>
+<<set $hasLantern to false>>
+<<set $heardCry to false>>
+
+你听到不远处的灌木丛传来微弱的呼救声。
+[[循声救人|Check Cry]]
+
+同时，你注意到另一边的地上似乎有一个闪闪发光的东西。
+[[调查闪光物|Investigate Shiny Object]]
+
+:: Check Cry
+你循着声音走去，拨开灌木丛。
+<<set $heardCry to true>>
+[[查看情况|Help Stranger]]
+
+:: Help Stranger
+你发现一个腿部受伤的旅人，他看起来很痛苦。“谢谢你，”他喘着气说，“你能帮我一把吗？我需要尽快离开这里，森林里的夜晚很危险。” 帮助他会耽误你寻找出路的时间，但你似乎不忍心丢下他。
+<<set $savedPerson to true>>
+
+[[帮助旅人，一起寻找出路|Escort Traveler]]
+[[抱歉地离开，独自求生|Leave Traveler]]
+
+:: Investigate Shiny Object
+你小心翼翼地靠近闪光物，发现那是一枚古老的护身符，散发着微弱的暖光。
+<<set $foundItem to "amulet">>
+你将护身符握在手中，感到一丝暖意。就在这时...
+<<if !$heardCry>>
+你再次听到了之前那微弱的呼救声，似乎更近了一些。
+[[过去看看|Help Stranger]]
+[[不管呼救声，带着护身符继续探索|Forest Path Amulet]]
+<<else>>
+你握紧护身符，准备继续探索。
+[[继续探索|Forest Path Amulet]]
+<<endif>>
+
+:: Escort Traveler
+你搀扶着受伤的旅人，艰难地在森林中前行。他告诉你他是来寻找传说中的“治愈之泉”的，据说泉水能治愈一切伤病。“也许我们可以一起找到它。”他说。
+天色完全黑了下来，周围变得更加阴森。旅人的伤势似乎在拖慢你们的脚步。
+
+[[催促他快点走，争取在彻底天黑前找到目标|Hurry Traveler]]
+[[小心前行，安全第一|Careful Traveler]]
+
+:: Hurry Traveler
+你催促旅人加快脚步，尽管他看起来很痛苦。你们在黑暗中跌跌撞撞，希望能尽快找到泉水或避难所。这增加了风险。
+[[继续寻找治愈之泉|Search Healing Spring]]
+[[寻找安全的避难所过夜|Find Shelter]]
+
+:: Careful Traveler
+你决定小心为上，放慢脚步确保旅人的安全。虽然速度慢了，但至少更稳妥。
+[[继续寻找治愈之泉|Search Healing Spring]]
+[[寻找安全的避难所过夜|Find Shelter]]
+
+:: Leave Traveler
+你狠下心，决定独自求生。身后传来旅人绝望的呼喊，但你没有回头。森林的阴影似乎更深了，你的内心感到一丝不安。
+
+[[继续深入森林|Deep Forest Alone]]
+
+:: Forest Path Amulet
+你握着护身符，感觉一股暖流遍布全身，驱散了些许寒意和恐惧。你沿着小路继续前进，来到一个岔路口。
+左边的路通往一个黑暗的洞穴，右边的路似乎通往一片开阔地。
+
+[[进入黑暗洞穴|Dark Cave Entrance]]
+[[走向开阔地|Forest Clearing]]
+
+:: Search Healing Spring
+你们在黑暗中摸索，旅人的伤势似乎在加重。突然，你们闻到一股清新的水汽，前方隐约有光亮。旅人显得很激动，想要立刻冲过去。
+
+[[谨慎地靠近光源|Investigate Light Source]]
+[[听旅人的，直接冲向光源|Rush Towards Light]]
+[[放弃寻找，先保证安全|Find Shelter]]
+
+:: Investigate Light Source
+你劝说旅人保持冷静，小心翼翼地靠近光源。发现那确实是治愈之泉！
+[[太好了！|Healing Spring Found]]
+
+:: Rush Towards Light
+你们兴奋地冲向光源，却没注意到脚下的地面松软。你们滑倒滚下了一个小坡，虽然没受重伤，但离光源更远了，而且旅人的伤更疼了。
+[[挣扎着爬起来，重新寻找|Search Healing Spring Again]]
+
+:: Search Healing Spring Again
+你们狼狈地爬起来，重新辨认方向。水汽的味道还在，但光亮似乎消失了。
+[[继续摸索寻找|Continue Searching Dimly]]
+[[放弃寻找，先保证安全|Find Shelter]]
+
+:: Continue Searching Dimly
+你们在更深的黑暗中摸索，希望渺茫。
+[[结局：迷失在黑暗中|End Lost]]
+
+:: Find Shelter
+你们找到一个废弃的小木屋，勉强可以遮风挡雨。旅人靠在墙边休息，呼吸沉重。你刚松一口气，突然听到木屋外面传来奇怪的沙沙声。
+
+[[出去查看情况|Investigate Noise]]
+[[ barricade the door and stay inside | Barricade Door]]
+[[尝试生火壮胆，并希望能吓走外面的东西|Try Fire]]
+
+:: Investigate Noise
+你小心翼翼地打开一条门缝向外看。黑暗中，你看到一双发光的眼睛正盯着木屋！你吓得赶紧关上门。
+[[立刻加固门窗|Barricade Door]]
+[[大声呼喊，试图吓跑它|Shout Scare]]
+
+:: Barricade Door
+你用屋里找到的破木板和家具顶住门窗。外面的声音持续了一会儿，然后渐渐远去了。你们暂时安全了，但旅人的状况似乎更糟了。
+[[守夜警戒，照顾旅人|End Guard Improved]]
+[[尝试生火取暖，希望能缓解旅人的痛苦|End Fire Improved]]
+
+:: Shout Scare
+你鼓起勇气大喊，外面的东西似乎被惊吓到，迅速跑开了。你松了口气，但不知道它是否还会回来。
+[[保持警惕，守夜|End Guard]]
+[[先生火再说|End Fire]]
+
+:: Try Fire
+你尝试用找到的材料生火。火光亮起，带来了温暖，也驱散了恐惧。外面的沙沙声也停止了。
+[[守着火堆，照顾旅人|End Fire Improved]]
+
+:: Deep Forest Alone
+独自一人在黑暗的森林中行走，你感到越来越迷茫和恐惧。突然，你脚下一空，掉进了一个陷阱！
+
+[[重新开始|Start]]
+
+:: Dark Cave Entrance
+你来到了一个黑暗洞穴的入口处，洞口吹出阴冷的风。护身符的光芒在这里似乎变弱了。
+
+[[小心翼翼地进入洞穴|Cave Interior]]
+[[返回岔路口|Forest Path Amulet]]
+
+:: Forest Clearing
+你来到了一片宁静的森林空地，中央有一棵古老的大树，树下放着一个看起来很旧的生锈铁箱。箱子被锁住了。
+<<if $foundItem is "key">> <<!-- 假设后续有剧情获得钥匙 -->>
+你发现你找到的钥匙正好能插进箱子的锁孔。
+[[用钥匙打开箱子|Rusty Chest]]
+<<else>>
+空地上除了那个生锈的箱子，似乎没有什么特别的。箱子被锁住了。
+[[检查箱子|Rusty Chest Locked]]
+[[返回岔路口|Forest Path Amulet]]
+<<endif>>
+[[结束冒险|End]]
+
+:: Healing Spring Found
+你们找到了传说中的治愈之泉！泉水散发着柔和的光芒。旅人喝下泉水后，腿伤奇迹般地愈合了。他感激地看着你。
+
+[[分享喜悦，一同离开森林|End Saved Both]]
+
+:: Rusty Chest Locked
+这个铁箱非常沉重，锁得也很牢固，没有钥匙打不开。
+
+[[返回空地|Forest Clearing]]
+
+:: Rusty Chest
+你用钥匙打开了生锈的铁箱。里面并没有金银财宝，只有一个旧式的提灯。
+<<set $hasLantern to true>>
+
+[[拿起提灯|Forest Clearing After Chest]]
+
+:: Forest Clearing After Chest
+你拿着提灯站在空地上。现在这里似乎没什么可做的了。
+
+[[返回岔路口|Forest Path Amulet]]
+[[结束冒险|End]]
+
+:: Cave Interior
+你走进了洞穴。里面一片漆黑。
+<<if $hasLantern>>
+幸好你带着提灯，可以照亮前方的道路。
+[[点亮提灯，继续深入|Deep Cave]]
+<<elseif $foundItem is "amulet">>
+护身符发出微弱的光芒，勉强能看清脚下的路，但深处依然黑暗。
+[[依靠护身符前进|Deep Cave Dim]]
+<<else>>
+没有光源，你寸步难行，黑暗中似乎有什么东西在移动。
+[[摸索着前进|Cave Trap]]
+[[害怕地退回洞口|Dark Cave Entrance]]
+<<endif>>
+
+:: Deep Cave
+提灯的光芒驱散了黑暗。你发现自己在一个宽敞的洞穴里，墙壁上有些奇怪的壁画。前方似乎还有路。
+
+[[研究壁画|End Study]]
+[[继续向前探索|End Explore]]
+[[返回洞口|Dark Cave Entrance]]
+
+:: Deep Cave Dim
+依靠护身符的微光，你艰难地前进。洞穴深处传来奇怪的声音，你感到一阵寒意。
+
+[[继续前进|End Amulet Deep]]
+[[害怕，退回洞口|Dark Cave Entrance]]
+
+:: Cave Trap
+你在黑暗中摸索，脚下突然一空，掉了下去！
+
+[[重新开始|Start]]
+
+:: End
+冒险暂时告一段落。
+
+:: End Guard
+你守了一夜，虽然疲惫，但确保了旅人的安全。天亮了，你们需要重新规划路线。
+[[重新开始|Start]]
+
+:: End Guard Improved
+你加固了门窗并守了一夜。虽然外面很危险，但你们在木屋里度过了相对安全的一晚。天亮后，旅人的精神好了一些，你们可以继续前进了。
+[[重新开始|Start]]
+[[重新开始|Start]]
+
+:: End Lost
+你们最终没能找到治愈之泉，也没能找到安全的避难所。在无尽的黑暗和寒冷中，你们渐渐失去了希望...
+[[重新开始|Start]]
+
+:: End Fire
+你成功生了火，带来了温暖和光明，也让旅人感觉好多了。但火光可能吸引来不速之客。
+[[重新开始|Start]]
+
+:: End Fire Improved
+你成功生了火，温暖的环境让旅人感觉舒服多了，外面的威胁似乎也被火光吓退。你们度过了一个安稳的夜晚。
+[[重新开始|Start]]
+
+:: End Saved Both
+你不仅救了旅人，还找到了治愈之泉。你们一起安全地离开了森林。这是一次成功的冒险！
+
+:: End Study
+壁画描绘了古老的仪式，你沉浸其中，忘记了时间的流逝。
+
+:: End Explore
+洞穴深处别有洞天，但新的危险也在等待着你。
+
+:: End Amulet Deep
+护身符的光芒越来越弱，最终熄灭了。你陷入了彻底的黑暗和未知的危险中。
+[[重新开始|Start]]

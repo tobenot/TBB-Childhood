@@ -46,14 +46,28 @@ Write-Host ""
 Write-Host "Press Ctrl+C in this window to stop the server."
 Write-Host ""
 
+# 全局变量保存服务器进程ID
+$ServerProcess = $null
+
+# 关闭服务器的函数
+function Stop-Server {
+    if ($ServerProcess -ne $null -and -not $ServerProcess.HasExited) {
+        Write-Host "Stopping server process (PID: $($ServerProcess.Id))..."
+        Stop-Process -Id $ServerProcess.Id -Force
+        Write-Host "Server stopped successfully."
+    } else {
+        Write-Host "No running server process found."
+    }
+}
+
 # 尝试使用 Python 3 启动服务器
 try {
     Write-Host "Attempting to start server with Python 3..."
-    # 使用 Start-Process 在新窗口或后台启动，避免阻塞脚本
-    # 如果希望服务器在前台运行，可以直接调用 python -m http.server 6899
-    # 但那样脚本的 pause 部分可能不会执行，直到服务器停止
-    # 这里我们直接在前台运行，因为 serve.bat 也是这样做的
-    python -m http.server 6899
+    # 保存进程对象以便后续关闭
+    $ServerProcess = Start-Process -NoNewWindow -PassThru -FilePath "python" -ArgumentList "-m","http.server","6899"
+    Write-Host "Server started with PID: $($ServerProcess.Id)"
+    # 自动打开浏览器访问本地服务器
+    Start-Process "http://localhost:6899"
     # 如果 Python 3 命令成功执行且用户未按 Ctrl+C，脚本会卡在这里直到服务器停止
     # 如果 Python 3 命令本身失败（例如找不到 python），会进入 catch 块
 } catch {
@@ -61,12 +75,27 @@ try {
     Write-Host "Trying Python 2 command..."
     # 尝试使用 Python 2
     try {
-        python -m SimpleHTTPServer 6899
+        $ServerProcess = Start-Process -NoNewWindow -PassThru -FilePath "python" -ArgumentList "-m","SimpleHTTPServer","6899"
+        Write-Host "Server started with PID: $($ServerProcess.Id)"
+        # 自动打开浏览器访问本地服务器
+        Start-Process "http://localhost:6899"
     } catch {
         Write-Error "Failed to start server with Python 2 command as well. Error: $($_.Exception.Message)"
         Write-Error "Please ensure Python (3 or 2) is installed and in your PATH."
     }
 }
 
-# 因为服务器在前台运行，这行 pause 可能只在服务器启动失败或结束后执行
-Read-Host "Server stopped or failed to start. Press Enter to exit"
+# 添加服务器关闭选项
+Write-Host ""
+Write-Host "To stop the server manually, type 'stop' and press Enter"
+Write-Host "Or press Ctrl+C to exit"
+Write-Host ""
+
+# 监听用户输入
+while ($true) {
+    $input = Read-Host
+    if ($input -eq "stop") {
+        Stop-Server
+        break
+    }
+}

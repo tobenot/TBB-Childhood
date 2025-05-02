@@ -1,0 +1,28 @@
+:: StoryTitle
+不止于纸上的故事：童年篇
+
+:: StoryData
+{
+  "ifid": "fe2c20f1-31d1-4fb9-bd17-adf631011f84",
+  "format": "SugarCube",
+  "format-version": "2.36.1",
+  "start": "噩梦",
+  "zoom": 1
+}
+
+:: StoryInit
+/* 预加载音频文件 */
+<<cacheaudio "bgm_startup" "assets/audio/bgm/bgm_startup_wind_chimes_in_the_mist_pure.mp3">>
+<<cacheaudio "bgm_elite" "assets/audio/bgm/bgm_elite_Void's_Grasp.mp3">>
+
+/* 设置自动保存 */
+<<set Config.saves.autosave to true>>
+
+:: StoryStylesheet
+@import url("styles.css");
+
+:: StoryScript
+/* 引入图片查看器脚本 */
+import "system/image-viewer.js"
+
+/* Passages moved to chapter1_intro.twee, chapter1_town.twee, and chapter1_ending.twee */

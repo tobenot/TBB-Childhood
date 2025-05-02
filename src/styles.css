@@ -1,0 +1,308 @@
+/* 图片大小控制样式 */
+
+/* CG图片样式 - 用于剧情重要场景 */
+img[src*="/cg/"] {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+img[src*="/cg/"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+}
+
+/* 场景图片样式 - 用于背景场景 */
+img[src*="/scenes/"] {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+img[src*="/scenes/"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+}
+
+/* 角色立绘样式 - 用于人物展示 */
+img[src*="/characters/"] {
+    max-width: 200px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 1em auto;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+    cursor: pointer;
+}
+
+img[src*="/characters/"]:hover {
+    transform: scale(1.03) translateY(-5px);
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+}
+
+/* 界面整体样式 */
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.5s ease;
+    overflow-x: hidden;
+}
+
+/* 侧边栏样式 */
+#ui-bar {
+    background-color: #000000;
+    border-right: 2px solid #d4af37;
+    box-shadow: 2px 0 10px rgba(212, 175, 55, 0.3);
+}
+
+#ui-bar-body {
+    background-color: #000000;
+}
+
+#ui-bar.stowed {
+    background-color: #000000;
+    border-left: 2px solid #d4af37;
+}
+
+/* 侧边栏标题样式 */
+#story-title {
+    color: #d4af37;
+    font-size: 1.5em;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+    padding: 1em 0;
+    border-bottom: 1px solid #d4af37;
+}
+
+/* 侧边栏菜单项样式 */
+#menu-story li a {
+    color: #d4af37;
+    font-size: 1.1em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.5em 1em;
+    display: block;
+}
+
+#menu-story li a:hover {
+    background-color: rgba(212, 175, 55, 0.2);
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.8);
+}
+
+/* 主要内容区域样式 */
+#story {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    background-image: radial-gradient(circle at center, #2a2a2a 0%, #1a1a1a 100%);
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.passage {
+    color: #ffffff;
+    font-size: 1.1em;
+    line-height: 1.6;
+    padding: 2.5em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 1em;
+    white-space: normal;
+}
+
+.passage p {
+    margin: 0.5em 0; /* 调整段落间距 */
+}
+
+/* 针对特定段落的间距控制 */
+.passage p + p {
+    margin-top: 0.5em;
+}
+
+/* 链接样式 */
+a {
+    color: #ffd700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0 2px;
+}
+
+a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffd700;
+    transition: width 0.3s ease;
+}
+
+a:hover:after {
+    width: 100%;
+}
+
+/* 按钮样式 */
+button, .button {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    border-radius: 4px;
+    padding: 0.6em 1.2em;
+    margin: 0.7em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+button:before, .button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+button:hover:before, .button:hover:before {
+    left: 100%;
+}
+
+button:hover, .button:hover {
+    background-color: #d4af37;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+    transform: translateY(-2px);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffd700;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    img[src*="/cg/"], img[src*="/scenes/"] {
+        max-width: 90%;
+    }
+    
+    img[src*="/characters/"] {
+        max-width: 80%;
+    }
+    
+    .passage {
+        padding: 1.5em;
+        font-size: 1em;
+    }
+    
+    #story-title {
+        font-size: 1.2em;
+    }
+    
+    button, .button {
+        padding: 0.5em 1em;
+        margin: 0.5em;
+    }
+}
+
+/* 图片点击放大效果 */
+.fullscreen-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.fullscreen-image.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fullscreen-image img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.fullscreen-image.active img {
+    transform: scale(1);
+}
+
+/* 页面过渡动画 */
+.passage-transition-out {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.passage-transition-in {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

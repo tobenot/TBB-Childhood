@@ -1,0 +1,106 @@
+# SugarCube 音频使用指南
+
+本指南介绍如何在 SugarCube 中管理背景音乐 (BGM) 和音效 (SFX)，包括播放、音量控制、开关和场景切换时的平滑过渡。
+
+## 1. 播放音频
+
+SugarCube 使用 `<<audio>>` 宏来处理音频。你需要先定义音频轨道，然后才能播放。
+
+**定义音频轨道:**
+通常在 `StoryInit` 特殊段落或需要时定义。
+```twee
+:: StoryInit
+<<audio "bgm_main" src:"assets/audio/bgm/main_theme.ogg" loop>>
+<<audio "bgm_dream" src:"assets/audio/bgm/dream_sequence.mp3" loop>>
+<<audio "sfx_door" src:"assets/audio/sfx/door_open.wav">>
+```
+- `"bgm_main"`: 音频的唯一 ID。
+- `src`: 音频文件的路径。
+- `loop`: 可选，使背景音乐循环播放。
+
+**播放/停止音频:**
+```twee
+/* 播放主背景音乐 */
+<<audio "bgm_main" play>>
+
+/* 停止主背景音乐 */
+<<audio "bgm_main" stop>>
+
+/* 播放一次开门音效 */
+<<audio "sfx_door" play>>
+```
+
+## 2. 音量控制和开关
+
+使用 `<<masteraudio>>` 宏可以控制所有音频的全局音量或静音。
+
+**音量控制:**
+通常放在设置界面 (`StoryInterface` 或专门的设置段落)。
+```twee
+:: StoryInterface
+<<link "音量+">> <<masteraudio volume +0.1>> <</link>> |
+<<link "音量-">> <<masteraudio volume -0.1>> <</link>> |
+当前音量: <<print Math.round(Config.saves.volume * 100)>>%
+```
+- `volume +0.1`: 增加 10% 音量。
+- `volume -0.1`: 减少 10% 音量。
+- `Config.saves.volume`: SugarCube 存储当前音量的变量 (范围 0 到 1)。
+
+**开关 (静音):**
+```twee
+:: StoryInterface
+<<if masteraudio().mute>>
+  <<link "开启声音">> <<masteraudio unmute>> <</link>>
+<<else>>
+  <<link "关闭声音">> <<masteraudio mute>> <</link>>
+<</if>>
+```
+- `<<masteraudio mute>>`: 静音所有音频。
+- `<<masteraudio unmute>>`: 取消静音。
+- `masteraudio().mute`: 检查当前是否处于静音状态。
+
+**保存设置:**
+音量和静音设置通常会自动保存在 `Config.saves` 中，并在加载游戏时恢复。
+
+## 3. 平滑过渡
+
+当从一个场景切换到另一个需要不同背景音乐的场景时，突然切换音乐会很突兀。可以使用淡入淡出效果实现平滑过渡。
+
+**使用 `fadeover`:**
+```twee
+/* 从当前播放的音乐平滑过渡到 bgm_dream，过渡时间 2 秒 */
+<<audio "bgm_dream" fadeover 2s>>
+```
+
+**手动淡出/淡入:**
+如果需要更精细的控制，可以先淡出当前音乐，再淡入新音乐。
+```twee
+/* 淡出当前音乐 (假设是 bgm_main)，持续 1 秒 */
+<<audio "bgm_main" fadeout 1s>>
+
+/* 等待淡出完成 (需要一点延迟) */
+<<timed 1s>>
+  /* 淡入新音乐 (bgm_dream)，持续 1 秒 */
+  <<audio "bgm_dream" fadein 1s>>
+<</timed>>
+```
+
+## 4. 最佳实践
+
+- **组织音频文件:** 将 BGM 和 SFX 文件放在 `assets/audio/bgm` 和 `assets/audio/sfx` 等子目录中。
+- **预加载音频:** 对于重要的或频繁使用的音频，可以在 `StoryInit` 中使用 `<<cacheaudio>>` 提前加载，减少播放延迟。
+  ```twee
+  :: StoryInit
+  <<cacheaudio "bgm_main" src:"assets/audio/bgm/main_theme.ogg">>
+  ```
+- **提供设置:** 在 `StoryInterface` 或专门的设置段落中提供音量控制和开关选项。
+- **测试:** 在不同浏览器和设备上测试音频播放和控制。
+- **考虑文件格式:** 使用广泛支持的格式，如 `.ogg` (推荐用于循环 BGM) 或 `.mp3`。
+
+## 5. 整合到你的项目
+
+1.  **检查 `<<playBGM>>`:** 找到你项目中 `<<playBGM>>` 宏的定义 (可能在 JavaScript 部分或某个 Twee 段落中)。理解它是如何工作的，看是否可以直接修改它来支持音量控制和过渡，或者是否需要替换为标准的 `<<audio>>` 宏。
+2.  **创建设置界面:** 如果还没有，创建一个设置段落或修改 `StoryInterface` 来添加音量和开关控件。
+3.  **应用过渡:** 在需要切换 BGM 的段落中使用 `fadeover` 或手动淡入/淡出。
+
+希望这份指南对你有帮助！

@@ -39,3 +39,5 @@ import "system/custom-ui.js"
 import "ui/sidebar.twee"
 
 /* Passages moved to chapter1_intro.twee, chapter1_town.twee, and chapter1_ending.twee */
+
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">

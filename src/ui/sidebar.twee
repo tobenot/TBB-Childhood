@@ -1,0 +1,29 @@
+:: StoryInterface
+<div id="story">
+    <div id="passages"></div>
+</div>
+
+<div id="ui-bar">
+    <div id="ui-bar-tray">
+        <div id="ui-bar-toggle" tabindex="0" title="切换侧边栏" aria-label="切换侧边栏"></div>
+    </div>
+    <div id="ui-bar-body">
+        <div id="ui-bar-header">
+            <div id="story-title">不止于纸上的故事：童年篇</div>
+        </div>
+        <div id="ui-bar-content">
+            <nav id="ui-bar-menu">
+                <ul id="menu-core" class="menu">
+                    <li id="menu-item-saves"><a tabindex="0">存档</a></li>
+                    <li id="menu-item-settings"><a tabindex="0">设置</a></li>
+                    <li id="menu-item-restart"><a tabindex="0">重新开始</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="ui-bar-footer">
+            <div id="ui-bar-version">
+                <span>版本: 1.0.0</span>
+            </div>
+        </div>
+    </div>
+</div>

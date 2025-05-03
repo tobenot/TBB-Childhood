@@ -18,12 +18,7 @@
 
 /* 当侧边栏收起时调整故事区域和侧边栏位置 */
 #ui-bar.stowed ~ #story {
-    margin-left: 0;
-}
-
-/* 侧边栏过渡效果 */
-#ui-bar {
-    transition: left 0.3s ease;
+    margin-left: 3em; /* 调整为切换按钮宽度 */
 }
 
 /* 确保侧边栏切换按钮在收起状态下仍然可见 */

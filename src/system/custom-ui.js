@@ -2,11 +2,6 @@
 // 添加音量控制和中文界面元素
 
 $(document).ready(function() {
-    // 修改默认UI按钮为中文
-    // 保存按钮
-    $('#ui-bar-saves').text('存档');
-    $('#menu-item-saves a').text('存档');
-    
     // 为存档按钮添加点击事件
     $('#menu-item-saves a').on('click', function() {
         UI.saves();
@@ -48,13 +43,13 @@ $(document).ready(function() {
     // 更新故事区域的边距和侧边栏状态
     function updateStoryMargin() {
         if ($('#ui-bar').hasClass('stowed')) {
-            // 故事区域边距调整为0
-            $('#story').css('margin-left', '0');
+            // 故事区域边距调整为侧边栏宽度
+            $('#story').css('margin-left', '3em'); // 调整为切换按钮宽度
             // 隐藏侧边栏主体内容
             $('#ui-bar-body').hide();
             // 将侧边栏移出视图
             $('#ui-bar').css({
-                'left': '-17em', // 保留一部分宽度用于显示切换按钮
+                'left': '-22em', // 调整为切换按钮宽度
                 'transition': 'left 0.3s ease'
             });
             // 确保切换按钮仍然可见
@@ -285,26 +280,29 @@ $(document).ready(function() {
         });
     }
     
-    // 初始化时检查侧边栏状态
+    // 初始化UI状态
     function initUiBarState() {
         // 检查是否有保存的侧边栏状态
         var sidebarStowed = localStorage.getItem('sidebarStowed') === 'true';
-        
+    
+        // 检查设备类型，如果是手机则自动收起侧边栏
+        var isMobile = /Mobi|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            sidebarStowed = true;
+        }
+    
         // 根据保存的状态设置侧边栏
         if (sidebarStowed) {
             $('#ui-bar').addClass('stowed');
         } else {
             $('#ui-bar').removeClass('stowed');
         }
-        
+    
         // 确保侧边栏状态与显示一致
         updateStoryMargin();
         // 初始化导航按钮状态
         updateNavigationButtons();
     }
-    
-    // 初始化UI状态
-    initUiBarState();
     
     // 在故事状态变化时更新按钮状态
     $(document).on(':passagestart', function() {
@@ -325,7 +323,7 @@ $(document).ready(function() {
     $('#menu-item-forward a').text('前进');
     $('#menu-item-settings a').text('设置');
     $('#menu-item-author a').text('作者主页');
-    $('#menu-item-saves a').text('存档');
+    $('#menu-item-saves a').text('存档 / 读档');
     $('#menu-item-restart a').text('重新开始');
 
     // 为导航按钮添加点击事件

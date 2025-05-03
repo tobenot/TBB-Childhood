@@ -21,26 +21,73 @@ $(document).ready(function() {
         UI.restart();
     });
     
-    // 设置按钮
-    if ($('#ui-bar-settings').length === 0) {
-        // 创建设置按钮
-        $('#ui-bar-toggle').before('<div id="ui-bar-settings" class="ui-bar-item" aria-label="设置" title="设置">设置</div>');
-        
-        // 创建设置菜单项
+    // 创建设置菜单项
+    if ($('#menu-item-settings').length === 0) {
         $('#menu-core').append('<li id="menu-item-settings"><a tabindex="0">设置</a></li>');
     }
     
-    // 添加作者按钮
-    if ($('#ui-bar-author').length === 0) {
-        // 创建作者按钮
-        $('#ui-bar-toggle').before('<div id="ui-bar-author" class="ui-bar-item" aria-label="作者" title="作者主页">作者</div>');
-        
-        // 为作者按钮添加点击事件
-        $(document).on('click', '#ui-bar-author', function() {
-            // 在新窗口打开作者主页 - 这里使用GitHub页面作为示例，可以替换为实际作者主页
-            window.open('https://tobenot.top/', '_blank');
-        });
+    // 为导航按钮添加点击事件
+    $(document).on('click', '#ui-bar-back:not(.disabled)', function() {
+        Engine.backward();
+    });
+    
+    $(document).on('click', '#ui-bar-forward:not(.disabled)', function() {
+        Engine.forward();
+        // 前进后立即更新导航按钮状态
+        setTimeout(updateNavigationButtons, 50);
+    });
+    
+    $(document).on('click', '#ui-bar-author', function() {
+        // 在新窗口打开作者主页
+        window.open('https://tobenot.top/', '_blank');
+    });
+    
+    // 添加侧边栏收起/展开功能
+    $(document).on('click', '#ui-bar-toggle', function() {
+        $('#ui-bar').toggleClass('stowed');
+        // 保存侧边栏状态到localStorage
+        localStorage.setItem('sidebarStowed', $('#ui-bar').hasClass('stowed'));
+        updateStoryMargin();
+    });
+    
+    // 更新故事区域的边距和侧边栏状态
+    function updateStoryMargin() {
+        if ($('#ui-bar').hasClass('stowed')) {
+            // 故事区域边距调整为0
+            $('#story').css('margin-left', '0');
+            // 隐藏侧边栏主体内容
+            $('#ui-bar-body').hide();
+            // 将侧边栏移出视图
+            $('#ui-bar').css({
+                'left': '-17em', // 保留一部分宽度用于显示切换按钮
+                'transition': 'left 0.3s ease'
+            });
+            // 确保切换按钮仍然可见
+            $('#ui-bar-tray').css({
+                'position': 'fixed',
+                'left': '0',
+                'top': '0',
+                'width': '3em',
+                'z-index': '50'
+            });
+        } else {
+            // 恢复故事区域边距
+            $('#story').css('margin-left', '20em');
+            // 显示侧边栏主体内容
+            $('#ui-bar-body').show();
+            // 将侧边栏恢复到原位
+            $('#ui-bar').css({
+                'left': '0',
+                'transition': 'left 0.3s ease'
+            });
+            // 恢复切换按钮位置
+            $('#ui-bar-tray').css({
+                'position': 'relative',
+                'width': 'auto'
+            });
+        }
     }
+
     
     // 创建设置面板
     if ($('#settings-dialog').length === 0) {
@@ -212,5 +259,62 @@ $(document).ready(function() {
             console.error('设置静音状态时出错:', e);
         }
     });
+    
+    // 更新导航按钮状态
+    function updateNavigationButtons() {
+        // 更新后退按钮状态
+        if (State.length > 1 && State.activeIndex > 0) {
+            $('#ui-bar-back').removeClass('disabled');
+        } else {
+            $('#ui-bar-back').addClass('disabled');
+        }
+        
+        // 更新前进按钮状态
+        if (State.activeIndex < State.length - 1) {
+            $('#ui-bar-forward').removeClass('disabled');
+        } else {
+            $('#ui-bar-forward').addClass('disabled');
+        }
+        
+        // 确保按钮样式正确应用
+        $('#ui-bar-back.disabled, #ui-bar-forward.disabled').css({
+            'opacity': '0.5',
+            'cursor': 'not-allowed'
+        });
+        
+        $('#ui-bar-back:not(.disabled), #ui-bar-forward:not(.disabled)').css({
+            'opacity': '1',
+            'cursor': 'pointer'
+        });
+    }
+    
+    // 初始化时检查侧边栏状态
+    function initUiBarState() {
+        // 检查是否有保存的侧边栏状态
+        var sidebarStowed = localStorage.getItem('sidebarStowed') === 'true';
+        
+        // 根据保存的状态设置侧边栏
+        if (sidebarStowed) {
+            $('#ui-bar').addClass('stowed');
+        } else {
+            $('#ui-bar').removeClass('stowed');
+        }
+        
+        // 确保侧边栏状态与显示一致
+        updateStoryMargin();
+        // 初始化导航按钮状态
+        updateNavigationButtons();
+    }
+    
+    // 初始化UI状态
+    initUiBarState();
+    
+    // 在故事状态变化时更新按钮状态
+    $(document).on(':passagestart', function() {
+        updateNavigationButtons();
+    });
+    
+    // 初始化按钮状态
+    updateNavigationButtons();
 
 });

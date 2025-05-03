@@ -5,7 +5,11 @@
 
 <div id="ui-bar">
     <div id="ui-bar-tray">
-        <div id="ui-bar-toggle" tabindex="0" title="切换侧边栏" aria-label="切换侧边栏"></div>
+        <div id="ui-bar-back" class="ui-bar-item" tabindex="0" title="后退" aria-label="后退">后退</div>
+        <div id="ui-bar-forward" class="ui-bar-item" tabindex="0" title="前进" aria-label="前进">前进</div>
+        <div id="ui-bar-settings" class="ui-bar-item" tabindex="0" title="设置" aria-label="设置">设置</div>
+        <div id="ui-bar-author" class="ui-bar-item" tabindex="0" title="作者主页" aria-label="作者">作者</div>
+        <div id="ui-bar-toggle" class="ui-bar-item" tabindex="0" title="切换侧边栏" aria-label="切换侧边栏"></div>
     </div>
     <div id="ui-bar-body">
         <div id="ui-bar-header">

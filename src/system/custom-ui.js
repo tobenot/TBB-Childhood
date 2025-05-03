@@ -30,12 +30,7 @@ $(document).ready(function() {
     $(document).on('click', '#ui-bar-back:not(.disabled)', function() {
         Engine.backward();
     });
-    
-    $(document).on('click', '#ui-bar-forward:not(.disabled)', function() {
-        Engine.forward();
-        // 前进后立即更新导航按钮状态
-        setTimeout(updateNavigationButtons, 50);
-    });
+
     
     $(document).on('click', '#ui-bar-author', function() {
         // 在新窗口打开作者主页
@@ -262,6 +257,8 @@ $(document).ready(function() {
     
     // 更新导航按钮状态
     function updateNavigationButtons() {
+        console.log(`Updating buttons: activeIndex=${State.activeIndex}, length=${State.length}`); 
+        
         // 更新后退按钮状态
         if (State.length > 1 && State.activeIndex > 0) {
             $('#ui-bar-back').removeClass('disabled');
@@ -270,12 +267,12 @@ $(document).ready(function() {
         }
         
         // 更新前进按钮状态
-        if (State.activeIndex < State.length - 1) {
+        if (State.activeIndex < State.length) {
             $('#ui-bar-forward').removeClass('disabled');
         } else {
             $('#ui-bar-forward').addClass('disabled');
         }
-        
+    
         // 确保按钮样式正确应用
         $('#ui-bar-back.disabled, #ui-bar-forward.disabled').css({
             'opacity': '0.5',
@@ -311,10 +308,48 @@ $(document).ready(function() {
     
     // 在故事状态变化时更新按钮状态
     $(document).on(':passagestart', function() {
-        updateNavigationButtons();
+        updateNavigationButtons(); // 这个监听器现在是更新按钮状态的主要方式
     });
     
     // 初始化按钮状态
     updateNavigationButtons();
+});
 
+// 在菜单栏添加前进按钮
+if ($('#menu-item-forward').length === 0) {
+    $('#menu-core').append('<li id="menu-item-forward"><a tabindex="0">前进</a></li>');
+}
+$(document).ready(function() {
+    // 修改默认UI按钮为中文
+    $('#menu-item-back a').text('后退');
+    $('#menu-item-forward a').text('前进');
+    $('#menu-item-settings a').text('设置');
+    $('#menu-item-author a').text('作者主页');
+    $('#menu-item-saves a').text('存档');
+    $('#menu-item-restart a').text('重新开始');
+
+    // 为导航按钮添加点击事件
+    $('#menu-item-back a').on('click', function() {
+        Engine.backward();
+    });
+
+    $('#menu-item-forward a').on('click', function() {
+        Engine.forward();
+    });
+
+    $('#menu-item-settings a').on('click', function() {
+        $('#settings-dialog').css('display', 'flex');
+    });
+
+    $('#menu-item-author a').on('click', function() {
+        window.open('https://tobenot.top/', '_blank');
+    });
+
+    $('#menu-item-saves a').on('click', function() {
+        UI.saves();
+    });
+
+    $('#menu-item-restart a').on('click', function() {
+        UI.restart();
+    });
 });

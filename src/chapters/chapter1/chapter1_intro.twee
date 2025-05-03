@@ -7,17 +7,17 @@
 <<set $checkedShop to false>>
 <<set $triedPhone to false>>
 <<set $defeatMethod to "">>
-<</silently>>
+<</silently>>\
 在晦暗不明的深渊尽头，两道身影对峙而立。一位是身着巫女服饰的蓝发女子，她的面容笼罩在一片扭曲的模糊之中，你本能地感到，任何试图看清她容貌的努力，都将引来灵魂被灼烧般的剧痛。另一位白发少女背对着你，看起来体力不支。有形的能量如狂澜般在她们之间激荡、碰撞，撕扯着脆弱的空间。突然，蓝发巫女伸出手，那只手精准而快速地——洞穿了白发少女的胸口...
 
-她瘫坐在地。
+她瘫坐在地。\
 
-[img[assets/images/cg/cg_ch1_plot_01.webp]]
+[img[assets/images/cg/cg_ch1_plot_01.webp]]\
 
 [[惊醒（点击此处开始剧情）|惊醒]]
 
 :: 惊醒
-<<audio "bgm_startup" loop play>>
+<<audio "bgm_startup" loop play>>\
 你猛地惊醒，心脏狂跳，冷汗浸湿了额头。
 [img[assets/images/cg/cg_ch1_plot_02.webp]]
 你坐在旅馆柔软的床上，房间里只有你急促的呼吸声。窗外的天色似乎刚蒙蒙亮。
@@ -36,7 +36,7 @@
 <<if not $checkedRoom>>[[检查房间]]<<else>>你已经检查过房间了。<<endif>>
 
 :: 看看窗外
-<<silently>><<set $checkedWindow to true>><</silently>>
+<<silently>><<set $checkedWindow to true>><</silently>>\
 你走到窗边，轻轻拉开厚重的窗帘。
 
 外面是一条宁静的小镇街道，石板路，两旁是古朴的建筑。一切看起来都很正常，除了...太安静了。街道上空无一人，看不到任何车辆或行人，甚至听不到鸟叫声。就像一幅静止的画。
@@ -45,7 +45,8 @@
 [[离开房间看看|旅馆走廊]]
 
 :: 检查房间
-[img[assets/images/scenes/scene_inn_bedroom.webp]]<<silently>><<set $checkedRoom to true>><<set $triedPhone to true>><</silently>>
+[img[assets/images/scenes/scene_inn_bedroom.webp]]
+<<silently>><<set $checkedRoom to true>><<set $triedPhone to true>><</silently>>\
 你环顾四周。这是一个标准的旅馆房间，陈设简单但整洁。床铺有些凌乱，是你刚才挣扎留下的痕迹。
 
 你拿起桌上的手机看了看——屏幕上显示着“无服务”。
@@ -60,21 +61,25 @@
 你轻轻打开房门，探出头去。走廊里铺着地毯，墙上挂着几幅风景画，但同样空无一人。没有任何声响。前台的方向也是一片死寂。
 
 旅馆似乎是...空的？你看不到任何工作人员或其他的住客。昨天接待我的那个前台呢？好像是个挺和气的大叔... 奇怪，细节有点想不起来了。
-<<set $location = "走廊">>
+
+\<<set $location = "走廊">>\
+
 [[下楼去大厅看看|大厅景象]]
 <<if not $shouted>>[[在走廊喊一声试试|呼喊]]<<endif>>
 
 :: 大厅景象
 你走下楼梯，来到旅馆大厅。前台空着，登记簿摊开在桌上，一支笔掉在旁边。休息区的沙发上还放着一本翻开的杂志，旁边的咖啡杯里甚至还有半杯冷掉的咖啡。
 
-一切都像是人们在某个瞬间突然消失了。<<set $location = "大厅">>
+一切都像是人们在某个瞬间突然消失了。
+
+\<<set $location = "大厅">>\
 
 <<if not $shouted>>[[在大厅喊一声试试|呼喊]]<<endif>>
 [[走出旅馆]]
 
 :: 呼喊
-<<silently>><<set $shouted to true>><</silently>>
-你深吸一口气，对着空旷的走廊（或大厅）喊道：“有人吗？喂——！”
+<<silently>><<set $shouted to true>><</silently>>\
+你深吸一口气，对着空旷的旅馆喊道：“有人吗？喂——！”
 
 你的声音在寂静中回荡，显得格外突兀。没有任何回应，只有你自己的回声。
 
@@ -92,7 +97,7 @@
 [[沿着主街走走|空镇街道]]
 
 :: 检查商店
-<<silently>><<set $checkedShop to true>><</silently>>
+<<silently>><<set $checkedShop to true>><</silently>>\
 你走到一家看起来像是杂货店的商店门口，试着推了推门——门没锁。
 你走了进去，货架上商品琳琅满目，面包、罐头、饮料应有尽有。收银台的抽屉半开着，里面还有零钱。但依然没有任何人。你拿起货架上的一个包装面包，感觉还很松软。角落里似乎有个监控摄像头，红灯一闪一闪的。
 

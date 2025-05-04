@@ -293,3 +293,15 @@ button:hover, .button:hover {
         transform: translateY(0);
     }
 }
+
+/* 标题文本样式 */
+.title-text {
+    color: #ffd700; /* 金色 */
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.8);
+    margin: 1em 0;
+    padding: 0.5em;
+    border-bottom: 2px solid #d4af37;
+}

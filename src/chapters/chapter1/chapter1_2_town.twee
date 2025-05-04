@@ -77,7 +77,6 @@
 <<set $frameStatus to "intact">> /* 画框状态：intact(完好), damaged(损坏), broken(碎掉) */
 <<set $easelStatus to "intact">> /* 画架状态：intact(完好), broken(损坏) */
 <<set $stoneStatus to "available">> /* 石头状态：available(可用), taken(已拿取) */
-
 <<BGMCheck "bgm_elite">>
 <</silently>>\
 你气喘吁吁地冲到石拱桥前。这座桥横跨在一条澄澈的河流上，桥身由巨大的青石砌成，线条优美而古朴。桥上支着一个画架，上面有画到一半的画布，旁边散落着颜料和画笔，还有一个看起来颇为结实的空画框。

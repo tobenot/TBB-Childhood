@@ -36,6 +36,7 @@
 <<if not $checkedRoom>>[[检查房间]]<<else>>你已经检查过房间了。<<endif>>
 
 :: 看看窗外
+[img[assets/images/scenes/scene_town_view.webp]]
 <<silently>><<set $checkedWindow to true>><</silently>>\
 你走到窗边，轻轻拉开厚重的窗帘。
 
@@ -47,7 +48,7 @@
 :: 检查房间
 [img[assets/images/scenes/scene_inn_bedroom.webp]]
 <<silently>><<set $checkedRoom to true>><<set $triedPhone to true>><</silently>>\
-你环顾四周。这是一个标准的旅馆房间，陈设简单但整洁。床铺有些凌乱，是你刚才挣扎留下的痕迹。
+你环顾四周。这是一个标准的旅馆房间，陈设简单但整洁。床铺有些凌乱，是你刚才挣扎留下的痕迹。你下意识地摸了摸口袋，确认了你的速写本和铅笔还在。
 
 你拿起桌上的手机看了看——屏幕上显示着“无服务”。
 房间里的老式电视机开着，屏幕上正播放着一部老旧的黑白动画片，声音很小，但能听到轻松愉快的配乐。

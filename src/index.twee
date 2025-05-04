@@ -11,6 +11,11 @@
 }
 
 :: StoryInit
+/* 检查并加载自动存档 */
+<<if Save.autosave.ok()>>
+	<<run Save.autosave.load()>>
+<</if>>
+
 /* 预加载音频文件 */
 <<cacheaudio "bgm_startup" "assets/audio/bgm/bgm_startup_wind_chimes_in_the_mist_pure.mp3">>
 <<cacheaudio "bgm_elite" "assets/audio/bgm/bgm_elite_Void's_Grasp.mp3">>

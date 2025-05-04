@@ -2,6 +2,65 @@
 // 添加音量控制和中文界面元素
 
 $(document).ready(function() {
+    // 修改默认UI按钮为中文
+    $('#menu-item-back a').text('后退');
+    $('#menu-item-forward a').text('前进');
+    $('#menu-item-author a').text('作者主页');
+    $('#menu-item-saves a').text('存档 / 读档');
+    $('#menu-item-restart a').text('重新开始');
+
+    // 为导航按钮添加点击事件
+    $('#menu-item-back a').on('click', function() {
+        Engine.backward();
+    });
+
+    $('#menu-item-forward a').on('click', function() {
+        Engine.forward();
+    });
+
+    $('#menu-item-settings a').on('click', function() {
+        $('#settings-dialog').css('display', 'flex');
+    });
+
+    $('#menu-item-author a').on('click', function() {
+        window.open('https://tobenot.top/', '_blank');
+    });
+
+    $('#menu-item-saves a').on('click', function() {
+        UI.saves();
+    });
+
+    $('#menu-item-restart a').on('click', function() {
+        UI.restart();
+    });
+
+    // 初始化UI状态
+    function initUiBarState() {
+        // 检查是否有保存的侧边栏状态
+        var sidebarStowed = localStorage.getItem('sidebarStowed') === 'true';
+    
+        // 根据屏幕宽度决定是否自动收起侧边栏（小于768px视为小屏幕）
+        var isSmallScreen = window.innerWidth < 768;
+
+        if (isSmallScreen) {
+            sidebarStowed = true;
+        }
+    
+        // 根据保存的状态设置侧边栏
+        if (sidebarStowed) {
+            $('#ui-bar').addClass('stowed');
+        } else {
+            $('#ui-bar').removeClass('stowed');
+        }
+    
+        // 确保侧边栏状态与显示一致
+        updateStoryMargin();
+        // 初始化导航按钮状态
+        updateNavigationButtons();
+    }
+
+    // 初始化侧边栏状态
+    initUiBarState();
     // 为存档按钮添加点击事件
     $('#menu-item-saves a').on('click', function() {
         UI.saves();
@@ -280,30 +339,6 @@ $(document).ready(function() {
         });
     }
     
-    // 初始化UI状态
-    function initUiBarState() {
-        // 检查是否有保存的侧边栏状态
-        var sidebarStowed = localStorage.getItem('sidebarStowed') === 'true';
-    
-        // 检查设备类型，如果是手机则自动收起侧边栏
-        var isMobile = /Mobi|Android/i.test(navigator.userAgent);
-        if (isMobile) {
-            sidebarStowed = true;
-        }
-    
-        // 根据保存的状态设置侧边栏
-        if (sidebarStowed) {
-            $('#ui-bar').addClass('stowed');
-        } else {
-            $('#ui-bar').removeClass('stowed');
-        }
-    
-        // 确保侧边栏状态与显示一致
-        updateStoryMargin();
-        // 初始化导航按钮状态
-        updateNavigationButtons();
-    }
-    
     // 在故事状态变化时更新按钮状态
     $(document).on(':passagestart', function() {
         updateNavigationButtons(); // 这个监听器现在是更新按钮状态的主要方式
@@ -317,37 +352,3 @@ $(document).ready(function() {
 if ($('#menu-item-forward').length === 0) {
     $('#menu-core').append('<li id="menu-item-forward"><a tabindex="0">前进</a></li>');
 }
-$(document).ready(function() {
-    // 修改默认UI按钮为中文
-    $('#menu-item-back a').text('后退');
-    $('#menu-item-forward a').text('前进');
-    $('#menu-item-settings a').text('设置');
-    $('#menu-item-author a').text('作者主页');
-    $('#menu-item-saves a').text('存档 / 读档');
-    $('#menu-item-restart a').text('重新开始');
-
-    // 为导航按钮添加点击事件
-    $('#menu-item-back a').on('click', function() {
-        Engine.backward();
-    });
-
-    $('#menu-item-forward a').on('click', function() {
-        Engine.forward();
-    });
-
-    $('#menu-item-settings a').on('click', function() {
-        $('#settings-dialog').css('display', 'flex');
-    });
-
-    $('#menu-item-author a').on('click', function() {
-        window.open('https://tobenot.top/', '_blank');
-    });
-
-    $('#menu-item-saves a').on('click', function() {
-        UI.saves();
-    });
-
-    $('#menu-item-restart a').on('click', function() {
-        UI.restart();
-    });
-});

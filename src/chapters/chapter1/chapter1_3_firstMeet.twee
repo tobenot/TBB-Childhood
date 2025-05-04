@@ -212,17 +212,22 @@
 <<if not $askedTown>>[[“这个小镇到底怎么了？”|询问小镇]]<br><</if>>\
 <<if not $askedMotivation>>[[“你知道‘异能者保留地’吗？”|询问动机]]<br><</if>>\
 
-\/* 如果之前拒绝了接触，提供再次选择的机会 */\
-<<if $contactStatus is "refused_temp">>
-	<hr>
-	多米尼克看了看自己仍在闪烁微弱电火花的手臂，又看了看你。“修复协议依然挂起。是否重新考虑？”
-	[[（再次考虑）“好吧，我帮你。”|维修接触-接受]]
-	[[（坚持拒绝）“抱歉，我还是做不到。”|维修接触-最终拒绝]]
-<</if>>
+/* 检查是否所有问题都已触发过，并且接触状态已确定（接受或最终拒绝）*/\
+<<if $askedIdentity and $askedTown and $askedPurpose and $askedTech and $askedMotivation>>\
+	/* 如果之前拒绝了接触，提供再次选择的机会 */\
+	<<if $contactStatus is "refused_temp">>\
+		<hr>
+		多米尼克看了看自己仍在闪烁微弱电火花的手臂，又看了看你。“修复协议依然挂起。是否重新考虑？”
+		[[（再次考虑）“好吧，我帮你。”|维修接触-接受]]
+		[[（坚持拒绝）“抱歉，我还是做不到。”|维修接触-最终拒绝]]
+	<</if>>\
+<</if>>\
 
 \/* 检查是否所有问题都已触发过，并且接触状态已确定（接受或最终拒绝）*/\
 <<if $askedIdentity and $askedTown and $askedPurpose and $askedTech and $askedMotivation and ($contactStatus is "accepted" or $contactStatus is "refused_final")>>\
-	<<goto "外部威胁">>
+	突然，窗外传来一阵低沉的嘶吼和拖沓的脚步声。
+
+	[[有什么东西正在靠近这里！|外部威胁]]
 <</if>>
 
 :: 维修接触-最终拒绝

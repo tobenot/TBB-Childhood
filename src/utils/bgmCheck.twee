@@ -1,7 +1,34 @@
-:: BGMCheck [widget]
+:: BGMSystem [widget]
 <<nobr>>
+/* BGM系统初始化 */
+<<widget "InitBGMSystem">>
+<<silently>>
+	/* 集中管理所有BGM配置 */
+	<<set setup.bgmMap ??= {
+		"bgm_startup": "assets/audio/bgm/bgm_startup_wind_chimes_in_the_mist_pure.mp3",
+		"bgm_elite": "assets/audio/bgm/bgm_elite_Void's_Grasp.mp3",
+		"bgm_dom": "assets/audio/bgm/bgm_dom_The_Next_Time_I_Rise.mp3",
+		"bgm_max": "assets/audio/bgm/bgm_max_Symphony_of_Colors.mp3",
+	}>>
+
+	/* 初始化当前播放状态 */
+	<<set setup.currentPlayingBGM ??= "">>
+
+	/* 预加载所有BGM */
+	<<for _bgmName, _bgmPath range setup.bgmMap>>
+		<<cacheaudio _bgmName _bgmPath>>
+	<</for>>
+<</silently>>
+<</widget>>
+
+/* BGM播放检查和控制 */
 <<widget "BGMCheck">>
 <<silently>>
+	/* 确保BGM系统已初始化 */
+	<<if !setup.bgmMap>>
+		<<InitBGMSystem>>
+	<</if>>
+
 	/* 检查是否有参数传入 */
 	<<if $args.length > 0>>
 		/* 获取 BGM 名称 */
@@ -10,10 +37,10 @@
 		
 		/* Debug信息 */
 		<<run console.log("当前请求播放的BGM: " + _bgmName)>>
-		<<run console.log("当前正在播放的BGM: " + $currentPlayingBGM)>>
+		<<run console.log("当前正在播放的BGM: " + setup.currentPlayingBGM)>>
 		
 		/* 检查 BGM 是否已在播放 */
-		<<if _bgmName is $currentPlayingBGM && _bgmName neq "">>
+		<<if _bgmName is setup.currentPlayingBGM && _bgmName neq "">>
 			/* 如果相同的BGM已经在播放，直接返回 */
 			<<run console.log("检测到相同BGM正在播放，跳过重复播放")>>
 			<<set _shouldContinue to false>>
@@ -22,9 +49,9 @@
 		/* 只有在需要切换BGM时才执行后续操作 */
 		<<if _shouldContinue>>
 			/* 如果有其他 BGM 在播放，先停止它 */
-			<<if $currentPlayingBGM neq "" && setup.bgmMap.hasOwnProperty($currentPlayingBGM)>>
-				<<run console.log("停止当前播放的BGM: " + $currentPlayingBGM)>>
-				<<audio $currentPlayingBGM stop>>
+			<<if setup.currentPlayingBGM neq "" && setup.bgmMap.hasOwnProperty(setup.currentPlayingBGM)>>
+				<<run console.log("停止当前播放的BGM: " + setup.currentPlayingBGM)>>
+				<<audio setup.currentPlayingBGM stop>>
 			<</if>>
 			
 			/* 检查BGM是否存在于bgmMap中 */
@@ -33,8 +60,8 @@
 				<<run console.log("开始播放新的BGM: " + _bgmName)>>
 				<<cacheaudio _bgmName setup.bgmMap[_bgmName]>>
 				<<audio _bgmName loop play>>
-				<<set $currentPlayingBGM to _bgmName>>
-				<<run console.log("已设置 currentPlayingBGM 为: " + $currentPlayingBGM)>>
+				<<set setup.currentPlayingBGM to _bgmName>>
+				<<run console.log("已设置 currentPlayingBGM 为: " + setup.currentPlayingBGM)>>
 			<<else>>
 				/* 未知 BGM */
 				<<run console.log("错误：未知的 BGM \"" + _bgmName + "\"，该BGM不在bgmMap配置中")>>
@@ -45,5 +72,30 @@
 		<<run console.log("错误：BGMCheck Widget 未接收到参数")>>
 	<</if>>
 <</silently>>
-<</widget>> 
+<</widget>>
+
+/* 添加自定义BGM */
+<<widget "AddBGM">>
+<<silently>>
+	/* 确保BGM系统已初始化 */
+	<<if !setup.bgmMap>>
+		<<InitBGMSystem>>
+	<</if>>
+
+	/* 检查参数 */
+	<<if $args.length >= 2>>
+		<<set _bgmName to $args[0]>>
+		<<set _bgmPath to $args[1]>>
+		
+		/* 添加新的BGM到映射中 */
+		<<set setup.bgmMap[_bgmName] to _bgmPath>>
+		
+		/* 预加载新添加的BGM */
+		<<cacheaudio _bgmName _bgmPath>>
+		<<run console.log("已添加并缓存新的BGM: " + _bgmName + " -> " + _bgmPath)>>
+	<<else>>
+		<<run console.log("错误：AddBGM Widget 需要两个参数 (bgmName, bgmPath)")>>
+	<</if>>
+<</silently>>
+<</widget>>
 <</nobr>>\

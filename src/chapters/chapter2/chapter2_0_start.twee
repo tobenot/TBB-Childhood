@@ -1,4 +1,4 @@
-:: Ch2_Start [Chapter2_Start]
+:: Chapter2_Start /* 仅作占位符，实际内容在之前的提供中 */
 <<silently>>
 	/* 设置章节变量 */
 	<<set $chapter to 2>>
@@ -10,10 +10,8 @@
 	<<set $playerHitCheck to false>> /* 玩家本章是否被击中过（用于触发特殊体质） */
 	<<set $explainedShield to false>>
 	<<set $chapter2_bossDefeated to false>> /* 标记Boss战是否完成 */
-	/* 可以根据需要添加更多战斗或状态变量 */
-<</silently>>\
-<div class="title-text">第二章 闪耀裂纹</div>\
-/* 开头可以通过环境或多米尼克的行为暗示紧张感和潜在的信任考验 */
+<</silently>>
+<div class="title-text">第二章 闪耀裂纹</div>
 多米尼克检查完武器，目光在你身上短暂停留，那眼神如同精密仪器般进行着某种评估。你们之间的距离，以及接下来的生死考验，似乎悬而未决。
 
-[[开始章节|Ch2_Besieged]]
+[[开始章节|Ch2_Besieged]] /* 链接到第二章实际开始 */

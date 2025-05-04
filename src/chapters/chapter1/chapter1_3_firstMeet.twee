@@ -1,5 +1,4 @@
 :: 抵达木屋
-\
 你不再犹豫，紧紧握着手机，顺着信号指引，离开了石桥，向着小镇边缘的一片稀疏树林走去。手机屏幕上的信号强度不断攀升，最终将你引到了一间隐藏在树林深处的小木屋前。
 
 木屋看起来很普通，甚至有些破旧，门窗紧闭。信号源头似乎就在里面。
@@ -27,7 +26,7 @@
 
 走近几步，你看清了，那是一个穿着黑色制服的少女，制服上沾染了污渍。她的一只手臂以不自然的姿势垂落，伤口处裸露出闪烁着金属光泽的结构，复杂的内部线缆和金属骨架隐约可见，甚至有细微的电火花跳动。
 
-你的脚步声惊动了她。少女猛地抬起头，银白色的发丝下，一双眼睛瞬间锁定你，眼神锐利，带着警惕和一丝探究：\
+你的脚步声惊动了她。少女猛地抬起头，银白色的发丝下，一双黄色的电子眼瞬间锁定你，眼神锐利，带着警惕和一丝探究：\
 [img[assets/images/cg/cg_ch1_plot_07.webp]]\
 
 “你……你是真实存在的？我在梦里见过你。” 你脱口而出，不知怎么的，感觉她就是你梦中那个模糊的身影。
@@ -131,8 +130,8 @@
 多米尼克没有回应，只是手臂微微用力。
 **嗤——！**
 一声闷响，那柄冰冷、染血的短刃毫不犹豫地刺入了你的侧腹！剧烈的疼痛瞬间炸开，让你几乎窒息。你感觉到温热的血液立刻涌了出来，浸湿了衣服。
-/* <<audio "sfx_blade_stab_flesh" play>> */ /* 利刃刺入音效 */
-/* <<audio "sfx_player_gasp_pain" play>> */ /* 玩家痛呼 */
+/* <<audio "sfx_blade_stab_flesh" play>> */
+/* <<audio "sfx_player_gasp_pain" play>> */
 
 但疼痛只是一瞬，紧接着一股强烈的、冰冷的能量流从刺入点疯狂涌入你的身体，然后似乎被引导着流向多米尼克。她环抱着你的手臂收得更紧，短刃在你体内似乎微微转动，带来一阵阵撕裂般的剧痛。
 /* <<audio "sfx_energy_flow_intense" play>> */
@@ -140,26 +139,58 @@
 你被迫近距离看着她机械臂上蓝色的能量电弧疯狂流窜，破损处以惊人的速度修复、闭合。她的身体微微颤抖，似乎也在承受着某种负荷。她的黄色电子眼在你模糊的视线中闪烁不定。
 
 <<silently>>
-    /* 内部信息流 (Dominique's perspective, not shown directly to player): */
+    /* 内部信息流 (Dominique's perspective): */
     /* "[警告！检测到宿主生命特征因创伤波动！Sigma协议可用：吸收宿主生物能量以优化修复并获取额外增幅？ Y/N] 风险：宿主有高概率死亡。" */
     /* Dominique's internal process: Analysis... Risk exceeds mission parameters for host preservation... Decline. */
     /* "[Sigma协议已拒绝。启动标准修复流程。分析：宿主创口有持续失血风险。执行创口紧急生物凝结处理。]" */
 <</silently>>
 
-能量流的强度开始减弱。就在你以为自己会失血过多而死时，刺入你腹部的短刃内部似乎发生了某种变化，一股灼热感传来！像是被烧红的烙铁烫了一下。剧痛让你再次绷紧了身体。
-/* <<audio "sfx_wound_cauterize" play>> */ /* 伤口灼烧/封闭音效 */
+能量流的强度开始减弱。**突然，刺入点传来一阵奇异的感觉，剧痛如同潮水般迅速退去，取而代之的是一种难以置信的、温暖而舒适的感受，仿佛有一只温柔的手在抚平你的伤口。** 你甚至能感觉到伤口周围的肌肉和皮肤在快速地、无痛地愈合着。
+/* <<audio "sfx_healing_magical_warmth" play>> */ /* 温暖治愈音效 */
 
-随后，短刃被猛地抽出！多米尼克松开了对你的钳制，你踉跄着后退几步，捂着剧痛的侧腹，大口喘息。低头看去，伤口处不再流血，皮肤呈现出一种奇怪的、像是被高温灼烧后快速愈合的暗红色疤痕。
-/* <<audio "sfx_blade_retract" play>> */
+随后，短刃被轻柔地抽出，几乎没有带来任何不适。多米尼克松开了对你的钳制，你踉跄着后退几步，下意识地捂住侧腹——那里**完全没有痛感**，只有一片令人安心的温暖。低头看去，衣服上的血迹还在，但下面的皮肤已经完好无损，甚至连疤痕都几乎看不见，只有皮肤颜色比周围略浅一点，触感温热。
+/* <<audio "sfx_blade_retract_smooth" play>> */ /* 轻柔拔出音效 */
 
-多米尼克活动了一下修复后的手臂，关节发出顺畅的轻响。她看着自己焕然一新的手臂，又低头看了看你腹部的伤疤和地上残留的血迹。
-“连接已断开。高级修复程序完成度85%。核心功能及武器系统恢复。” 她收回短刃，手臂装甲闭合。声音依旧平稳，但似乎带上了一丝不易察觉的……复杂。“记录：宿主生物信号在创伤后稳定。设备自动执行了创口封闭。协议……副作用超出预期。”
+多米尼克活动了一下修复后的手臂，关节发出顺畅的轻响。她看着自己焕然一新的手臂，又低头看了看你腹部那几乎消失的伤口标记和地上残留的血迹。
+“连接已断开。高级修复程序完成度85%。核心功能及武器系统恢复。” 她收回短刃，手臂装甲闭合。声音依旧平稳。“记录：宿主生物信号稳定。设备执行了……异常高效的创口修复，超出预期参数。记录为特殊现象。”
 
-她看向你，黄色的电子眼在你身上停留了片刻。“已记录。”
+她看向你，黄色的电子眼在你身上停留了片刻，似乎在分析这超出理解的修复效果。“已记录你的…配合。”
 
 <<set $domOpinion += 4>> /* 冒着生命危险的接受，大幅提升好感 */
 
-[[（捂着伤口，忍痛）继续…|Ch1_DialogueCheck]]
+<div class="transition-text">你还沉浸在刚才那如同酷刑后瞬间治愈的诡异体验中，脑子一片混乱。</div>
+[[（处理这诡异的感觉）|Ch1_Post_Stab_Recovery]]
+
+
+:: Ch1_Post_Stab_Recovery
+你靠在墙上，大口喘着气，手不由自主地抚摸着侧腹。那里温暖、完好，刚才那撕心裂肺的剧痛仿佛只是一场噩梦。但这绝不是梦，衣服上的血迹和地上那滩刺目的红色都在提醒你刚才发生了什么。这种巨大的反差让你感到一阵眩晕和不真实。
+
+多米尼克站在不远处，平静地观察着你，黄色的电子眼微微闪烁，像是在记录和分析你的生理和心理反应。她没有催促，也没有表示关心，只是像研究员观察实验对象一样等待着。
+
+你该怎么做？
+[[（深吸气，强作镇定）“……还有什么要知道的吗？”|Ch1_DialogueCheck]] /* 尝试恢复对话 */
+[[（捂着侧腹，声音还有些抖）“那到底是什么东西？！为什么会这样？！”|Ch1_Post_Stab_QueryDevice]] /* 追问装置和效果 */
+[[（靠着墙，沉默不语）……|Ch1_Post_Stab_Silence]] /* 需要时间消化 */
+
+
+:: Ch1_Post_Stab_QueryDevice
+你忍不住指着她收回短刃的手臂，又指了指自己完好无损的侧腹，声音带着惊魂未定的颤抖：“那到底是什么东西？！为什么…为什么会这样？！”
+
+多米尼克平静地回答：“该装置是修复协议的执行终端。其具体构造和工作原理数据缺失。至于创口修复效果……记录为异常现象，超出已知生物工程学范畴。无法解释。” 她的回答精准而冰冷，没有任何安慰或进一步说明的意图。
+
+<div class="transition-text">她的回答没有解开任何疑惑，反而让你觉得更加不安。</div>
+[[“……”（继续问其他问题）|Ch1_DialogueCheck]]
+
+
+:: Ch1_Post_Stab_Silence
+你选择沉默，靠着墙壁，试图平复剧烈的心跳和混乱的思绪。刚才的经历太过于冲击，你需要时间来消化这诡异的现实。
+
+多米尼克静静地等待了几十秒。见你没有进一步的动作或询问，她似乎判定你暂时稳定了。
+“如无其他即时威胁或疑问，建议继续信息交换或规划下一步行动。”她以一种程序化的口吻说道。
+
+<div class="transition-text">她的冷静让你稍微回过神来。</div>
+[[（点头）继续问问题…|Ch1_DialogueCheck]]
+
 
 :: Ch1_Contact_Refuse_Temp
 <<set $contactStatus = "refused_temp">>
@@ -170,15 +201,14 @@
 
 “……记录：人类个体在直接致命威胁下表现出强烈拒绝反应。”她缓缓松开了对你的钳制，收回了那柄可怕的短刃，手臂装甲闭合。“符合预期。修复协议暂时挂起。”
 
-她退后一步，与你拉开距离，但目光依然锁定着你。
+她退后一步，与你拉开距离，但目光依然锁定着你，带着审视，仿佛在评估你这个拒绝合作的“变量”。空气中弥漫着未散的杀意和高度的紧张感。
 
 <<set $domOpinion += 1>> /* 在直接生命威胁下保持理智拒绝，提升好感 */
 
-“你需要解释清楚。”你定了定神，试图让自己的声音不那么颤抖。
-
-“想听什么？”她淡淡地说。
+“那东西……到底是什么？”你定了定神，声音仍有些干涩。
 
 [[继续…|Ch1_DialogueCheck]]
+
 
 :: 询问机械
 <<nobr>>
@@ -226,32 +256,39 @@
 <<include "Ch1_DialogueCheck">>
 
 :: Ch1_DialogueCheck
-/* 这个段落用于检查还有哪些主要问题没问，并显示链接 */\
+/* 这个段落会在 Ch1_Post_Stab_Recovery, Ch1_Post_Stab_QueryDevice, Ch1_Post_Stab_Silence, Ch1_Contact_Refuse_Temp 后被调用 */
 <<BGMCheck "bgm_dom">>\
-<<if not $askedTech>>[[“你的手臂...是某种高科技义肢吗？”|询问机械]]<br><</if>>\
-<<if not $askedIdentity>>[[“你是谁？为什么会受伤？”|询问身份]]<br><</if>>\
-<<if not $askedPurpose>>[[“你说需要人类...是什么意思？”|Ch1_AskPurpose]]<br><</if>>\
-<<if not $askedTown>>[[“这个小镇到底怎么了？”|询问小镇]]<br><</if>>\
-<<if not $askedMotivation>>[[“你知道‘异能者保留地’吗？”|询问动机]]<br><</if>>\
+<<if $contactStatus is "accepted">>
+    <div class="context-text">尽管侧腹的温暖感觉很真实，但刚才被利刃刺穿的记忆依然清晰。你努力集中精神，思考着眼前这个充满谜团的机械少女。</div>
+<<elseif $contactStatus is "refused_temp">>
+    <div class="context-text">刚才的紧张对峙让你心有余悸，你和多米尼克之间保持着警惕的距离。关于她，还有很多疑问。</div>
+<<else>> /* pending 状态 */
+    <div class="context-text">你和这位神秘的机械少女之间的对话还在继续，空气中充满了未知。</div>
+<</if>>
 
-/* 检查是否所有问题都已触发过，并且接触状态已确定（接受或最终拒绝）*/\
-<<if $askedIdentity and $askedTown and $askedPurpose and $askedTech and $askedMotivation>>\
-	/* 如果之前拒绝了接触，提供再次选择的机会 */\
-	<<if $contactStatus is "refused_temp">>\
+<<if not $askedTech>>[[“你的手臂...是什么技术？”|询问机械]]<br><</if>>
+<<if not $askedIdentity>>[[“你是谁？”|询问身份]]<br><</if>>
+<<if not $askedPurpose and $contactStatus neq "accepted">> /* 如果已经接受过，则不再问目的 */
+    [[“你说需要人类...是什么意思？”|Ch1_AskPurpose]]<br>
+<</if>>
+<<if not $askedTown>>[[“这个小镇怎么了？”|询问小镇]]<br><</if>>
+<<if not $askedMotivation>>[[“你知道‘异能者保留地’吗？”|询问动机]]<br><</if>>
+
+/* 检查是否所有问题都已触发过 */
+<<if $askedIdentity and $askedTown and ($askedPurpose or $contactStatus is "accepted") and $askedTech and $askedMotivation>>
+	/* 所有问题都问完了 (接受后目的问题自动跳过) */
+	<<if $contactStatus is "refused_temp">>
 		<hr>
-        多米尼克再次抬起那只仍未完全修复的手臂，腕部的装甲再次滑开，露出那柄染血的黑色短刃。电火花在她手臂上跳跃得更频繁了。
-        “所有已知信息已交换。当前状态下，我的行动能力和战斗效率受限。修复协议仍然是提升生存概率的唯一已知方案。” 她没有再试图靠近你，只是将短刃展示给你看。“最终决定？”
+        多米尼克再次抬起那只仍未完全修复的手臂，腕部的装甲再次滑开，露出那柄染血的黑色短刃。电火花在她手臂上跳跃得更频繁了。
+        “所有已知信息已交换。当前状态下，我的行动能力和战斗效率受限。修复协议仍然是提升生存概率的唯一已知方案。” 她没有再试图靠近你，只是将短刃展示给你看。“最终决定？”
 
-        [[（改变主意，深吸一口气）“……做你需要做的。”|Ch1_Contact_Accept]]
-        [[（摇头，后退）“不。我不能相信那个东西。”|Ch1_Contact_Refuse_Final]]
-	<</if>>\
-<</if>>\
-
-\/* 检查是否所有问题都已触发过，并且接触状态已确定（接受或最终拒绝）*/\
-<<if $askedIdentity and $askedTown and $askedPurpose and $askedTech and $askedMotivation and ($contactStatus is "accepted" or $contactStatus is "refused_final")>>\
-	突然，窗外传来一阵低沉的嘶吼和拖沓的脚步声。
-
-	[[有什么东西正在靠近这里！|外部威胁]]
+        [[（改变主意，深吸一口气）“……做你需要做的。”|Ch1_Contact_Accept]]
+        [[（摇头，后退）“不。我不能相信那个东西。”|Ch1_Contact_Refuse_Final]]
+    <<else>> /* $contactStatus is "accepted" or $contactStatus is "refused_final" or $contactStatus is "pending" (但理论上问完问题不会是pending) */
+		<hr>
+		对话似乎告一段落。木屋内暂时陷入沉默。
+		[[等待…|Ch1_CheckForThreat]] /* 准备触发外部威胁 */
+	<</if>>
 <</if>>
 
 :: Ch1_Contact_Refuse_Final
@@ -266,3 +303,13 @@
 “协议已存档。无需再讨论。”她似乎关闭了这个话题。
 
 [[继续…|Ch1_DialogueCheck]]
+
+:: Ch1_CheckForThreat
+<<if $askedIdentity and $askedTown and ($askedPurpose or $contactStatus is "accepted") and $askedTech and $askedMotivation and ($contactStatus is "accepted" or $contactStatus is "refused_final")>>
+	/* 确认所有问题结束，且接触状态确定 */
+	突然，窗外传来一阵低沉的嘶吼和拖沓的脚步声。
+	[[有什么东西正在靠近这里！|外部威胁]]
+<<else>>
+	/* 理论上不应该到这里，如果到了说明逻辑有误，返回检查 */
+	[[返回对话检查|Ch1_DialogueCheck]]
+<</if>>

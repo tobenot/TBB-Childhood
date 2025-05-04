@@ -1,4 +1,5 @@
 :: StoryInterface
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <div id="story">
     <div id="passages"></div>
 </div>

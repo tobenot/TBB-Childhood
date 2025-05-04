@@ -1,0 +1,220 @@
+:: Chapter2_BossEncounter [chapter]
+/* 确保 BGM 切换 */
+<<audio "bgm_action" fadeout>>
+<<BGMCheck "bgm_boss">>\
+/* <<cacheaudio "sfx_chainsaw_rev" "assets/audio/sfx/chainsaw_rev.ogg">> */
+/* <<cacheaudio "sfx_chainsaw_attack" "assets/audio/sfx/chainsaw_attack.ogg">> */
+/* <<cacheaudio "sfx_metal_impact_heavy" "assets/audio/sfx/metal_impact_heavy.ogg">> */\
+那个重甲空壳战士（暂称“链锯屠夫”）注意到了你们，它发出一声刺耳的咆哮，手中的链锯剑猛地加速旋转起来！
+/* <<audio "sfx_monster_roar_heavy" play>> */
+/* <<audio "sfx_chainsaw_rev" play>> */
+
+多米尼克立刻抬起榴弹发射器，对准了链锯屠夫！
+“轰！”
+/* <<audio "sfx_grenade_launch" play>> */
+榴弹准确命中，爆炸在链锯屠夫的胸甲上炸开！
+/* <<audio "sfx_explosion_medium" play>> */
+/* <<audio "sfx_metal_impact_heavy" play>> */
+
+然而，烟尘散去，链锯屠夫只是晃了一下，厚重的装甲上只留下了一些焦黑的痕迹和浅浅的凹陷！它似乎毫发无伤！
+
+“装甲强度超出预期。” 多米尼克迅速切换成突击步枪，对着链锯屠夫的关节和头部进行点射。
+/* <<audio "sfx_rifle_burst" play>> */
+子弹打在装甲上，迸发出密集的火花，但似乎无法穿透！
+/* <<audio "sfx_bullet_ricochet_metal_multiple" play>> */
+
+链锯屠夫无视了多米尼克的攻击，迈开沉重的步伐，挥舞着巨大的链锯剑，径直朝着你们冲了过来！速度远超之前的普通空壳！
+/* <<audio "sfx_heavy_footsteps_running" play loop>> */
+/* <<audio "sfx_chainsaw_attack" play>> */
+
+“快躲开！” 多米尼克喊道，同时向侧面闪避。
+
+你看着那闪着寒光、高速旋转的链锯，心脏几乎跳到了嗓子眼！
+
+[[向左边翻滚躲避！|躲避链锯_左]]
+[[向右边扑倒躲避！|躲避链锯_右]]
+
+:: 躲避链锯_左
+你用尽全力向左边翻滚！链锯剑带着可怕的风声从你刚才的位置劈下，将地面砸出一个大坑！碎石飞溅！
+/* <<audio "sfx_chainsaw_impact_ground" play>> */
+/* <<audio "sfx_debris_falling" play>> */
+
+你狼狈地爬起来，心有余悸。
+
+[[寻找掩护|寻找广场掩护]]
+
+:: 躲避链锯_右
+你猛地向右边扑倒！链锯几乎是擦着你的后背砍在了地上，带起的风压让你感到一阵刺痛！
+/* <<audio "sfx_chainsaw_impact_ground" play>> */
+/* <<audio "sfx_debris_falling" play>> */
+
+你连滚带爬地远离那个可怕的武器。
+
+[[寻找掩护|寻找广场掩护]]
+
+:: 寻找广场掩护
+广场周围有一些废弃的长椅和破损的花坛，可以作为临时的掩护。
+
+多米尼克利用她的机动性，不断地在广场上移动，吸引链锯屠夫的注意力，同时寻找攻击弱点的机会。她的榴弹和步枪交替开火，但效果甚微。
+
+“它的装甲太厚了！需要集中火力攻击薄弱点，或者……使用更高能量的武器！” 多米尼克一边射击一边分析。
+
+链锯屠夫似乎被多米尼克激怒了，它放弃了追击你，转而全力攻击多米尼克。巨大的链锯不断挥舞，逼得多米尼克连连后退。
+
+你躲在一个石制花坛后面，看着眼前的激战，手心全是汗。
+
+[[（保持躲藏）|保持躲藏]]
+[[（试图吸引注意力，给多米尼克创造机会？）|尝试吸引注意]]
+
+:: 保持躲藏
+你紧紧缩在花坛后面，只敢探出半个头观察战况。你知道自己冲出去也帮不上忙，只会成为累赘。
+
+多米尼克凭借着远超常人的反应和速度，勉强与链锯屠夫周旋。但情况看起来不容乐观，链锯屠夫的力量和防御都太强了。
+
+突然，链锯屠夫一个猛烈的横扫，多米尼克虽然及时用手臂格挡，但整个人还是被巨大的力量击飞出去，撞在了远处的墙壁上！
+/* <<audio "sfx_chainsaw_impact_metal" play>> */
+/* <<audio "sfx_body_impact_wall" play>> */
+/* <<audio "sfx_arm_sparking_malfunction" play>> */ /* 音效：手臂受损 */
+多米尼克挣扎着想站起来，但她的机械臂似乎在刚才的撞击中受损了，闪烁着电火花。
+
+链锯屠夫没有给她喘息的机会，咆哮着举起链锯剑，朝着倒地的多米尼克冲去！
+
+[[冲出去！（触发灵能盾）|侧面遇袭_救多米尼克]]
+
+:: 尝试吸引注意
+你看到多米尼克陷入苦战，一个大胆的想法冒了出来：也许你可以吸引链锯屠夫的注意，哪怕只有一瞬间，也能给多米尼克创造机会！
+
+你深吸一口气，从花坛后跳了出来，对着链锯屠夫大喊：“嘿！大块头！看这边！” 同时捡起一块石头扔了过去。
+/* <<audio "sfx_player_shout" play>> */
+/* <<audio "sfx_rock_throw_hit_metal" play>> */
+
+石头砸在链锯屠夫的装甲上，发出清脆的响声，几乎没有造成任何影响。但你的挑衅成功了！
+
+链锯屠夫猛地停下攻击多米尼克的动作，那闪烁着红光的眼窝转向了你！它发出一声愤怒的咆哮，舍弃了多米尼克，转而朝你冲来！那把可怕的链锯剑高高举起！
+/* <<audio "sfx_monster_roar_angry" play>> */
+/* <<audio "sfx_heavy_footsteps_running" play loop>> */
+/* <<audio "sfx_chainsaw_rev" play>> */
+
+“快躲开！！” 多米尼克急促的声音传来，她似乎想阻止，但刚才的战斗让她一时间无法支援。
+
+你看着如同火车般冲来的巨大身影和头顶落下的链锯，大脑一片空白！
+
+[[（下意识格挡）|侧面遇袭_吸引火力]]
+
+:: 侧面遇袭_救多米尼克 [boss_attack]
+<<audio "bgm_boss" fadeout>>
+<<BGMCheck "bgm_reveal">>\
+/* <<cacheaudio "sfx_shield_appear" "assets/audio/sfx/shield_appear_ice.ogg">> */
+/* <<cacheaudio "sfx_shield_crack" "assets/audio/sfx/shield_crack_heavy.ogg">> */
+/* <<cacheaudio "sfx_shield_shatter" "assets/audio/sfx/shield_shatter.ogg">> */\
+你不能眼睁睁看着多米尼克被杀！几乎是出于本能，你从掩体后冲了出去，张开双臂挡在了多米尼克身前！你甚至闭上了眼睛，准备迎接那毁灭性的攻击！
+
+“危险！让开！” 多米尼克的声音带着前所未有的急切。
+
+链锯屠夫的攻击已经落下！
+
+就在这时——
+/* <<audio "sfx_shield_appear" play>> */
+一层半透明的、如同冰晶般的能量屏障瞬间在你身体表面浮现！比之前在木屋旁更加凝实！链锯屠夫那狂暴的链锯狠狠地劈在了屏障上！
+/* <<audio "sfx_chainsaw_impact_shield" play>> */ /* 需要特殊音效：链锯砍在能量盾上 */
+/* [img[assets/images/cg/cg_ch2_plot_04_shield_boss.webp]] */ /* 占位图：灵能盾挡住Boss攻击 */
+
+“铿——！！！！”
+刺耳的摩擦声响起，火花四溅！屏障剧烈地震动，发出不堪重负的呻吟声！
+“咔嚓……咔嚓咔嚓！”
+/* <<audio "sfx_shield_crack" play>> */
+蛛网般的裂纹迅速在屏障表面蔓延开来！但这一次，它没有立刻碎裂！它硬生生地顶住了链锯屠夫的全力一击！巨大的冲击力甚至让链锯屠夫的动作都停滞了一瞬！
+
+你感受到一股巨大的推力从屏障传来，将你向后推去，但你并没有受伤！
+
+趁着这个空档，多米尼克眼中蓝光一闪，受损的机械臂猛地变形，炮口对准了链锯屠夫因为攻击而被短暂暴露出来的、相对脆弱的颈部关节！
+/* <<audio "sfx_arm_transform_quick" play>> */
+“高能粒子……发射！”
+/* <<audio "sfx_particle_beam_charge" play>> */
+/* <<audio "sfx_particle_beam_fire" play>> */
+一道炽白的光束瞬间射出，精准地命中了目标！
+/* <<audio "sfx_particle_beam_impact_heavy" play>> */
+/* <<audio "sfx_monster_die_heavy_explode" play>> */ /* Boss 死亡/重创音效 */
+链锯屠夫发出一声凄厉的惨嚎，巨大的身体晃动了几下，重重地倒在了地上，不再动弹。手中的链锯剑也停止了旋转，掉落在旁。
+/* <<audio "sfx_heavy_body_fall" play>> */
+/* <<audio "sfx_chainsaw_idle" stop>> */
+
+你身上的灵能盾在挡住攻击后，裂纹遍布，闪烁了几下，终于如同破碎的冰晶般消散了。
+/* <<audio "sfx_shield_shatter" play>> */
+
+多米尼克挣扎着站起来，快步走到你面前，湛蓝的电子眼死死地盯着你，语气中充满了无法掩饰的震惊：“刚才那个……绝对是‘灵能盾’！而且……强度比之前高了很多！你……”
+
+[[“我……我只是想救你……”|灵能盾出现_解释行为]]
+[[（喘着气）“它……它又出现了……”|灵能盾出现_确认重复]]
+
+:: 侧面遇袭_吸引火力 [boss_attack]
+<<audio "bgm_boss" fadeout>>
+<<BGMCheck "bgm_reveal">>\
+/* <<cacheaudio "sfx_shield_appear" "assets/audio/sfx/shield_appear_ice.ogg">> */
+/* <<cacheaudio "sfx_shield_crack" "assets/audio/sfx/shield_crack_heavy.ogg">> */
+/* <<cacheaudio "sfx_shield_shatter" "assets/audio/sfx/shield_shatter.ogg">> */\
+面对扑面而来的死亡威胁，你根本来不及思考，只能绝望地抬起双臂交叉护在身前！
+
+链锯屠夫的攻击已经落下！
+
+就在这时——
+/* <<audio "sfx_shield_appear" play>> */
+一层半透明的、如同冰晶般的能量屏障瞬间在你身体表面浮现！比之前在木屋旁更加凝实！链锯屠夫那狂暴的链锯狠狠地劈在了屏障上！
+/* <<audio "sfx_chainsaw_impact_shield" play>> */ /* 需要特殊音效：链锯砍在能量盾上 */
+/* [img[assets/images/cg/cg_ch2_plot_04_shield_boss.webp]] */ /* 占位图：灵能盾挡住Boss攻击 */
+
+“铿——！！！！”
+刺耳的摩擦声响起，火花四溅！屏障剧烈地震动，发出不堪重负的呻吟声！
+“咔嚓……咔嚓咔嚓！”
+/* <<audio "sfx_shield_crack" play>> */
+蛛网般的裂纹迅速在屏障表面蔓延开来！但这一次，它没有立刻碎裂！它硬生生地顶住了链锯屠夫的全力一击！巨大的冲击力甚至让链锯屠夫的动作都停滞了一瞬！
+
+你感受到一股巨大的推力从屏障传来，将你向后推去，但你并没有受伤！
+
+趁着这个空档，多米尼克眼中蓝光一闪，刚才被击中而受损的机械臂猛地变形，炮口对准了链锯屠夫因为攻击而被短暂暴露出来的、相对脆弱的颈部关节！
+/* <<audio "sfx_arm_transform_quick" play>> */
+“高能粒子……发射！”
+/* <<audio "sfx_particle_beam_charge" play>> */
+/* <<audio "sfx_particle_beam_fire" play>> */
+一道炽白的光束瞬间射出，精准地命中了目标！
+/* <<audio "sfx_particle_beam_impact_heavy" play>> */
+/* <<audio "sfx_monster_die_heavy_explode" play>> */ /* Boss 死亡/重创音效 */
+链锯屠夫发出一声凄厉的惨嚎，巨大的身体晃动了几下，重重地倒在了地上，不再动弹。手中的链锯剑也停止了旋转，掉落在旁。
+/* <<audio "sfx_heavy_body_fall" play>> */
+/* <<audio "sfx_chainsaw_idle" stop>> */
+
+你身上的灵能盾在挡住攻击后，裂纹遍布，闪烁了几下，终于如同破碎的冰晶般消散了。
+/* <<audio "sfx_shield_shatter" play>> */
+
+多米尼克挣扎着站起来，快步走到你面前，湛蓝的电子眼死死地盯着你，语气中充满了无法掩饰的震惊：“刚才那个……绝对是‘灵能盾’！而且……强度比之前高了很多！你……”
+
+[[“我……我以为我死定了……”|灵能盾出现_解释行为]]
+[[（喘着气）“它……它又出现了……”|灵能盾出现_确认重复]]
+
+
+:: 灵能盾出现_解释行为
+<<set $shieldAwakened to true>>\
+你看着倒在地上的链锯屠夫，又看了看自己的双手，惊魂未定地解释道：“我……我只是……” （根据之前的选择不同，可以说“只是想救你”或“只是下意识挡了一下”）
+
+多米尼克打断了你：“我知道你做了什么。重点是‘灵能盾’。它不仅再次出现，而且强度明显提升，甚至能硬抗这种级别的攻击……虽然还是碎了。” 她的目光在你身上扫视，“你的身体……或者说你的‘灵力’，似乎在应激状态下被激发了。”
+
+她环顾四周，虽然最强的敌人倒下了，但远处似乎又有新的嘶吼声传来。
+“这里不能久留。我们必须立刻找个更安全的地方。” 她看了一眼自己还在闪烁火花的机械臂，“我也需要进行紧急修复。”
+
+[[“去哪里？”|前往安全屋]]
+[[“灵力……又是什么？”|前往安全屋]] /* 可以在安全屋再问 */
+
+:: 灵能盾出现_确认重复
+<<set $shieldAwakened to true>>\
+你大口喘着气，指着自己刚才被盾保护的地方：“它……它又出现了！和上次一样，但是好像……更强了？”
+
+多米尼克点头，语气严肃：“是的，强度提升很明显。这证实了我的判断，你是刚刚觉醒的异能者，而且你的潜力……可能比初步评估的要高。应激反应能显著提升灵能盾强度。”
+
+她警惕地听着远处的动静：“威胁并未完全解除。我们需要立刻转移。找个地方让你冷静下来，我也需要处理损伤。”
+
+[[“好，我们快走。”|前往安全屋]]
+[[“异能者……真的这么厉害吗？”|前往安全屋]] /* 可以在安全屋再问 */
+
+:: 前往安全屋
+/* 链接到第三个文件 */
+<<goto "寻找安全屋|Chapter2_Safehouse">>

@@ -1,0 +1,37 @@
+:: BGMCheck [widget]
+<<nobr>>
+<<widget "BGMCheck">>
+<<silently>>
+	/* 检查是否有参数传入 */
+	<<if $args.length > 0>>
+		/* 获取 BGM 名称 */
+		<<set _bgmName to $args[0]>>
+		
+		/* 检查 BGM 是否已在播放 */
+		<<if _bgmName is $currentPlayingBGM>>
+			/* 如果是，则什么都不做 */
+			<<return>>
+		<</if>>
+		
+		/* 如果有其他 BGM 在播放，先停止它 */
+		<<if $currentPlayingBGM neq "" && setup.bgmMap.hasOwnProperty($currentPlayingBGM)>>
+			<<audio $currentPlayingBGM stop>>
+		<</if>>
+		
+		/* 检查BGM是否存在于bgmMap中 */
+		<<if setup.bgmMap.hasOwnProperty(_bgmName)>>
+			/* 使用映射中的路径缓存音频 */
+			<<cacheaudio _bgmName setup.bgmMap[_bgmName]>>
+			<<audio _bgmName loop play>>
+			<<set $currentPlayingBGM to _bgmName>>
+		<<else>>
+			/* 未知 BGM */
+			显示错误：未知的 BGM "_bgmName"，该BGM不在bgmMap配置中
+		<</if>>
+	<<else>>
+		/* 没有传入参数 */
+		显示错误：BGMCheck Widget 未接收到参数
+	<</if>>
+<</silently>>
+<</widget>> 
+<</nobr>>\

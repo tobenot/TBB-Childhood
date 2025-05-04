@@ -10,39 +10,13 @@
   "zoom": 1
 }
 
-:: StoryInit
-/* 检查并加载自动存档 */
-<<if Save.autosave.ok()>>
-	<<run Save.autosave.load()>>
-<</if>>
-
-/* 预加载音频文件 */
-<<cacheaudio "bgm_startup" "assets/audio/bgm/bgm_startup_wind_chimes_in_the_mist_pure.mp3">>
-<<cacheaudio "bgm_elite" "assets/audio/bgm/bgm_elite_Void's_Grasp.mp3">>
-
-/* 设置音频配置 */
-<<masteraudio volume 1.0>>
-<<masteraudio unmute>>
-
-/* 设置自动保存 */
-<<set Config.saves.autosave to true>>
-
 :: StoryStylesheet
 @import url("styles.css");
 @import url("ui/custom-styles.css");
 
-:: StoryScript
-/* 引入图片查看器脚本 */
-import "system/image-viewer.js"
-
-
-
-/* 引入自定义UI脚本 */
-import "system/custom-ui.js"
-
-/* 引入自定义侧边栏 */
-import "ui/sidebar.twee"
-
-/* Passages moved to chapter1_intro.twee, chapter1_town.twee, and chapter1_ending.twee */
-
-<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+:: StoryScript [script]
+setup.isPlaying = function (trackID) {
+    var track = SimpleAudio.tracks.get(trackID);
+    return track !== null && track.isPlaying();
+};
+console.log('setup.isPlaying:', typeof setup.isPlaying);

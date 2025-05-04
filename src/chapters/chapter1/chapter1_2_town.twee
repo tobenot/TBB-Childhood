@@ -1,8 +1,8 @@
 :: 空镇街道
 <<silently>>
 <<audio "bgm_startup" fadeout>>
-<<cacheaudio "bgm_elite" "assets/audio/bgm/bgm_elite_Void's_Grasp.mp3">>
-<<cacheaudio "bgm_dom" "assets/audio/bgm/bgm_dom_The_Next_Time_I_Rise.mp3">>
+
+
 <</silently>>\
 你沿着空旷的主街向前走，脚步声在寂静中格外清晰。你一边走一边观察着四周，试图找到任何生命的迹象，但一无所获。
 
@@ -55,7 +55,8 @@
 [[石拱桥]]
 
 :: 空壳战士出现
-<<audio "bgm_elite" loop play>>\
+\
+<<BGMCheck "bgm_elite">>\
 [img[assets/images/cg/cg_ch1_plot_05.webp]]
 你猛地回头，一个穿着一身完整黑色日式铠甲的人形生物出现在你面前！铠甲样式古朴，布满深红色的诡异条纹，与这个宁静小镇的风格格格不入。它的动作僵硬，脸上没有任何表情，只有空洞的眼窝死死地盯着你。最可怕的是，它左手紧握着一把闪着致命寒光的武士刀！它发出意义不明的嗬嗬怪声，沉重的步伐朝着你发起了冲锋！
 
@@ -76,7 +77,8 @@
 <<set $frameStatus to "intact">> /* 画框状态：intact(完好), damaged(损坏), broken(碎掉) */
 <<set $easelStatus to "intact">> /* 画架状态：intact(完好), broken(损坏) */
 <<set $stoneStatus to "available">> /* 石头状态：available(可用), taken(已拿取) */
-<<audio "bgm_elite" loop play>>
+
+<<BGMCheck "bgm_elite">>
 <</silently>>\
 你气喘吁吁地冲到石拱桥前。这座桥横跨在一条澄澈的河流上，桥身由巨大的青石砌成，线条优美而古朴。桥上支着一个画架，上面有画到一半的画布，旁边散落着颜料和画笔，还有一个看起来颇为结实的空画框。
 
@@ -97,7 +99,7 @@
 
 :: 观察武士动作
 <<nobr>>
-<<audio "bgm_elite" loop play>>
+<<BGMCheck "bgm_elite">>
 你强迫自己冷静下来，集中全部精神，紧盯着武士的每一个动作。它的步伐虽然僵硬，但挥刀的轨迹却带着一种致命的规律性。<br>
 <<set $attackRoll to either(1, 2, 3)>> /* 随机选择攻击模式 */
 <<if $attackRoll is 1>><br>

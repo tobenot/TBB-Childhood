@@ -1,0 +1,28 @@
+:: StoryInit
+/* 检查并加载自动存档 */
+<<if Save.autosave.ok()>>
+	<<run Save.autosave.load()>>
+<</if>>
+
+/* 设置音频配置 */
+<<masteraudio volume 1.0>>
+<<masteraudio unmute>>
+
+/* 设置自动保存 */
+<<set Config.saves.autosave to true>>
+
+<<nobr>>
+	/* 集中管理所有BGM配置 */
+	<<set setup.bgmMap = {
+		"bgm_startup": "assets/audio/bgm/bgm_startup_wind_chimes_in_the_mist_pure.mp3",
+		"bgm_elite": "assets/audio/bgm/bgm_elite_Void's_Grasp.mp3",
+		"bgm_dom": "assets/audio/bgm/bgm_dom_The_Next_Time_I_Rise.mp3"
+	}>>
+
+	/* 预加载所有BGM */
+	<<for _bgmName, _bgmPath range setup.bgmMap>>
+		<<cacheaudio _bgmName _bgmPath>>
+	<</for>>
+
+	<<set $currentPlayingBGM = "">>
+<</nobr>>

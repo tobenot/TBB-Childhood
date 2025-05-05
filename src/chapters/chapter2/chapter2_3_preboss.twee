@@ -1,34 +1,35 @@
-:: Ch2_PreBossScene /* 第二章 BOSS战前场景 */
-/* 这个段落根据 $contactStatus 决定具体内容 */
-<<if $contactStatus is "accepted">>
-    /* === 情况A：第一章已经接触并修复 === */
-    <div class="transition-text">你们冲出狭窄的小巷，踏入空旷的小广场。阳光下，广场中央那令人窒息的庞大阴影显得格外突兀。多米尼克的状态尚可，她迅速进入了战斗准备，武器系统展开的声音在寂静中回响。</div>
+:: Ch2_PreBossScene /* 第二章 BOSS战前场景 */\
+/* 这个段落根据 $contactStatus 决定具体内容 */\
+<<nobr>><<if $contactStatus is "accepted">>
+    /* === 情况A：第一章已经接触并修复 === */\
+    <div class="transition-text">你们冲出狭窄的小巷，踏入空旷的小广场。午后的阳光将地面晒得发白，广场中央却投下一片巨大、轮廓分明的阴影，与周围明亮的环境格格不入。多米尼克的状态尚可，她迅速进入了战斗准备，武器系统展开的声音在寂静中回响。</div>
     [[准备迎敌|Ch2_PreBoss_Ready]]
 <<else>>
-    /* === 情况B：第一章拒绝接触，现在请求 === */
-    <div class="transition-text">你们冲出狭窄的小巷，踏入空旷的小广场。眼前的景象让你们同时停下了脚步。多米尼克的状态看起来非常糟糕，而广场中央那个手持链锯剑的庞大敌人更是散发着前所未有的恐怖气息，与周围散落的日常物品形成了诡异的对比。</div>
+    /* === 情况B：第一章拒绝接触，现在请求 === */\
+    <div class="transition-text">你们冲出狭窄的小巷，踏入空旷的小广场。眼前的景象让你们同时停下了脚步。多米尼克身上火花跳动，装甲破损，步履不稳，而广场中央，一个庞大的身影手持链锯剑矗立着，剑刃的寒光与散落在地的购物袋、废弃传单形成了强烈的反差。</div>
     [[继续|Ch2_PreBoss_Request]]
-<</if>>
+<</if>><</nobr>>
 
 
 :: Ch2_PreBoss_Request
-/* 触发条件: $contactStatus is "refused_final" */
+/* 触发条件: $contactStatus is "refused_final" */\
 <<silently>>
-    /* <<audio "sfx_dominique_damaged_sparks" play loop volume 0.6>> */
+    /* <<audio "sfx_dominique_damaged_sparks" play loop volume 0.6>> */\
 <</silently>>
-空旷的广场上，只有风吹过散落在地上的传单发出轻微的沙沙声。面对广场中央那个散发着恐怖压迫感的巨大敌人，多米尼克的脚步第一次显得有些踉跄。她的身上布满了战斗的痕迹：机械臂上新增了许多划痕和凹陷，关节处不时爆出细密的电火花，甚至有几片外挂的装甲板摇摇欲坠，某种不明液体从破损处缓缓渗出，在干净的地砖上留下痕迹。她看起来……非常糟糕。
+空旷的广场上，只有风吹过散落在地上的传单发出轻微的沙沙声。广场中央的巨大敌人静立不动，身形几乎遮蔽了它背后的阳光，投下大片阴影。多米尼克的脚步第一次显得有些踉跄。她的身上布满了战斗的痕迹：机械臂上新增了许多划痕和凹陷，关节处不时爆出细密的电火花，甚至有几片外挂的装甲板摇摇欲坠，某种不明液体从破损处缓缓渗出，在干净的地砖上留下痕迹。
 
-她的眼睛死死锁定着那个手持链锯剑的敌人。几秒后，她猛地转过头看向你，眼神中第一次流露出一种近乎……<b>绝望</b>的情绪。
+她的眼睛死死锁定着那个手持链锯剑的敌人。几秒后，她猛地转过头看向你，眼中的光芒剧烈波动，瞳孔似乎收缩到了极点。
 
 她再次抬起那只伤痕累累的机械臂，腕部装甲在一阵刺耳的摩擦声中滑开，<b>那柄布满干涸血迹、如同武士刀碎片的黑色短刃再次暴露在你面前！</b>
 
 “如果不启动我的自我修复，恐怕你也无法存活了！”
 
-她几乎是强撑着身体，一步步逼近你，将那短刃对准你的腹部，语气斩钉截铁，带着不容置疑的命令口吻，“为了任务……为了生存，必须立刻执行接触修复！<b>授权！现在！</b>”
+她几乎是强撑着身体，一步步逼近你，将那短刃对准你的腹部，声音不高却异常清晰，每个字都像是敲在金属上：“为了任务……为了生存，必须立刻执行接触修复！<b>授权！现在！</b>”
 
-广场对面，那巨大的敌人发出一声低沉的咆哮，链锯剑的轰鸣声在寂静的广场上显得格外刺耳，似乎随时会发起冲锋。时间紧迫到了极点。你看着多米尼克破损的身体和她眼中不容拒绝的决绝，看着那柄想要刺入你身体的凶器，再看看远处那个在空旷广场上如同噩梦化身的致命敌人。
+广场对面，那巨大的敌人引擎低吼，链锯剑的齿轮开始转动，发出刺耳的摩擦声，似乎随时会发起冲锋。
+你看着多米尼克破损的身体和她眼中不容拒绝的决绝，看着那柄指向你身体的黑色短刃，再看看远处那个庞大的、在空旷广场上显得极不协调的身影。
 
-/* <<audio "sfx_chainsaw_revving_distant" play>> */
+/* <<audio "sfx_chainsaw_revving_distant" play>> */\
 
 [[（看着她眼中的决绝，再看Boss，咬牙）“……动手！快！”|Ch2_Contact_Accept_Desperate]]
 [[（惊恐后退）“不！别过来！我不能再……”|Ch2_Contact_Refuse_Attempt]]
@@ -38,85 +39,85 @@
 你猛一咬牙，几乎是吼着喊出来：“动手！快！”
 
 多米尼克眼中的黄光一闪，没有任何犹豫，欺身而上，手臂环住你，另一只手将那柄黑色短刃狠狠刺入你的侧腹！剧烈的疼痛让你眼前一黑。鲜血涌出，流到地面上。
-/* <<audio "sfx_blade_stab_flesh_heavy" play>> */
-/* <<audio "sfx_energy_flow_violent" play>> */
+/* <<audio "sfx_blade_stab_flesh_heavy" play>> */\
+/* <<audio "sfx_energy_flow_violent" play>> */\
 
 冰冷狂暴的能量流如冰水涌入，带着强烈的掠夺感，你感觉自己的力量正在被抽走！同时，多米尼克身上出现了大量耀眼的蓝光裂纹，她破损的机体在能量冲击下剧烈颤抖，但修复速度也快得惊人。
 
 就在这时，多米尼克的动作微微一顿。
 
 <<silently>>
-    /* 内部判定：根据好感度决定是否触发夺取生命力的选项 */
-    /* 假设好感度阈值为 -4 */
-    <<if $domOpinion <= -4>>
-        /* === 好感度过低：触发坏结局 === */
-        /* 内部信息流: "[警告！人类生命特征因二次创伤及能量抽取剧烈波动！Sigma协议可用：吸收人类全部剩余生物能量以达成峰值性能？ Y/N] 风险：人类必然死亡。" */
-        /* Dominique's internal process: Analysis... Host cooperation minimal/forced. Survival priority overrides ethical constraints. Accept. */
+    /* 内部判定：根据好感度决定是否触发夺取生命力的选项 */\
+    /* 假设好感度阈值为 -4 */\
+    <<nobr>><<if $domOpinion <= -4>>
+        /* === 好感度过低：触发坏结局 === */\
+        /* 内部信息流: "[警告！人类生命特征因二次创伤及能量抽取剧烈波动！Sigma协议可用：吸收人类全部剩余生物能量以达成峰值性能？ Y/N] 风险：人类必然死亡。" */\
+        /* Dominique's internal process: Analysis... Host cooperation minimal/forced. Survival priority overrides ethical constraints. Accept. */\
         <<set $badEndTriggered = true>>
     <<else>>
-        /* === 好感度足够：拒绝牺牲选项 === */
-        /* 内部信息流: "[警告！人类生命特征因二次创伤及能量抽取剧烈波动！Sigma协议可用：吸收人类全部剩余生物能量以达成峰值性能？ Y/N] 风险：人类必然死亡。" */
-        /* Dominique's internal process: Analysis... Host demonstrated prior cooperation/value. Risk outweighs potential gain. Decline. */
-        /* "[Sigma协议已拒绝。继续标准修复流程。警告：人类生命体征接近临界值。执行紧急创口封闭及能量稳定程序。]" */
+        /* === 好感度足够：拒绝牺牲选项 === */\
+        /* 内部信息流: "[警告！人类生命特征因二次创伤及能量抽取剧烈波动！Sigma协议可用：吸收人类全部剩余生物能量以达成峰值性能？ Y/N] 风险：人类必然死亡。" */\
+        /* Dominique's internal process: Analysis... Host demonstrated prior cooperation/value. Risk outweighs potential gain. Decline. */\
+        /* "[Sigma协议已拒绝。继续标准修复流程。警告：人类生命体征接近临界值。执行紧急创口封闭及能量稳定程序。]" */\
         <<set $badEndTriggered = false>>
-    <</if>>
+    <</if>><</nobr>>
 <</silently>>
 
-<<if $badEndTriggered>>
+<<nobr>><<if $badEndTriggered>>
     你感觉到一股无法抗拒的虚弱感袭来，仿佛生命力正在被不可逆转地抽干。你惊恐地看向多米尼克，发现她原本像人类的眼睛此刻完全变成了冰冷的、没有任何波动的<b>电子眼</b>。她修复后的身体散发出强大的能量波动，短刃在你体内发出嗡鸣，贪婪地吸收着一切。她的目光落在你身上。
     “……最优解。”她似乎低声说了一句，声音冷得像冰。
     你的视线开始模糊，广场、敌人、多米尼克……一切都沉入黑暗。
 
     [[……|Ch2_BadEnd_Sacrificed]]
 <<else>>
-    /* === 好感度足够：拒绝牺牲，触发治愈 === */
-    那股抽取力量的感觉突然减轻了，虽然依然痛苦，但不再致命。她猛地拔出短刃，但预期的剧痛并未持续。相反，一股难以置信的、温暖而舒适的感受从伤口处扩散开来，如同温柔的能量在抚平创伤。你甚至能感觉到之前在逃亡中留下的擦伤（比如躲避怪物时的擦伤<mcsymbol name="Ch2_StreetChase_DodgeFail" filename="chapter2_2_chase.twee" path="f:\GitRep\TBB-Childhood\src\chapters\chapter2\chapter2_2_chase.twee" startline="100" type="function"></mcsymbol>）和撞击的淤青（比如跳跃失败时的膝盖<mcsymbol name="Ch2_Obstacle_Jump_Fail" filename="chapter2_2_chase.twee" path="f:\GitRep\TBB-Childhood\src\chapters\chapter2\chapter2_2_chase.twee" startline="223" type="function"></mcsymbol>）也在快速消退。低头看去，侧腹的伤口已经完全愈合，只留下比周围略浅的肤色和温热感，连一丝疤痕都找不到。你感觉身体充满了活力，之前的疲惫和细小伤痛一扫而空。
-    /* <<audio "sfx_blade_retract" play>> */
-    /* <<audio "sfx_wound_cauterize" stop>> */ /* 停止灼烧音效，替换为治愈 */
-    /* <<audio "sfx_healing_magical_warmth" play>> */ /* 温暖治愈音效 */
-    /* <<audio "sfx_energy_flow_stabilize" play>> */
+    /* === 好感度足够：拒绝牺牲，触发治愈 === */\
+    那股抽取力量的感觉突然减轻了，虽然依然痛苦，但不再致命。她猛地拔出短刃，但预期的剧痛并未持续。相反，一股暖流从伤口处扩散开来，刺痛感迅速消退，被一种温热感取代。你甚至能感觉到之前在逃亡中留下的擦伤（比如躲避怪物时的擦伤<mcsymbol name="Ch2_StreetChase_DodgeFail" filename="chapter2_2_chase.twee" path="f:\GitRep\TBB-Childhood\src\chapters\chapter2\chapter2_2_chase.twee" startline="100" type="function"></mcsymbol>）和撞击的淤青（比如跳跃失败时的膝盖<mcsymbol name="Ch2_Obstacle_Jump_Fail" filename="chapter2_2_chase.twee" path="f:\GitRep\TBB-Childhood\src\chapters\chapter2\chapter2_2_chase.twee" startline="223" type="function"></mcsymbol>）处的酸胀感也在快速消失。低头看去，侧腹的伤口已经完全愈合，只留下比周围略浅的肤色和温热感，连一丝疤痕都找不到。你深吸一口气，感觉呼吸顺畅了许多，四肢的沉重感也减轻了。
+    /* <<audio "sfx_blade_retract" play>> */\
+    /* <<audio "sfx_wound_cauterize" stop>> */\
+    /* <<audio "sfx_healing_magical_warmth" play>> */\
+    /* <<audio "sfx_energy_flow_stabilize" play>> */\
 
     她拔出短刃，动作流畅。她瞥了你一眼，似乎在分析你这超乎预期的恢复状态。她修复后的机体看起来恢复了七八成，虽然还有些狼狈，但气势完全不同了。
 
     她没有过多关注你的状态，立刻转身面对Boss，武器系统完全展开。“连接中断。修复完成度71%。准备迎击。”
-    <<set $contactStatus = "accepted">> /* 标记状态已修复 */
-    <<set $domOpinion -= 2>> /* 玩家同意了这种被迫的、危险的接触，虽然结果意外有利，但过程依然是被迫胁迫，她认为这缺乏理性，降低好感 */
+    <<set $contactStatus = "accepted">> /* 标记状态已修复 */\
+    <<set $domOpinion -= 2>> /* 玩家同意了这种被迫的、危险的接触，虽然结果意外有利，但过程依然是被迫胁迫，她认为这缺乏理性，降低好感 */\
 
     “跟上，找掩护！”她丢下一句话，率先冲向战场。
 
-    [[（感受着身体的变化）忍痛跟上|Ch2_BossEncounter]] /* 链接到实际的 Boss 战 Passage */
-<</if>>
+    [[（感受着身体的变化）忍痛跟上|Ch2_BossEncounter]] /* 链接到实际的 Boss 战 Passage */\
+<</if>><</nobr>>
 
 
 :: Ch2_Contact_Refuse_Attempt
 你惊恐地摇头后退：“不！别过来！我不能再……”
 
-<<if $domOpinion <= -4>>
-    /* === 好感度过低：强制执行 === */
+<<nobr>><<if $domOpinion <= -4>>
+    /* === 好感度过低：强制执行 === */\
     “命令否决。”多米尼克的声音不带一丝情感。她的速度快得让你无法反应，瞬间便欺近身前，以不容抗拒的力量将你制住。那柄染血的短刃在她手中划过一道弧线。
     “必要措施。”
     在你反应过来之前，剧痛已经贯穿了你的腹部。
-    /* <<audio "sfx_blade_stab_flesh_heavy" play>> */
+    /* <<audio "sfx_blade_stab_flesh_heavy" play>> */\
 
     <div class="transition-text">她强行启动了接触协议。你感觉生命力在快速流失……</div>
-    [[（被强制接触）|Ch2_Contact_Accept_Desperate]] /* 跳转到接受逻辑，低好感度将导向坏结局 */
+    [[（被强制接触）|Ch2_Contact_Accept_Desperate]] /* 跳转到接受逻辑，低好感度将导向坏结局 */\
 
 <<else>>
-    /* === 好感度尚可：接受拒绝 === */
-    你的拒绝让她动作一顿。她的眼睛在你和远处的Boss之间来回扫视，似乎在急速权衡利弊。广场上空无一人，只有她和你，以及那个可怕的敌人。最终，她眼中的急切和决绝慢慢褪去，变回了之前的冰冷和……一种更深的凝重。
+    /* === 好感度尚可：接受拒绝 === */\
+    你的拒绝让她动作一顿。她的眼睛在你和远处的Boss之间来回扫视，眼中的光芒闪烁不定。广场上空无一人，只有她和你，以及那个可怕的敌人。最终，她眼中的波动平复下来，视线重新变得像之前一样稳定，但似乎……更加深沉。
 
     她缓缓收回了手臂，短刃及其接口缩回装甲之下。
     “……记录：人类拒绝执行紧急协议。风险接受。” 她的声音低沉下去。
-    她转过身，拖着破损的身体，独自面对那个在空旷广场上显得愈发庞大的敌人，背影显得无比单薄和决绝。
-    /* <<audio "sfx_dominique_damaged_sparks" stop>> */
+    她转过身，拖着破损的身体，一步步走向那个在空旷广场上显得愈发庞大的敌人，步伐虽慢，却没有丝毫犹豫。
+    /* <<audio "sfx_dominique_damaged_sparks" stop>> */\
 
     <div class="transition-text">她放弃了强制修复，准备以重伤之躯迎战。</div>
-    [[（看着她决绝的背影）|Ch2_BossEncounter]] /* 链接到实际的 Boss 战 Passage */
-<</if>>
+    [[（看着她决绝的背影）|Ch2_BossEncounter]] /* 链接到实际的 Boss 战 Passage */\
+<</if>><</nobr>>
 
 
 :: Ch2_PreBoss_Ready
-/* 触发条件: $contactStatus is "accepted" */
+/* 触发条件: $contactStatus is "accepted" */\
 空旷的广场上，阳光照射在停止喷水的喷泉和散落的杂物上。面对广场中央那个散发着恐怖压迫感的巨大敌人，多米尼克脚步沉稳地停下。她身上虽然也有些战斗痕迹，但比起未修复状态要好得多，核心系统运转正常。
 
 她的眼睛冷静地扫描着敌人。她快速检查了一下自己的武器系统，修复后的机械臂活动自如。
@@ -132,20 +133,20 @@
 “高昂的战斗意志。” 多米尼克点了点头。“很好。执行A计划。”
 <<set $domOpinion += 1>>
 <div class="transition-text">她确认了你的状态，转身面对强敌。</div>
-[[战术确认，迎敌！|Ch2_BossEncounter]] /* 链接到实际的 Boss 战 Passage */
+[[战术确认，迎敌！|Ch2_BossEncounter]] /* 链接到实际的 Boss 战 Passage */\
 
 
 :: Ch2_Ready_Doubt_Transition
 “概率计算显示，胜率区间在35%至68%之间，取决于战场变量和……你的行动效率。” 多米尼克客观地回答。“质疑不影响结果。集中。”
 <<set $domOpinion -= 1>>
 <div class="transition-text">她没有理会你的疑虑，专注于即将到来的战斗。</div>
-[[了解，迎敌！|Ch2_BossEncounter]] /* 链接到实际的 Boss 战 Passage */
+[[了解，迎敌！|Ch2_BossEncounter]] /* 链接到实际的 Boss 战 Passage */\
 
 
 :: Ch2_Ready_Stoic_Transition
 多米尼克解读了你的动作。“非语言信号接收：确认准备就绪。执行标准交战协议。”
 <div class="transition-text">她不再多言，摆出了战斗姿态。</div>
-[[迎敌！|Ch2_BossEncounter]] /* 链接到实际的 Boss 战 Passage */
+[[迎敌！|Ch2_BossEncounter]] /* 链接到实际的 Boss 战 Passage */\
 
 
 :: Ch2_BadEnd_Sacrificed

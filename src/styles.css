@@ -310,3 +310,14 @@ button:hover, .button:hover {
     color: red;
     font-weight: bold;
 }
+
+.transition-text {
+    color: #888; /* 过渡文本使用灰色 */
+    font-style: italic; /* 斜体 */
+    text-align: center; /* 居中显示 */
+    margin-top: 1em; /* 与上方内容保持一定间距 */
+    margin-bottom: 1em; /* 与下方内容保持一定间距 */
+    padding: 0.5em; /* 内边距 */
+    border-top: 1px dashed #ccc; /* 上方添加虚线边框 */
+    border-bottom: 1px dashed #ccc; /* 下方添加虚线边框 */
+  }

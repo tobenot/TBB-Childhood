@@ -9,14 +9,21 @@
 		"bgm_elite": "assets/audio/bgm/bgm_elite_Void's_Grasp.mp3",
 		"bgm_dom": "assets/audio/bgm/bgm_dom_The_Next_Time_I_Rise.mp3",
 		"bgm_max": "assets/audio/bgm/bgm_max_Symphony_of_Colors.mp3",
+		"bgm_domBH": "bgm_domBH_Binary_Heartbeat.mp3",
 	}>>
 
 	/* 初始化当前播放状态 */
 	<<set setup.currentPlayingBGM ??= "">>
 
 	/* 预加载所有BGM */
-	<<for _bgmName, _bgmPath range setup.bgmMap>>
-		<<cacheaudio _bgmName _bgmPath>>
+	<<set setup.preloadBGMList ??= [
+		"bgm_startup",
+		"bgm_dom",
+		"bgm_elite",
+	]>>
+	
+	<<for _bgmName range setup.preloadBGMList>>
+		<<cacheaudio _bgmName setup.bgmMap[_bgmName]>>
 	<</for>>
 <</silently>>
 <</widget>>

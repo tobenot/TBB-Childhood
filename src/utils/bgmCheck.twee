@@ -10,6 +10,8 @@
 		"bgm_dom": "assets/audio/bgm/bgm_dom_The_Next_Time_I_Rise.mp3",
 		"bgm_max": "assets/audio/bgm/bgm_max_Symphony_of_Colors.mp3",
 		"bgm_domBH": "assets/audio/bgm/bgm_domBH_Binary_Heartbeat.mp3",
+		"bgm_monster": "assets/audio/bgm/bgm_monster_Distorted_Chase_v2.mp3",
+		"bgm_chase": "assets/audio/bgm/bgm_chase_Distorted_Chase_v3.mp3",
 	}>>
 
 	/* 初始化当前播放状态 */
@@ -105,4 +107,54 @@
 	<</if>>
 <</silently>>
 <</widget>>
+
+/* 手动缓存加载BGM */
+<<widget "CacheBGM">>
+<<silently>>
+    /* 确保BGM系统已初始化 */
+    <<if !setup.bgmMap>>
+        <<InitBGMSystem>>
+    <</if>>
+
+    /* 检查参数 */
+    <<if $args.length > 0>>
+        <<set _bgmName to $args[0]>>
+        
+        /* 检查BGM是否存在于bgmMap中 */
+        <<if setup.bgmMap.hasOwnProperty(_bgmName)>>
+            /* 使用映射中的路径缓存音频 */
+            <<cacheaudio _bgmName setup.bgmMap[_bgmName]>>
+            <<run console.log("已手动缓存BGM: " + _bgmName + " -> " + setup.bgmMap[_bgmName])>>
+        <<else>>
+            /* 未知 BGM */
+            <<run console.log("错误：未知的 BGM \"" + _bgmName + "\"，该BGM不在bgmMap配置中")>>
+        <</if>>
+    <<else>>
+        /* 没有传入参数 */
+        <<run console.log("错误：CacheBGM Widget 未接收到参数")>>
+    <</if>>
+<</silently>>
+<</widget>>
+
+/* 停止当前BGM */
+<<widget "FadeoutBGM">>
+<<silently>>
+    /* 确保BGM系统已初始化 */
+    <<if !setup.bgmMap>>
+        <<InitBGMSystem>>
+    <</if>>
+
+    /* 检查是否有BGM在播放 */
+    <<if setup.currentPlayingBGM neq "" && setup.bgmMap.hasOwnProperty(setup.currentPlayingBGM)>>
+        /* 停止当前播放的BGM */
+        <<run console.log("停止当前播放的BGM: " + setup.currentPlayingBGM)>>
+        <<audio setup.currentPlayingBGM fadeout>>
+        <<set setup.currentPlayingBGM to "">>
+        <<run console.log("已清空 currentPlayingBGM")>>
+    <<else>>
+        <<run console.log("当前没有BGM在播放")>>
+    <</if>>
+<</silently>>
+<</widget>>
+
 <</nobr>>\

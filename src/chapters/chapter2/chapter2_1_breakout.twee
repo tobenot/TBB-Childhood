@@ -5,10 +5,8 @@
 /* <<cacheaudio "sfx_monster_multiple" "assets/audio/sfx/monster_multiple_approaching.ogg">> */
 /* <<cacheaudio "sfx_arm_transform" "assets/audio/sfx/arm_transform_heavy.ogg">> */
 /* <<cacheaudio "sfx_rifle_materialize" "assets/audio/sfx/rifle_materialize.ogg">> */
-/* 播放环境音效 */
-/* <<audio "sfx_monster_multiple" play loop volume 0.8>> */
+<<BGMCheck "bgm_monster">>
 <</silently>>
-<<BGMCheck "bgm_tension">>\
 木屋外，低沉的嘶吼、拖沓的脚步和金属刮擦声愈发密集，从四面八方汇聚而来。透过木板缝隙，可以看到扭曲的人影在外面移动，它们的动作僵硬，却带着一种非人的压迫感。数量远不止一个。这间脆弱的小木屋已被包围。
 
 多米尼克站起身，<<if $contactStatus is "accepted">>修复后的<<else>>依旧带着明显损伤痕迹的<</if>>机械手臂内部发出细微的运作声。她的眼神冰冷，快速扫过门窗，评估着外部威胁。
@@ -17,17 +15,15 @@
 
 她转向你：“准备好。跟紧我，不要掉队。外面的东西……处理起来很麻烦。”
 
-[[“你的手臂……这是什么技术？”|Ch2_BreakoutPrep_TechAwe]]
-[[（点头）“我准备好了。”|Ch2_BreakoutPrep_Ready][$domOpinion += 1]] /* 理性、准备就绪，提升好感 */
+[[“你的手臂……到底是什么技术？”|Ch2_BreakoutPrep_TechAwe]]
+[[（点头）“我准备好了。”|Ch2_BreakoutPrep_TechAwe][$domOpinion += 1]] /* 理性、准备就绪，提升好感 */
 [[（深吸一口气）“它们……看起来很危险。”|Ch2_BreakoutPrep_Concern]] /* 表达担忧，中性反应或略微降低好感，视后续行动 */
 
 
 :: Ch2_BreakoutPrep_TechAwe
-你看着她那只<<if $contactStatus is "accepted">>闪烁着金属光泽、结构精密<<else>>布满划痕和凹陷，但依旧透着复杂工艺<</if>>的手臂，忍不住问：“你的手臂……这到底是什么技术？”
-
 /* <<audio "sfx_arm_transform" play>> */\
 多米尼克没有回答。她的右臂在一阵流畅<<if $contactStatus is "accepted">>且迅速<<else>>但略带卡顿<</if>>的机械变形声中展开、重构，变成一个炮口闪烁着幽蓝能量光芒的榴弹发射器形态。同时，她左手边的空气扭曲，一把线条硬朗的突击步枪凭空出现，被她稳稳握住。
-/* [img[assets/images/cg/cg_ch2_plot_01_transform.webp]] */
+/* [img[assets/images/cg/cg_ch2_plot_01_transform.webp]] */\
 
 “时间不多。”她检查武器，炮口与枪口指向门口，“跟紧，保持警惕，避免被抓住。”
 
@@ -45,14 +41,12 @@
 <</silently>>\
 
 “集中精神，注意躲避。” 她言简意赅。
-<<set $domOpinion -= 1>> /* 表现出犹豫或恐惧，略微降低好感 */
+<<set $domOpinion -= 1>> /* 表现出犹豫或恐惧，略微降低好感 */\
 
 [[“我明白了。”|Ch2_BreakoutPrep_Ready]]
 
 
 :: Ch2_BreakoutPrep_Ready
-<<BGMCheck "bgm_action">>\
 多米尼克不再多言。她走到木门边，侧耳贴近门板，片刻后猛地抬脚踹开！
 /* <<audio "sfx_door_kick_open" "assets/audio/sfx/door_kick_open.ogg" play>> */
-
 [[冲出木屋|Ch2_ExitCabin]]

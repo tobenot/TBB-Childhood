@@ -1,4 +1,4 @@
-:: Chapter2_Start /* 仅作占位符，实际内容在之前的提供中 */
+:: Chapter2_Start
 <<silently>>
 	/* 设置章节变量 */
 	<<set $chapter to 2>>

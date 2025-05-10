@@ -28,7 +28,7 @@
 
     那是一把造型极为简洁的手枪，通体呈现出一种哑光的金属黑色，却又在某些边缘反射出几乎刺眼的冷光，崭新得不像这个世界的产物。
 
-    /* [img[assets/images/cg/cg_ch1_plot_08_handgun_temp.webp]] */
+    [img[assets/images/items/item_pistol.webp]]
 
     <<timed 1s>>
         /* <<audio "sfx_handgun_shot" play>> */\

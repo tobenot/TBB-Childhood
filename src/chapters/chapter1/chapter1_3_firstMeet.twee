@@ -219,7 +219,8 @@
 那根本不是什么友善的“接口”！
 
 而是一柄约十厘米长、闪烁着暗淡幽光的黑色金属短刃！
-<<run window.discoverCodexEntry('interface_device')>>\
+<<run window.discoverCodexEntry('interface_device')>>
+[img[assets/images/items/item_life_knife.webp]]
 
 它的形状狰狞，让你猛地想起之前在小镇入口遭遇的那个空壳武士手中武士刀的某个部件，但眼前的这个更加粗糙、更加原始，散发着一种……邪恶的气息。
 

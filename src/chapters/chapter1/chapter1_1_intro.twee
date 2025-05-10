@@ -21,6 +21,7 @@
 诡镇谜团-氛围
 绝境危机-战斗
 命运相遇-沟通
+<<run window.discoverCodexEntry('empty_town')>>\
 
 [[继续|惊醒]]
 

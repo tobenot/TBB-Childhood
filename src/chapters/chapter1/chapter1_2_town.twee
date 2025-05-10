@@ -1,7 +1,7 @@
 :: 空镇街道
 <<silently>>
 <<audio "bgm_startup" fadeout>>
-
+<<run window.discoverCodexEntry('empty_town')>>\
 
 <</silently>>\
 你沿着空旷的主街向前走，脚步声在寂静中格外清晰。你一边走一边观察着四周，试图找到任何生命的迹象，但一无所获。
@@ -55,7 +55,7 @@
 [[石拱桥]]
 
 :: 空壳战士出现
-\
+<<run window.discoverCodexEntry('empty_warrior')>>\
 <<BGMCheck "bgm_elite">>\
 [img[assets/images/cg/cg_ch1_plot_05.webp]]
 你猛地回头，一个穿着一身完整黑色日式铠甲的人形生物出现在你面前！铠甲样式古朴，布满深红色的诡异条纹，与这个宁静小镇的风格格格不入。它的动作僵硬，脸上没有任何表情，只有空洞的眼窝死死地盯着你。最可怕的是，它左手紧握着一把闪着致命寒光的武士刀！它发出意义不明的嗬嗬怪声，沉重的步伐朝着你发起了冲锋！
@@ -72,6 +72,8 @@
 :: 石拱桥
 [img[assets/images/scenes/scene_stone_bridge.webp]]
 <<silently>>
+<<run window.discoverCodexEntry('stone_bridge')>>
+<<run window.discoverCodexEntry('empty_warrior')>>
 <<set $playerHealth to 2>>
 <<set $enemyStaggered to false>>
 <<set $frameStatus to "intact">> /* 画框状态：intact(完好), damaged(损坏), broken(碎掉) */

@@ -42,6 +42,7 @@
 你的脚步声惊动了她。<br>
 <br>
 少女猛地抬起头，银白色的发丝下，一双的眼睛瞬间锁定你，眼神锐利，带着警惕和一丝探究：<br>
+<<run window.discoverCodexEntry('dominique')>>
 [img[assets/images/cg/cg_ch1_plot_07.webp]]
 <br>
 <br>
@@ -151,6 +152,7 @@
 你甚至能感觉到她冰冷的金属手指压迫着你的皮肤。
 
 <b>你惊恐地发现，她那只受损手臂的腕部，不知何时已经弹出了一个装置——那根本不是什么接口，而是一柄约十厘米长、闪烁着暗淡寒光的黑色金属短刃！</b>
+<<run window.discoverCodexEntry('interface_device')>>\
 
 它的形状让你猛地想起之前遭遇的那个空壳武士手中武士刀的某个部件，但更加粗糙和……邪恶。
 

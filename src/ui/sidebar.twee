@@ -22,14 +22,70 @@
                     <li id="menu-item-author" class="ui-bar-item"><a tabindex="0">作者主页</a></li>
                     <li id="menu-item-restart"><a tabindex="0">重新开始</a></li>
                     <li id="menu-item-codex"><a tabindex="0" onclick="window.openCodexDialog()">速写本 (图鉴)</a></li>
+                    <li id="menu-item-credits"><a tabindex="0">感谢名单</a></li>
+                    <li id="menu-item-group-reward"><a tabindex="0">加群反馈拿奖</a></li>
                 </ul>
             </nav>
         </div>
         <div id="ui-bar-footer">
             <div id="ui-bar-version">
-                <!-- 调整版本号样式 -->
                 <span style="font-size: 0.8em; text-align: center; display: block; margin-top: 1em;">版本: 0.1.5</span>
             </div>
         </div>
     </div>
+</div>
+
+<div id="credits-modal" class="settings-overlay" style="display: none;">
+    <div class="settings-content">
+        <h2>感谢名单</h2>
+        <div class="settings-section" style="text-align: left; max-height: 300px; overflow-y: auto;">
+            <p><strong>特别鸣谢以下人员、资源和社区（排名不分先后）：</strong></p>
+            <ul>
+                <li><strong>核心贡献者:</strong>
+                    <ul>
+                        <li>丶青萝卜（tobenot） - 个人开发</li>
+                    </ul>
+                </li>
+                <li><strong>测试与反馈:</strong>
+                    <ul>
+                        <li>花蕊</li>
+                    </ul>
+                </li>
+                <li><strong>素材来源:</strong>
+                    <ul>
+                        <li>所有非剧本的素材均来自AI</li>
+                    </ul>
+                </li>
+                <li><strong>技术支持与灵感:</strong>
+                    <ul>
+                        <li>Twine/SugarCube 社区资料</li>
+                        <li>各路编程AI大神的帮助</li>
+                    </ul>
+                </li>
+                <li><strong>以及每一位支持和关注本作品的玩家！</strong></li>
+            </ul>
+            <p style="text-align: center; margin-top: 1em;"><em>感谢你们的付出与支持！</em></p>
+        </div>
+        <div class="settings-buttons">
+            <button id="credits-modal-close" class="button">关闭</button>
+        </div>
+    </div>
+</div>
+
+<div id="group-reward-modal" class="settings-overlay" style="display: none;">
+    <div class="settings-content" style="max-height: 80vh; overflow-y: auto;">
+        <h2>加群反馈拿奖</h2>
+        <div class="settings-section">
+            <p>加入粉丝群提供宝贵的反馈意见，进入感谢名单，有机会获得作者之前发布的游戏的Key（例如3D太空射击、第三人称动作游戏）！</p>
+            <img src="assets/images/poster/qq_group_qrcode_1028122611.webp" alt="QQ群二维码" style="display: block; margin: 15px auto; width: 256px; height: 256px; border: 1px solid #d4af37;">
+            <p style="text-align: center;">
+                <a href="https://qm.qq.com/q/96TrhX1K0w" target="_blank" style="color: #d4af37; text-decoration: underline;">点击链接加入群聊【丶青萝卜的母港】</a>
+            </p>
+            <img src="assets/images/poster/lh_header_schinese.webp" alt="太空射击" style="display: block;border: 1px solid #d4af37;">
+            <img src="assets/images/poster/nbsk_header.webp" alt="动作游戏" style="display: block;border: 1px solid #d4af37;">
+        </div>
+        <div class="settings-buttons">
+            <button id="group-reward-close" class="button">关闭</button>
+        </div>
+    </div>
 </div>

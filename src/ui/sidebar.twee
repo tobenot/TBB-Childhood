@@ -10,7 +10,7 @@
     </div>
     <div id="ui-bar-body">
         <div id="ui-bar-header">
-            <img id="title-image2" src="assets/images/poster/title-image.webp" alt="BB童年篇标题图片" style="display: block; margin: 0 auto; max-width: 100%;">
+            <img id="title-image2" src="assets/images/poster/title-image2.webp" alt="BB童年篇标题图片" style="display: block; margin: 0 auto; max-width: 100%;">
         </div>
             <div id="ui-bar-content">
                 <nav id="ui-bar-menu">

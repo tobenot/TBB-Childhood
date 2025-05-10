@@ -1,0 +1,150 @@
+// src/system/codex.js
+
+// Function to display the codex
+window.displayCodex = function() {
+    const codex = State.variables.codex;
+    let html = '<div class="codex-container">';
+    html += '<h1>速写本</h1>';
+    html += '<div class="codex-grid">';
+
+    if (!codex || Object.keys(codex).length === 0) {
+        html += '<p>目前还没有任何发现。</p>';
+    } else {
+        for (const entryId in codex) {
+            if (codex.hasOwnProperty(entryId)) {
+                const entry = codex[entryId];
+                html += `<div class="codex-entry ${entry.discovered ? '' : 'locked'} ${entry.drawn ? 'drawn' : ''}">`;
+                html += `<h2>${entry.title}</h2>`;
+
+                if (entry.discovered) {
+                    html += `<p class="preview-desc">${entry.previewDesc}</p>`;
+                    if (entry.drawn) {
+                        html += `<div class="codex-image-container"><img src="${entry.imagePath}" alt="${entry.title}" class="codex-image"></div>`;
+                        html += `<p class="full-desc">${entry.fullDesc || (entry.fullDesc_accepted && State.variables.playerChoice === 'accepted' ? entry.fullDesc_accepted : entry.fullDesc_refused || '')}</p>`;
+                        html += `<p class="dominique-comment">多米尼克：${entry.dominiqueComment || (entry.dominiqueComment_accepted && State.variables.playerChoice === 'accepted' ? entry.dominiqueComment_accepted : entry.dominiqueComment_refused || '')}</p>`;
+                        html += '<p class="status-drawn">已描绘</p>';
+                    } else {
+                        html += `<button class="draw-button" data-entry-id="${entryId}">描绘此物</button>`;
+                    }
+                } else {
+                    html += '<p>尚未发现</p>';
+                }
+                html += '</div>';
+            }
+        }
+    }
+
+    html += '</div>'; // close codex-grid
+    html += '</div>'; // close codex-container
+    return html;
+};
+
+// Function to handle drawing an entry
+window.drawCodexEntry = function(entryId) {
+    if (State.variables.codex && State.variables.codex[entryId]) {
+        State.variables.codex[entryId].drawn = true;
+        // Potentially add a sound effect or visual feedback here
+        console.log(`Entry ${entryId} marked as drawn.`);
+        // Re-render the codex or the specific entry to reflect the change
+        Engine.play(passage(), true); // Refreshes the current passage
+    } else {
+        console.error(`Codex entry ${entryId} not found.`);
+    }
+};
+
+// Event listener for draw buttons (needs to be attached after the codex is rendered)
+$(document).on('click', '.draw-button', function() {
+    const entryId = $(this).data('entryId');
+    if (entryId) {
+        window.drawCodexEntry(entryId);
+    }
+});
+
+// Add some basic CSS for the codex (can be moved to a separate CSS file later)
+if (!$('style#codex-styles').length) {
+    $('head').append(`
+        <style id="codex-styles">
+            .codex-container {
+                padding: 20px;
+                background-color: #f0f0f0; /* Light grey background */
+                color: #333; /* Dark text */
+                font-family: sans-serif;
+            }
+            .codex-container h1 {
+                text-align: center;
+                color: #d4af37; /* Gold color for title */
+                border-bottom: 2px solid #d4af37;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            .codex-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            .codex-entry {
+                border: 1px solid #ccc;
+                padding: 15px;
+                border-radius: 8px;
+                background-color: #fff; /* White background for entries */
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .codex-entry.locked {
+                opacity: 0.6;
+                background-color: #e0e0e0; /* Slightly darker for locked items */
+            }
+            .codex-entry h2 {
+                margin-top: 0;
+                color: #555;
+            }
+            .codex-entry .preview-desc {
+                font-style: italic;
+                color: #777;
+            }
+            .codex-image-container {
+                width: 100%;
+                max-height: 200px; /* Limit image height */
+                overflow: hidden; /* Crop if image is too tall */
+                margin-bottom: 10px;
+                border-radius: 4px;
+            }
+            .codex-image {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            .codex-entry .full-desc {
+                margin-top: 10px;
+            }
+            .codex-entry .dominique-comment {
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: 1px dashed #ccc;
+                font-size: 0.9em;
+                color: #666;
+            }
+            .codex-entry .status-drawn {
+                color: green;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            .draw-button {
+                background-color: #d4af37; /* Gold button */
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin-top: 10px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+            .draw-button:hover {
+                background-color: #b89a2e; /* Darker gold on hover */
+            }
+        </style>
+    `);
+}

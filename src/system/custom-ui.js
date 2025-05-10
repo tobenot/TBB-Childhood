@@ -35,6 +35,11 @@ $(document).ready(function() {
         UI.restart();
     });
 
+    // 为速写本（图鉴）按钮添加点击事件
+    $('#menu-item-codex a').on('click', function() {
+        Engine.play('PassageCodex');
+    });
+
     // 初始化UI状态
     function initUiBarState() {
         // 检查是否有保存的侧边栏状态
@@ -74,6 +79,11 @@ $(document).ready(function() {
     // 为重新开始按钮添加点击事件
     $('#menu-item-restart a').on('click', function() {
         UI.restart();
+    });
+
+    // 为速写本（图鉴）按钮添加点击事件
+    $('#menu-item-codex a').on('click', function() {
+        Engine.play('PassageCodex');
     });
     
     // 创建设置菜单项

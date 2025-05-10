@@ -1,0 +1,30 @@
+:: PassageCodex [codex nobr]
+<<nobr>>
+    /* 调用JS函数来显示图鉴内容 */
+    <<run $('#passages').empty().wiki(window.displayCodex())>>
+<</nobr>>
+
+<div class="codex-navigation">
+    [[返回游戏|previous()]]
+</div>
+
+:: StoryStylesheet[stylesheet]
+/* 你可以在这里为 PassageCodex 添加特定的样式，如果 codex.js 中的样式不够用的话 */
+.codex-navigation {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.codex-navigation a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d4af37; /* Gold button */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.codex-navigation a:hover {
+    background-color: #b89a2e; /* Darker gold on hover */
+}

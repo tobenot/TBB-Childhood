@@ -14,3 +14,75 @@
 
 /* 初始化BGM系统 */
 <<InitBGMSystem>>
+
+/* 初始化速写本/图鉴解锁状态 */
+<<set $codexUnlocked = false>>
+
+/* 初始化图鉴系统变量 */
+<<set $codex = {
+    "empty_warrior": {
+        id: "empty_warrior",
+        title: "空壳武士",
+        discovered: false,
+        drawn: false,
+        previewDesc: "一种在废弃区域游荡的生物，外表类似穿着破旧铠甲的人形...",
+        fullDesc: "一种在废弃区域游荡的生物，外表类似穿着破旧铠甲的人形，但没有生命迹象，行动僵硬且具有攻击性。似乎被某种未知力量操控。",
+        imagePath: "assets/images/cg/cg_ch1_plot_05.webp",
+        dominiqueComment: "……这就是你遇到的'空壳怪物'，这种怪物，还是叫做'空壳武士'吧？细节捕捉很准确。这种视觉记录方式……效率很高。"
+    },
+    "stone_bridge": {
+        id: "stone_bridge",
+        title: "石拱桥",
+        discovered: false,
+        drawn: false,
+        previewDesc: "一座古老的石制拱桥，结构优美，横跨在干涸的河床上...",
+        fullDesc: "一座古老的石制拱桥，结构优美，横跨在干涸的河床上。桥体部分区域有风化和损坏的痕迹，桥上散落着一些废弃的物品，暗示着这里曾有人活动。",
+        imagePath: "assets/images/scenes/scene_stone_bridge.webp",
+        dominiqueComment: "这座桥……结构很特别。你在这里遭遇了袭击？"
+    },
+    "dominique": {
+        id: "dominique",
+        title: "多米尼克",
+        discovered: true, /* 玩家一开始就遇到多米尼克 */
+        drawn: false,
+        previewDesc: "一位拥有银白色短发和高度精密机械义肢的神秘少女...",
+        fullDesc: "一位拥有银白色短发和高度精密机械义肢的神秘少女。她冷静、理性，战斗能力极强，似乎在执行某种“清除”任务。对自身和周围环境的分析总是基于数据和逻辑。",
+        imagePath: "assets/images/characters/character_dominique.webp",
+        dominiqueComment: "……形态描绘符合客观特征。你观察得很仔细。"
+    },
+    "empty_town": {
+        id: "empty_town",
+        title: "空镇街道",
+        discovered: false,
+        drawn: false,
+        previewDesc: "一个被遗弃的小镇，街道空旷，商店的橱窗布满灰尘...",
+        fullDesc: "一个被遗弃的小镇，街道空旷，商店的橱窗布满灰尘，电视屏幕闪烁着雪花。整个区域弥漫着一种死寂和诡异的氛围，似乎所有居民都在短时间内消失了。",
+        imagePath: "assets/images/scenes/scene_town_view.webp",
+        dominiqueComment: "空镇……是的，这就是这里的现状。你的画传递出一种……'虚无'感。"
+    },
+    "broken_window": {
+        id: "broken_window",
+        title: "破碎窗",
+        discovered: true, /* 剧情中会立刻看到 */
+        drawn: false,
+        previewDesc: "木屋的窗户被子弹击碎，玻璃向内外飞溅...",
+        fullDesc: "木屋的窗户被子弹击碎，玻璃向内外飞溅，留下一个不规则的破洞，周围布满了蛛网般的裂纹。阳光透过破洞照射进来，形成奇特的光影。",
+        imagePath: "", /* 破碎窗可能没有特定图鉴图像，或需要后续添加 */
+        dominiqueComment: "玻璃的破碎形态……你捕捉到了弹道造成的应力分布。这种物理现象的视觉记录很精确。"
+    },
+    "interface_device": {
+        id: "interface_device",
+        title: "“接口”装置",
+        discovered: false,
+        drawn: false,
+        previewDesc: "一个从多米尼克机械臂中伸出的黑色短刃状装置...",
+        fullDesc_accepted: "一个从多米尼克机械臂中伸出的黑色短刃状装置，能够刺入人体并产生某种治愈或连接效果。其具体原理和功能未知，但似乎与能量传输和身体修复有关。",
+        fullDesc_refused: "一个从多米尼克机械臂中伸出的黑色短刃状装置，被她用作武器或某种工具。其具体构造和运作方式不明，但看起来十分危险。",
+        imagePath: "", /* 接口装置可能没有特定图鉴图像，或需要后续添加 */
+        dominiqueComment_accepted: "这个装置……确实很特别。不知道你为何要记录一个可能会杀死你的武器。但它的本质，恐怕不是简单的线条能够表达的。",
+        dominiqueComment_refused: "作为潜在威胁的记录吗？不过你不需要担心，<b>正常情况下<\/b>我不会对非目标使用这个装置。"
+    }
+}>>
+
+/* 初始化已绘制图鉴数量，这个变量可以考虑移除，因为可以通过遍历 $codex 计算得出 */
+<<set $drawingsMade = 0>>

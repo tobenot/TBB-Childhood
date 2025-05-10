@@ -321,3 +321,31 @@ button:hover, .button:hover {
     border-top: 1px dashed #ccc; /* 上方添加虚线边框 */
     border-bottom: 1px dashed #ccc; /* 下方添加虚线边框 */
   }
+
+  :root {
+    --tutorial-bg-color: #f8f9fa;         /* 教程框背景色 - 非常浅的灰色 */
+    --tutorial-border-color: #adb5bd;     /* 教程框边框色 - 柔和的灰色 */
+    --tutorial-title-color: #343a40;      /* 教程框标题颜色 - 深灰色 */
+    --tutorial-text-color: #212529;       /* 教程框正文颜色 - 标准的深色文本 */
+    --tutorial-shadow-color: rgba(0, 0, 0, 0.08); /* 教程框阴影颜色 - 非常淡的阴影 */
+  }
+  
+  .tutorial-box {
+    background-color: var(--tutorial-bg-color);
+    border: 1px solid var(--tutorial-border-color);
+    border-radius: 8px;                      /* 圆角大小 */
+    padding: 18px 20px;                      /* 内边距：上下18px，左右20px */
+    margin-top: 20px;                        /* 与上方内容的间距 */
+    margin-bottom: 20px;                     /* 与下方内容的间距 */
+    box-shadow: 0 4px 8px var(--tutorial-shadow-color); /* 细微的阴影，增加立体感 */
+    line-height: 1.6;                        /* 行高，提高多行文本的可读性 */
+    color: var(--tutorial-text-color);       /* 确保文本颜色被应用 */
+  }
+  
+  .tutorial-box .title {
+    font-weight: bold;                       /* 标题加粗 */
+    color: var(--tutorial-title-color);
+    margin-bottom: 12px;                     /* 标题与正文之间的间距 */
+    display: block;                          /* 让标题占据整行，像一个块级元素 */
+    font-size: 1.15em;                       /* 标题字号略大于正文 */
+  }

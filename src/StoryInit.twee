@@ -23,8 +23,8 @@
     "empty_town": {
         id: "empty_town",
         title: "空镇街道",
-        previewDesc: "一个被遗弃的小镇，街道空旷，商店的橱窗布满灰尘...",
-        fullDesc: "一个被遗弃的小镇，街道空旷，商店的橱窗布满灰尘，电视屏幕闪烁着雪花。整个区域弥漫着一种死寂和诡异的氛围，似乎所有居民都在短时间内消失了。",
+        previewDesc: "一个空荡荡的小镇，街道空旷，商店的橱窗却依然崭新...",
+        fullDesc: "一个空荡荡的小镇，街道空旷，商店的橱窗依然崭新。整个区域弥漫着一种死寂和诡异的氛围，似乎所有居民都在短时间内消失了。",
         imagePath: "assets/images/scenes/scene_town_view.webp",
         dominiqueComment: "空镇……是的，这就是这里的现状。你的画传递出一种……'虚无'感。"
     },
@@ -32,7 +32,7 @@
         id: "stone_bridge",
         title: "石拱桥",
         previewDesc: "一座古老的石制拱桥，结构优美，横跨在干涸的河床上...",
-        fullDesc: "一座古老的石制拱桥，结构优美，横跨在干涸的河床上。桥体部分区域有风化和损坏的痕迹，桥上散落着一些废弃的物品，暗示着这里曾有人活动。",
+        fullDesc: "一座古老的石制拱桥，结构优美，横跨在干涸的河床上。桥上散落着一些正在使用的物品，暗示着这里曾有人活动。",
         imagePath: "assets/images/scenes/scene_stone_bridge.webp",
         dominiqueComment: "这座桥……结构很特别。你在这里遭遇了袭击？"
     },

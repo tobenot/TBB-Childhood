@@ -57,7 +57,7 @@
         title: "破碎窗",
         previewDesc: "木屋的窗户被子弹击碎，玻璃向内外飞溅...",
         fullDesc: "木屋的窗户被子弹击碎，玻璃向内外飞溅，留下一个不规则的破洞，周围布满了蛛网般的裂纹。阳光透过破洞照射进来，形成奇特的光影。",
-        imagePath: "", /* 破碎窗可能没有特定图鉴图像，或需要后续添加 */
+        imagePath: "assets/images/scenes/scene_cabin_interior_window_broken.webp",
         dominiqueComment: "玻璃的破碎形态……你捕捉到了弹道造成的应力分布。这种物理现象的视觉记录很精确。"
     },
     "interface_device": {
@@ -66,7 +66,7 @@
         previewDesc: "一个从多米尼克机械臂中伸出的黑色短刃状装置...",
         fullDesc_accepted: "一个从多米尼克机械臂中伸出的黑色短刃状装置，能够刺入人体并产生某种治愈或连接效果。其具体原理和功能未知，但似乎与能量传输和身体修复有关。",
         fullDesc_refused: "一个从多米尼克机械臂中伸出的黑色短刃状装置，被她用作武器或某种工具。其具体构造和运作方式不明，但看起来十分危险。",
-        imagePath: "", /* 接口装置可能没有特定图鉴图像，或需要后续添加 */
+        imagePath: "assets/images/items/item_life_knife.webp",
         dominiqueComment_accepted: "这个装置……确实很特别。不知道你为何要记录一个可能会杀死你的武器。但它的本质，恐怕不是简单的线条能够表达的。",
         dominiqueComment_refused: "作为潜在威胁的记录吗？不过你不需要担心，<b>正常情况下<\/b>我不会对非目标使用这个装置。"
     }

@@ -50,6 +50,22 @@ img[src*="/characters/"]:hover {
     filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
 }
 
+/* item图片样式 - 用于展示物件 */
+img[src*="/items/"] {
+    max-width: 200px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 1em auto;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+    cursor: pointer;
+}
+
+img[src*="/items/"]:hover {
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+}
+
 /* 界面整体样式 */
 body {
     background-color: #1a1a1a;

@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // --- 配置 ---
   // 设置您希望拥有的存档槽数量
-  Config.saves.slots = 5; // 例如，5个存档槽
+  Config.saves.slots = 10;
 
   // 创建自定义通知系统
   function setupNotificationSystem() {

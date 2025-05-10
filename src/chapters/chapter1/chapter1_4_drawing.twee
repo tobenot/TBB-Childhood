@@ -5,7 +5,7 @@
 /* <<cacheaudio "sfx_handgun_shot" "assets/audio/sfx/handgun_shot.ogg">> */
 /* <<cacheaudio "sfx_monster_die" "assets/audio/sfx/monster_die.ogg">> */
 /* <<audio "sfx_monster_nearby" play>> */
-<<audio "bgm_domBH" fadeout>>\
+<<FadeoutBGM>>
 <</nobr>>\
 
 那声音，越来越近。
@@ -107,12 +107,13 @@ $tempQuestionResponse
 /* 这是新增的更怂的选项的回应 */
 <<nobr>>
 
-<<set $tempQuestionResponse = "“外部威胁已清除。是本地异常生物个体，我称之为‘空壳怪物’。它们没有生命特征，只是活动的驱壳。根据声音判断，刚才暂时只有一只。”她看了你一眼，语气没有任何变化，“你的恐惧反应在预期范围内，但过度惊慌会降低生存概率。”">>
+<<set $tempQuestionResponse = "“外部威胁已清除。是本地异常生物个体，我称之为‘空壳怪物’。<br>它们没有生命特征，只是活动的驱壳。根据声音判断，刚才暂时只有一只。”<br>她看了你一眼，语气没有任何变化，<br>“你的恐惧反应在预期范围内，但过度惊慌会降低生存概率。”">>
 
 /* 显示临时回应 */
 $tempQuestionResponse
 <<set $tempQuestionResponse = "">> /* 清空临时回应 */
 <</nobr>>\
+
 <<if not visited("外部威胁-回应-枪械")>>
     [[“那、那把枪……”|外部威胁-回应-枪械]]
 <</if>>
@@ -263,6 +264,8 @@ $tempQuestionResponse
 
 铅笔在纸上游走，勾勒出玻璃在暴力下分崩离析的瞬间。
 
+[img[assets/images/scenes/scene_cabin_interior_window_broken.webp]]
+
 [[完成画作|画作完成]]
 
 :: 绘画-接口装置
@@ -352,7 +355,7 @@ $tempQuestionResponse
 
 :: 结局对话
 <hr>
-<<audio "bgm_max" fadeout>>\
+<<FadeoutBGM>>
 /* <<cacheaudio "sfx_alarm" "assets/audio/sfx/alarm_high_priority.ogg">> */\
 <<nobr>>
 <<if $contactStatus is "accepted">>

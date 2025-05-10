@@ -24,7 +24,6 @@
 [[再试着推门|试着推门]]
 
 :: 试着推门
-<<nobr>>
 你试探性地推了一下木门。
 
 老旧的木材发出沉闷的“吱呀——”声。
@@ -98,7 +97,7 @@
     <<set $contactStatus = "pending">> /* 接触状态: pending, accepted, refused_temp, refused_final */
     <<set $tempQuestionResponse = "">> /* 用于临时存储子选项的回应文本 */
 <</silently>>
-
+<<nobr>>
 /* 显示临时回应（如果有） */
 <<if $tempQuestionResponse neq "">>
     $tempQuestionResponse<br><br>
@@ -302,7 +301,6 @@
 [[继续|Ch1_Contact_Process]]
 
 :: Ch1_Contact_Process
-<<nobr>>
 一股强烈的、冰冷的能量流，从刺入你腹部的短刃处疯狂涌入你的身体！
 
 就像在严冬腊月被当头浇下一桶冰水，寒意刺骨！
@@ -329,7 +327,7 @@
     /* "[警告！检测到人类生命特征因创伤波动！Sigma协议可用：吸收人类生物能量以优化修复并获取额外增幅？ Y/N] 风险：人类有高概率死亡。" */
     /* Dominique's internal process: Analysis... Risk exceeds mission parameters for host preservation... Decline. */
     /* "[Sigma协议已拒绝。启动标准修复流程。分析：人类创口有持续失血风险。执行创口紧急生物凝结处理。]" */
-<</silently>>
+<</silently>>\
 
 能量流的强度很快开始减弱。
 
@@ -397,9 +395,9 @@
 
 <<set $domOpinion += 4>> /* 冒着生命危险的接受，大幅提升好感 */
 
-<div class="transition-text">你还沉浸在刚才那如同从地狱瞬间被拉回天堂的诡异体验中，脑子一片混乱。</div><br>
-[[（处理这诡异的感觉）|Ch1_Post_Stab_Recovery]]<br>
-<</nobr>>
+<div class="transition-text">你还沉浸在刚才那如同从地狱瞬间被拉回天堂的诡异体验中，脑子一片混乱。</div>
+
+[[（处理这诡异的感觉）|Ch1_Post_Stab_Recovery]]
 
 :: Ch1_Post_Stab_Recovery
 你靠在冰冷的木墙上，大口喘着气。
@@ -620,7 +618,7 @@
 
             之前说话时偶尔带有的极轻微电子颤音，此刻也已完全消失，声音平滑得如同最完美的人声。
 
-            “信息初步交换完成。根据现有数据和环境综合评估，”
+            “信息初步交换完成。根据现有数据和环境综合评估，我的任务完成可能性大大提高。”
         <<else>> /* 理论上只有 accepted 会到这里，以防万一 */
             她看了一眼自己仍在不时闪烁着电火花、结构破损的机械手臂。
 

@@ -21,7 +21,7 @@
                     <li id="menu-item-settings" class="ui-bar-item"><a tabindex="0">设置</a></li>
                     <li id="menu-item-author" class="ui-bar-item"><a tabindex="0">作者主页</a></li>
                     <li id="menu-item-restart"><a tabindex="0">重新开始</a></li>
-                    <<if $codexUnlocked>><li id="menu-item-codex"><a tabindex="0" onclick="window.openCodexDialog()">速写本 (图鉴)</a></li><</if>>
+                    <li id="menu-item-codex"><a tabindex="0" onclick="window.openCodexDialog()">速写本 (图鉴)</a></li>
                 </ul>
             </nav>
         </div>

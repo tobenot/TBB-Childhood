@@ -14,7 +14,11 @@ window.displayCodex = function() {
             if (codex.hasOwnProperty(entryId)) {
                 const entry = codex[entryId];
                 html += `<div class="codex-entry ${entry.discovered ? '' : 'locked'} ${entry.drawn ? 'drawn' : ''}">`;
-                html += `<h2>${entry.title}</h2>`;
+                if (!entry.discovered) {
+                    html += `<h2>?</h2>`;
+                } else {
+                    html += `<h2>${entry.title}</h2>`;
+                }
 
                 if (entry.discovered) {
                     html += `<p class="preview-desc">${entry.previewDesc}</p>`;

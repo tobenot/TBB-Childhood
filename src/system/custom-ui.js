@@ -2,17 +2,6 @@
 // 添加音量控制和中文界面元素
 
 $(document).ready(function() {
-    // 修改默认UI按钮为中文
-    $('#menu-item-back a').text('后退');
-    $('#menu-item-forward a').text('前进');
-    $('#menu-item-settings a').text('设置');
-    $('#menu-item-author a').text('作者主页');
-    $('#menu-item-saves a').text('存档 / 读档');
-    $('#menu-item-restart a').text('重新开始');
-    $('#menu-item-credits a').text('感谢名单');
-    $('#menu-item-group-reward a').text('加群反馈拿奖');
-
-
     // 为导航按钮添加点击事件
     $('#menu-item-back a').on('click', function() {
         Engine.backward();

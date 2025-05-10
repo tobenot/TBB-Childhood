@@ -10,26 +10,26 @@
     </div>
     <div id="ui-bar-body">
         <div id="ui-bar-header">
-            <img id="title-image" src="assets/images/poster/title-image.webp" alt="BB童年篇标题图片" style="display: block; margin: 0 auto; max-width: 100%;">
+            <img id="title-image2" src="assets/images/poster/title-image.webp" alt="BB童年篇标题图片" style="display: block; margin: 0 auto; max-width: 100%;">
         </div>
-        <div id="ui-bar-content">
-            <nav id="ui-bar-menu">
-                <ul id="menu-core" class="menu">
-                    <li id="menu-item-saves"><a tabindex="0">存档</a></li>
-                    <li id="menu-item-back" class="ui-bar-item"><a tabindex="0">后退</a></li>
-                    <li id="menu-item-forward" class="ui-bar-item"><a tabindex="0">前进</a></li>
-                    <li id="menu-item-settings" class="ui-bar-item"><a tabindex="0">设置</a></li>
-                    <li id="menu-item-author" class="ui-bar-item"><a tabindex="0">作者主页</a></li>
-                    <li id="menu-item-restart"><a tabindex="0">重新开始</a></li>
-                    <li id="menu-item-codex"><a tabindex="0" onclick="window.openCodexDialog()">速写本 (图鉴)</a></li>
-                    <li id="menu-item-credits"><a tabindex="0">感谢名单</a></li>
-                    <li id="menu-item-group-reward"><a tabindex="0">加群反馈拿奖</a></li>
-                </ul>
-            </nav>
-        </div>
+            <div id="ui-bar-content">
+                <nav id="ui-bar-menu">
+                    <ul id="menu-core" class="menu">
+                        <li id="menu-item-saves"><a tabindex="0">💾 存档 / 读档</a></li>
+                        <li id="menu-item-back" class="ui-bar-item"><a tabindex="0">⬅️ 后退</a></li>
+                        <li id="menu-item-forward" class="ui-bar-item"><a tabindex="0">➡️ 前进</a></li>
+                        <li id="menu-item-codex"><a tabindex="0" onclick="window.openCodexDialog()">📖 速写本 (图鉴)</a></li>
+                        <li id="menu-item-settings" class="ui-bar-item"><a tabindex="0">⚙️ 设置</a></li>
+                        <li id="menu-item-restart"><a tabindex="0">🔄 重新开始</a></li>
+                        <li id="menu-item-group-reward"><a tabindex="0">🎁 加群反馈拿奖</a></li>
+                        <li id="menu-item-author" class="ui-bar-item"><a tabindex="0">🖋️ 作者主页</a></li>
+                        <li id="menu-item-credits"><a tabindex="0">🙏 感谢名单</a></li>
+                    </ul>
+                </nav>
+            </div>
         <div id="ui-bar-footer">
             <div id="ui-bar-version">
-                <span style="font-size: 0.8em; text-align: center; display: block; margin-top: 1em;">版本: 0.1.5</span>
+                <span style="font-size: 0.8em; text-align: center; display: block; margin-top: 1em;">版本: 0.1.55</span>
             </div>
         </div>
     </div>

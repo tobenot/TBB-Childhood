@@ -19,7 +19,7 @@ img[src*="/cg/"]:hover {
 
 /* 场景图片样式 - 用于背景场景 */
 img[src*="/scenes/"] {
-    max-width: 200px;
+    max-width: 400px;
     width: 100%;
     height: auto;
     display: block;
@@ -312,40 +312,100 @@ button:hover, .button:hover {
 }
 
 .transition-text {
-    color: #888; /* 过渡文本使用灰色 */
-    font-style: italic; /* 斜体 */
-    text-align: center; /* 居中显示 */
-    margin-top: 1em; /* 与上方内容保持一定间距 */
-    margin-bottom: 1em; /* 与下方内容保持一定间距 */
-    padding: 0.5em; /* 内边距 */
-    border-top: 1px dashed #ccc; /* 上方添加虚线边框 */
-    border-bottom: 1px dashed #ccc; /* 下方添加虚线边框 */
-  }
+    color: #a0a0a0;
+    font-style: italic;
+    text-align: center;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.8em;
+    border-top: 1px dashed rgba(212, 175, 55, 0.4);
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
+}
 
-  :root {
-    --tutorial-bg-color: #f8f9fa;         /* 教程框背景色 - 非常浅的灰色 */
-    --tutorial-border-color: #adb5bd;     /* 教程框边框色 - 柔和的灰色 */
-    --tutorial-title-color: #343a40;      /* 教程框标题颜色 - 深灰色 */
-    --tutorial-text-color: #212529;       /* 教程框正文颜色 - 标准的深色文本 */
-    --tutorial-shadow-color: rgba(0, 0, 0, 0.08); /* 教程框阴影颜色 - 非常淡的阴影 */
-  }
-  
-  .tutorial-box {
+:root {
+    --gold-primary: #d4af37;         /* 主要金色 */
+    --gold-light: #ffd700;           /* 浅金色 */
+    --gold-hover: #b89a2e;           /* 金色悬停状态 */
+    --black-primary: #000000;        /* 主黑色 */
+    --black-secondary: #1a1a1a;      /* 次黑色 */
+    --black-lighter: #2a2a2a;        /* 较浅黑色 */
+    --tutorial-bg-color: #161616;    /* 教程框背景色 - 深黑色 */
+    --tutorial-border-color: #d4af37;/* 教程框边框色 - 金色 */
+    --tutorial-title-color: #ffd700; /* 教程框标题颜色 - 浅金色 */
+    --tutorial-text-color: #e0e0e0;  /* 教程框正文颜色 - 浅灰色接近白色 */
+    --tutorial-shadow-color: rgba(212, 175, 55, 0.2); /* 教程框阴影颜色 - 金色阴影 */
+}
+
+.tutorial-box {
     background-color: var(--tutorial-bg-color);
     border: 1px solid var(--tutorial-border-color);
-    border-radius: 8px;                      /* 圆角大小 */
-    padding: 18px 20px;                      /* 内边距：上下18px，左右20px */
-    margin-top: 20px;                        /* 与上方内容的间距 */
-    margin-bottom: 20px;                     /* 与下方内容的间距 */
-    box-shadow: 0 4px 8px var(--tutorial-shadow-color); /* 细微的阴影，增加立体感 */
-    line-height: 1.6;                        /* 行高，提高多行文本的可读性 */
-    color: var(--tutorial-text-color);       /* 确保文本颜色被应用 */
-  }
-  
-  .tutorial-box .title {
-    font-weight: bold;                       /* 标题加粗 */
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px var(--tutorial-shadow-color);
+    line-height: 1.6;
+    color: var(--tutorial-text-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.tutorial-box:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--gold-primary);
+}
+
+.tutorial-box .title {
+    font-weight: bold;
     color: var(--tutorial-title-color);
-    margin-bottom: 12px;                     /* 标题与正文之间的间距 */
-    display: block;                          /* 让标题占据整行，像一个块级元素 */
-    font-size: 1.15em;                       /* 标题字号略大于正文 */
-  }
+    margin-bottom: 12px;
+    display: block;
+    font-size: 1.15em;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/*
+ * ========================================================
+ * 样式模块化结构建议
+ * ========================================================
+ *
+ * 当前样式存在以下问题:
+ * 1. 样式分散在多个文件中，造成维护困难
+ * 2. 有些样式通过JavaScript动态添加，而不是统一使用CSS文件
+ * 3. 缺乏明确的样式组织结构
+ *
+ * 建议的样式结构：
+ *
+ * 1. 主样式文件 (styles.css) - 包含基础样式和变量
+ *   - 全局变量（颜色、字体等）
+ *   - 基础样式（正文、链接、按钮等）
+ *   - 布局样式（容器、网格等）
+ *
+ * 2. 组件样式文件 (components/)
+ *   - codex.css - 图鉴/速写本样式
+ *   - save-load.css - 存档/读取系统样式
+ *   - dialog.css - 各种对话框样式
+ *   - ui-bar.css - 侧边栏UI样式
+ *
+ * 3. 页面特定样式 (pages/)
+ *   - specific-passages.css - 特定场景的样式
+ *
+ * 4. 动画和过渡 (animations.css)
+ *   - 所有动画和过渡效果
+ * 
+ * 5. 工具和辅助类 (utilities.css)
+ *   - 辅助工具类
+ *
+ * 实施步骤:
+ * 1. 将所有内联样式（JavaScript中添加的）移到CSS文件中
+ * 2. 按上述结构组织样式文件
+ * 3. 确保所有文件都在HTML中正确引入
+ * 4. 重构重复的CSS规则，使用变量统一颜色和尺寸
+ */

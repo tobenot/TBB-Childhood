@@ -36,59 +36,515 @@
 </div>
 
 <div id="credits-modal" class="settings-overlay" style="display: none;">
-    <div class="settings-content">
-        <h2>感谢名单</h2>
-        <div class="settings-section" style="text-align: left; max-height: 300px; overflow-y: auto;">
-            <p><strong>特别鸣谢以下人员、资源和社区（排名不分先后）：</strong></p>
-            <ul>
-                <li><strong>核心贡献者:</strong>
-                    <ul>
-                        <li>丶青萝卜（tobenot） - 个人开发</li>
-                    </ul>
-                </li>
-                <li><strong>测试与反馈:</strong>
-                    <ul>
-                        <li>花蕊</li>
-                    </ul>
-                </li>
-                <li><strong>素材来源:</strong>
-                    <ul>
-                        <li>所有非剧本的素材均来自AI</li>
-                    </ul>
-                </li>
-                <li><strong>技术支持与灵感:</strong>
-                    <ul>
-                        <li>Twine/SugarCube 社区资料</li>
-                        <li>各路编程AI大神的帮助</li>
-                    </ul>
-                </li>
-                <li><strong>以及每一位支持和关注本作品的玩家！</strong></li>
-            </ul>
-            <p style="text-align: center; margin-top: 1em;"><em>感谢你们的付出与支持！</em></p>
+    <div class="settings-content credits-content">
+        <div class="credits-header">
+            <h2>感谢名单</h2>
+            <div class="credits-decoration"></div>
         </div>
-        <div class="settings-buttons">
-            <button id="credits-modal-close" class="button">关闭</button>
+        <div class="credits-body">
+            <div class="credits-intro">
+                <p>衷心感谢所有为本作品贡献的个人与团队</p>
+            </div>
+            <div class="credits-section">
+                <h3>核心贡献者</h3>
+                <ul class="credits-list">
+                    <li>
+                        <span class="credits-role">开发者</span>
+                        <span class="credits-name">丶青萝卜（tobenot）</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="credits-section">
+                <h3>测试与反馈</h3>
+                <ul class="credits-list">
+                    <li>
+                        <span class="credits-name">花蕊</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="credits-section">
+                <h3>素材来源</h3>
+                <ul class="credits-list">
+                    <li>
+                        <span class="credits-detail">所有非剧本的素材均来自AI</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="credits-section">
+                <h3>技术支持与灵感</h3>
+                <ul class="credits-list">
+                    <li>
+                        <span class="credits-detail">Twine/SugarCube 社区资料</span>
+                    </li>
+                    <li>
+                        <span class="credits-detail">各路编程AI大神的帮助</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="credits-special-thanks">
+                <p>以及每一位支持和关注本作品的玩家！</p>
+                <p class="credits-quote">感谢你们的付出与支持！</p>
+            </div>
         </div>
+        <button id="credits-modal-close" class="button">关闭</button>
     </div>
 </div>
 
 <div id="group-reward-modal" class="settings-overlay" style="display: none;">
-    <div class="settings-content" style="max-height: 80vh; overflow-y: auto;">
-        <h2>加群反馈拿奖</h2>
-        <div class="settings-section">
-            <p>加入粉丝群提供宝贵的反馈意见，进入感谢名单，有机会获得作者之前发布的游戏的Key（例如3D太空射击、第三人称动作游戏）！</p>
-            <img src="assets/images/poster/qq_group_qrcode_1028122611.webp" alt="QQ群二维码" style="display: block; margin: 15px auto; width: 256px; height: 256px; border: 1px solid #d4af37;">
-            <p style="text-align: center;">
-                <a href="https://qm.qq.com/q/96TrhX1K0w" target="_blank" style="color: #d4af37; text-decoration: underline;">点击链接加入群聊【丶青萝卜的母港】</a>
-            </p>
-            <img src="assets/images/poster/lh_header_schinese.webp" alt="太空射击" style="display: block;border: 1px solid #d4af37;">
-            <img src="assets/images/poster/nbsk_header.webp" alt="动作游戏" style="display: block;border: 1px solid #d4af37;">
+    <div class="settings-content reward-content">
+        <div class="reward-header">
+            <h2>加群反馈拿奖</h2>
+            <div class="reward-decoration"></div>
         </div>
-        <div class="settings-buttons">
-            <button id="group-reward-close" class="button">关闭</button>
+        
+        <div class="reward-body">
+            <div class="reward-intro">
+                <p>加入粉丝群提供宝贵的反馈意见，进入感谢名单，有机会获得作者之前发布的游戏的Key！</p>
+            </div>
+            
+            <div class="reward-qrcode-container">
+                <div class="qrcode-inner">
+                    <img src="assets/images/poster/qq_group_qrcode_1028122611.webp" alt="QQ群二维码" class="reward-qrcode">
+                    <div class="qrcode-shine"></div>
+                </div>
+                <div class="reward-join-link">
+                    <a href="https://qm.qq.com/q/96TrhX1K0w" target="_blank">点击链接加入群聊【丶青萝卜的母港】</a>
+                </div>
+            </div>
+            
+            <div class="reward-games">
+                <h3>有机会获得Steam上的游戏激活码</h3>
+                <div class="game-showcase">
+                    <div class="game-item">
+                        <div class="game-image-container">
+                            <img src="assets/images/poster/lh_header_schinese.webp" alt="太空射击" class="game-image">
+                        </div>
+                    </div>
+                    <div class="game-item">
+                        <div class="game-image-container">
+                            <img src="assets/images/poster/nbsk_header.webp" alt="动作游戏" class="game-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        
+        <button id="group-reward-close" class="button">关闭</button>
     </div>
 </div>
+
+<style>
+/* 感谢名单样式 */
+.credits-content {
+    background-color: rgba(15, 15, 15, 0.97);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    max-width: 700px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.credits-content:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #d4af37;
+    pointer-events: none;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.credits-header {
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.credits-header h2 {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.8em;
+    color: #d4af37;
+    text-align: center;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    letter-spacing: 2px;
+}
+
+.credits-decoration {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.credits-body {
+    padding: 0 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+    font-family: 'Times New Roman', serif;
+}
+
+.credits-intro {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+.credits-section {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.credits-section h3 {
+    color: #d4af37;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 5px;
+}
+
+.credits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.credits-list li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.credits-list li:not(:last-child) {
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+}
+
+.credits-role {
+    font-weight: bold;
+    color: #bbb;
+    margin-right: 15px;
+    min-width: 80px;
+}
+
+.credits-name {
+    color: #e0e0e0;
+}
+
+.credits-detail {
+    color: #e0e0e0;
+}
+
+.credits-special-thanks {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    background-color: rgba(212, 175, 55, 0.05);
+}
+
+.credits-special-thanks p {
+    margin: 5px 0;
+    color: #e0e0e0;
+}
+
+.credits-quote {
+    font-style: italic;
+    color: #d4af37 !important;
+    font-size: 1.1em;
+    margin-top: 10px !important;
+}
+
+/* 滚动条样式 */
+.credits-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.credits-body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.credits-body::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.5);
+    border-radius: 3px;
+}
+
+.credits-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.7);
+}
+
+/* 加群反馈样式 */
+.reward-content {
+    background-color: rgba(15, 15, 15, 0.97);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    max-width: 700px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.reward-content:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #d4af37;
+    pointer-events: none;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.reward-header {
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.reward-header h2 {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.8em;
+    color: #d4af37;
+    text-align: center;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    letter-spacing: 2px;
+}
+
+.reward-decoration {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.reward-body {
+    padding: 0 20px 15px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.reward-intro {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 25px;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.reward-qrcode-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.qrcode-inner {
+    position: relative;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.reward-qrcode {
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+
+.qrcode-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: qrcode-shine 2.5s infinite;
+    pointer-events: none;
+}
+
+@keyframes qrcode-shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.reward-join-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.reward-join-link a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.reward-join-link a:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #d4af37;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+
+.reward-join-link a:hover {
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
+    color: #ffd700;
+}
+
+.reward-join-link a:hover:after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.reward-games {
+    padding: 0 10px;
+}
+
+.reward-games h3 {
+    color: #d4af37;
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.reward-games h3:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+}
+
+.game-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game-item {
+    max-width: 300px;
+    transition: all 0.3s ease;
+}
+
+.game-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.game-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.game-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #fff;
+    padding: 20px 10px 10px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.game-image-container:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    transform: translateY(-5px);
+}
+
+.game-image-container:hover .game-image {
+    transform: scale(1.05);
+}
+
+.reward-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.reward-body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.reward-body::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.5);
+    border-radius: 3px;
+}
+
+.reward-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.7);
+}
+
+/* 通用关闭按钮 */
+.settings-content .button {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 8px 25px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.settings-content .button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.settings-content .button:hover {
+    background-color: #d4af37;
+    color: #000;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.settings-content .button:hover:before {
+    left: 100%;
+}
+</style>
 
 <div id="custom-save-load-interface" style="display:none;">
   <h2>自定义存档/读档</h2>

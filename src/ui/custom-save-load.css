@@ -3,59 +3,69 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* 居中显示 */
+  transform: translate(-50%, -50%);
   width: 90%;
-  max-width: 500px; /* 最大宽度 */
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  max-width: 500px;
+  background-color: rgba(10, 10, 10, 0.95);
+  border: 2px solid #d4af37;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
   padding: 20px;
-  z-index: 1001; /* 比UI栏更高层级 */
-  max-height: 80vh; /* 限制最大高度，超出则滚动 */
-  overflow-y: auto; /* 内容超出时显示垂直滚动条 */
-  display: flex; /* 使用flex布局方便内部元素排列 */
-  flex-direction: column; /* 垂直排列子元素 */
+  z-index: 1001;
+  max-height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  color: #e0e0e0;
 }
 
 #custom-save-load-interface h2 {
   text-align: center;
   margin-top: 0;
   margin-bottom: 20px;
-  color: #333;
+  color: #d4af37;
+  text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d4af37;
 }
 
 #save-slots-list {
   margin-bottom: 20px;
-  flex-grow: 1; /* 占据多余空间，如果内容不多则无影响 */
-  overflow-y: auto; /* 如果槽过多，列表内部滚动 */
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .save-slot {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 4px;
+  background-color: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 6px;
   display: flex;
-  flex-direction: column; /* 槽内元素垂直排列 */
-  gap: 8px; /* 槽内元素间距 */
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.save-slot:hover {
+  border-color: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
 }
 
 .save-slot .slot-info {
   font-size: 0.95em;
-  color: #555;
+  color: #cccccc;
   line-height: 1.4;
 }
 
 .save-slot .slot-info strong {
-  color: #333;
+  color: #ffd700;
 }
 
 .save-slot .slot-info small {
   font-size: 0.8em;
-  color: #777;
-  display: block; /* 让日期单独一行 */
+  color: #999999;
+  display: block;
   margin-top: 4px;
 }
 
@@ -63,61 +73,73 @@
   padding: 8px 12px;
   font-size: 0.9em;
   cursor: pointer;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(212, 175, 55, 0.5);
   border-radius: 4px;
-  background-color: #e7e7e7;
-  transition: background-color 0.2s;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #e0e0e0;
+  transition: all 0.2s ease;
+  font-weight: normal;
 }
 
 .save-slot button:hover:not(:disabled) {
-  background-color: #d7d7d7;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 .save-slot button:disabled {
-  opacity: 0.6;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 .save-slot .save-button {
-  background-color: #5cb85c; /* 绿色 */
-  color: white;
-  border-color: #4cae4c;
+  background-color: rgba(40, 80, 40, 0.6);
+  color: #e0e0e0;
+  border-color: rgba(92, 184, 92, 0.6);
 }
 .save-slot .save-button:hover:not(:disabled) {
-  background-color: #4cae4c;
+  background-color: rgba(50, 100, 50, 0.8);
+  border-color: #5cb85c;
 }
 
 .save-slot .load-button {
-  background-color: #337ab7; /* 蓝色 */
-  color: white;
-  border-color: #2e6da4;
+  background-color: rgba(40, 70, 100, 0.6);
+  color: #e0e0e0;
+  border-color: rgba(51, 122, 183, 0.6);
 }
 .save-slot .load-button:hover:not(:disabled) {
-  background-color: #286090;
+  background-color: rgba(50, 90, 120, 0.8);
+  border-color: #337ab7;
 }
 
 .save-slot .delete-button {
-  background-color: #d9534f; /* 红色 */
-  color: white;
-  border-color: #d43f3a;
+  background-color: rgba(100, 40, 40, 0.6);
+  color: #e0e0e0;
+  border-color: rgba(217, 83, 79, 0.6);
 }
 .save-slot .delete-button:hover:not(:disabled) {
-  background-color: #c9302c;
+  background-color: rgba(120, 50, 50, 0.8);
+  border-color: #d9534f;
 }
-
 
 #close-custom-save-menu-button {
   padding: 10px 20px;
-  background-color: #f0ad4e; /* 橙色 */
-  color: white;
-  border: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #d4af37;
+  border: 1px solid #d4af37;
   cursor: pointer;
   border-radius: 4px;
-  align-self: center; /* 按钮在flex容器中居中 */
+  align-self: center;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
 }
 
 #close-custom-save-menu-button:hover {
-  background-color: #ec971f;
+  background-color: #d4af37;
+  color: #000000;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
 }
 
 /* 移动设备优化 */
@@ -133,36 +155,16 @@
   }
 
   .save-slot {
-    padding: 10px;
+    padding: 12px;
   }
 
   .save-slot button {
     font-size: 0.85em;
     padding: 7px 10px;
-    /* 在小屏幕上，可以让按钮并排或者堆叠 */
-    /* 如果希望按钮宽度适应内容，可以移除下面的width和display:block */
-    /* display: block;
-    width: 100%;
-    margin-bottom: 5px; */
   }
-  /* .save-slot button:last-child {
-    margin-bottom: 0;
-  } */
 
-  /* 如果希望按钮在一行内，但空间不足时换行 */
   .save-slot {
     display: flex;
-    flex-direction: column; /* 默认垂直排列 */
+    flex-direction: column;
   }
-  .save-slot .slot-info + button, /* 按钮组 */
-  .save-slot button + button {
-     /* margin-top: 8px; */ /* 如果垂直排列，可以加顶部间距 */
-  }
-
-  /* 如果想让按钮水平排列，空间不足时换行 */
-  /* .save-slot div:has(> button) { /* 包裹按钮的容器，如果直接在.save-slot下放按钮则不需要 */
-    /* display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  } */
 } 

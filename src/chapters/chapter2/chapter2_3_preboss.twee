@@ -1,4 +1,4 @@
-:: Ch2_PreBossScene /* 第二章 BOSS战前场景 */\
+:: Ch2_PreBossScene
 /* 这个段落根据 $contactStatus 决定具体内容 */\
 <<nobr>><<if $contactStatus is "accepted">>
     /* === 情况A：第一章已经接触并修复 === */\

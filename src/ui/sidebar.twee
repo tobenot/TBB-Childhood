@@ -73,19 +73,26 @@
 </div>
 
 <div id="group-reward-modal" class="settings-overlay" style="display: none;">
-    <div class="settings-content" style="max-height: 80vh; overflow-y: auto;">
-        <h2>加群反馈拿奖</h2>
-        <div class="settings-section">
-            <p>加入粉丝群提供宝贵的反馈意见，进入感谢名单，有机会获得作者之前发布的游戏的Key（例如3D太空射击、第三人称动作游戏）！</p>
-            <img src="assets/images/poster/qq_group_qrcode_1028122611.webp" alt="QQ群二维码" style="display: block; margin: 15px auto; width: 256px; height: 256px; border: 1px solid #d4af37;">
-            <p style="text-align: center;">
-                <a href="https://qm.qq.com/q/96TrhX1K0w" target="_blank" style="color: #d4af37; text-decoration: underline;">点击链接加入群聊【丶青萝卜的母港】</a>
-            </p>
+    <div class="settings-content" style="max-height: 80vh; overflow-y: auto;">
+        <h2>加群反馈拿奖</h2>
+        <div class="settings-section">
+            <p>加入粉丝群提供宝贵的反馈意见，进入感谢名单，有机会获得作者之前发布的游戏的Key（例如3D太空射击、第三人称动作游戏）！</p>
+            <img src="assets/images/poster/qq_group_qrcode_1028122611.webp" alt="QQ群二维码" style="display: block; margin: 15px auto; width: 256px; height: 256px; border: 1px solid #d4af37;">
+            <p style="text-align: center;">
+                <a href="https://qm.qq.com/q/96TrhX1K0w" target="_blank" style="color: #d4af37; text-decoration: underline;">点击链接加入群聊【丶青萝卜的母港】</a>
+            </p>
             <img src="assets/images/poster/lh_header_schinese.webp" alt="太空射击" style="display: block;border: 1px solid #d4af37;">
-            <img src="assets/images/poster/nbsk_header.webp" alt="动作游戏" style="display: block;border: 1px solid #d4af37;">
-        </div>
-        <div class="settings-buttons">
-            <button id="group-reward-close" class="button">关闭</button>
-        </div>
-    </div>
+            <img src="assets/images/poster/nbsk_header.webp" alt="动作游戏" style="display: block;border: 1px solid #d4af37;">
+        </div>
+        <div class="settings-buttons">
+            <button id="group-reward-close" class="button">关闭</button>
+        </div>
+    </div>
+</div>
+
+<div id="custom-save-load-interface" style="display:none;">
+  <h2>自定义存档/读档</h2>
+  <div id="save-slots-list">
+    </div>
+  <button id="close-custom-save-menu-button">关闭</button>
 </div>

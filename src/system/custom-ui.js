@@ -31,7 +31,7 @@ $(document).ready(function() {
     });
 
     $('#menu-item-saves a').on('click', function() {
-        UI.saves();
+        //UI.saves(); //我们已经使用自定义的存档界面
     });
 
     $('#menu-item-restart a').on('click', function() {
@@ -195,14 +195,16 @@ $(document).ready(function() {
     
     function updateNavigationButtons() {
         if (typeof State === 'undefined' || State === null) {
-             $('#menu-item-back a').removeClass('disabled');
-             $('#menu-item-forward a').removeClass('disabled');
-            return; 
+            $('#menu-item-back a').addClass('disabled');
+            $('#menu-item-forward a').addClass('disabled');
+            return;
         }
         if (State.length > 1 && State.activeIndex > 0) { $('#menu-item-back a').removeClass('disabled'); }
         else { $('#menu-item-back a').addClass('disabled'); }
-        if (State.activeIndex < State.length -1 ) { $('#menu-item-forward a').removeClass('disabled'); }
-        else { $('#menu-item-forward a').addClass('disabled'); }
+        // 有bug，不要处理先
+        if (true) { $('#menu-item-forward a').removeClass('disabled'); }
+        //if (State.activeIndex < State.length - 1) { $('#menu-item-forward a').removeClass('disabled'); }
+        //else { $('#menu-item-forward a').addClass('disabled'); }
         $('ul#menu-core li a.disabled').css({ 'opacity': '0.5', 'cursor': 'not-allowed', 'pointer-events': 'none' });
         $('ul#menu-core li a:not(.disabled)').css({ 'opacity': '1', 'cursor': 'pointer', 'pointer-events': 'auto' });
     }

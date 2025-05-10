@@ -1,0 +1,59 @@
+:root {
+    /* 颜色变量 */
+    --gold-primary: #d4af37;         /* 主要金色 */
+    --gold-light: #ffd700;           /* 浅金色 */
+    --gold-hover: #b89a2e;           /* 金色悬停状态 */
+    --gold-transparent: rgba(212, 175, 55, 0.5); /* 半透明金色 */
+    --gold-shadow: rgba(212, 175, 55, 0.3);      /* 金色阴影 */
+    
+    /* 黑色和背景色 */
+    --black-primary: #000000;        /* 主黑色 */
+    --black-secondary: #1a1a1a;      /* 次黑色 */
+    --black-lighter: #2a2a2a;        /* 较浅黑色 */
+    --black-overlay: rgba(0, 0, 0, 0.7); /* 黑色遮罩 */
+    
+    /* 文本颜色 */
+    --text-light: #e0e0e0;           /* 浅色文本 */
+    --text-bright: #ffffff;          /* 亮色文本 */
+    --text-muted: #999999;           /* 暗色文本 */
+    --text-highlight: #d4af37;       /* 高亮文本 */
+    
+    /* 特殊效果 */
+    --glow-effect: 0 0 10px rgba(212, 175, 55, 0.5); /* 金色光晕效果 */
+    --hover-glow: 0 0 15px rgba(212, 175, 55, 0.7);  /* 悬停时的光晕效果 */
+    
+    /* 边框和分隔线 */
+    --border-primary: 1px solid #d4af37;         /* 主要边框 */
+    --border-light: 1px solid rgba(212, 175, 55, 0.3); /* 浅色边框 */
+    --border-radius: 5px;                      /* 通用圆角 */
+    
+    /* 尺寸和间距 */
+    --sidebar-width: 20em;             /* 侧边栏宽度 */
+    --sidebar-collapsed-width: 3em;    /* 收起侧边栏宽度 */
+    --content-max-width: 1200px;       /* 内容最大宽度 */
+    --spacing-small: 0.5em;            /* 小间距 */
+    --spacing-medium: 1em;             /* 中等间距 */
+    --spacing-large: 2em;              /* 大间距 */
+    
+    /* 动画时间 */
+    --transition-fast: 0.2s;           /* 快速过渡 */
+    --transition-normal: 0.3s;         /* 中等过渡 */
+    --transition-slow: 0.5s;           /* 慢速过渡 */
+    
+    /* 字体尺寸 */
+    --font-size-small: 0.9em;          /* 小字体 */
+    --font-size-normal: 1em;           /* 正常字体 */
+    --font-size-large: 1.2em;          /* 大字体 */
+    --font-size-xlarge: 1.5em;         /* 超大字体 */
+    --font-size-xxlarge: 2em;          /* 特大字体 */
+    
+    /* 阴影 */
+    --shadow-small: 0 2px 5px rgba(0, 0, 0, 0.2);  /* 小阴影 */
+    --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.3); /* 中等阴影 */
+    --shadow-large: 0 10px 30px rgba(0, 0, 0, 0.4); /* 大阴影 */
+    
+    /* 特定组件变量 */
+    --tutorial-bg-color: #161616;      /* 教程框背景色 */
+    --tutorial-border-color: #d4af37;  /* 教程框边框色 */
+    --tutorial-title-color: #ffd700;   /* 教程框标题颜色 */
+} 

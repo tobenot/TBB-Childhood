@@ -1,0 +1,117 @@
+/* CSS 重置样式 */
+
+/* 基础盒模型重置 */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 移除默认边距 */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+}
+
+/* 内容可点击和更好的默认显示 */
+html {
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 移除列表默认样式 */
+ul[class], ol[class] {
+    list-style: none;
+}
+
+/* 更好的图片处理 */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* 确保文本字段继承字体 */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* 移除全局焦点样式，稍后为可访问性添加自定义焦点样式 */
+:focus {
+    outline: 0;
+}
+
+/* 消除默认聚焦轮廓，后续会在可访问性样式中添加回来 */
+a:focus, button:focus {
+    outline: 0;
+}
+
+/* 设置按钮的基础样式 */
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* 隐藏默认音频播放器控件 */
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/* 让表单元素在IE中更易样式化 */
+button, input {
+    overflow: visible;
+}
+
+/* 更好的链接处理 */
+a {
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+}
+
+/* 消除Firefox上的点击时边框 */
+a:active, a:hover {
+    outline: 0;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--black-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light);
+}
+
+/* 链接样式重置 */
+a {
+    text-decoration: none;
+    color: var(--gold-light);
+    transition: all var(--transition-normal) ease;
+}
+
+/* 按钮样式重置 */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+} 

@@ -1,0 +1,120 @@
+/* 图片样式组件 */
+
+/* CG图片样式 - 用于剧情重要场景 */
+img[src*="/cg/"] {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--spacing-medium) auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 15px var(--gold-shadow);
+    transition: all var(--transition-slow) ease;
+    cursor: pointer;
+}
+
+img[src*="/cg/"]:hover {
+    box-shadow: var(--hover-glow);
+}
+
+/* 场景图片样式 - 用于背景场景 */
+img[src*="/scenes/"] {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--spacing-medium) auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 15px var(--gold-shadow);
+    transition: all var(--transition-slow) ease;
+    cursor: pointer;
+}
+
+img[src*="/scenes/"]:hover {
+    box-shadow: var(--hover-glow);
+}
+
+/* 角色立绘样式 - 用于人物展示 */
+img[src*="/characters/"] {
+    max-width: 200px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: var(--spacing-medium) auto;
+    transition: all var(--transition-slow) ease;
+    filter: drop-shadow(0 0 10px var(--gold-shadow));
+    cursor: pointer;
+}
+
+img[src*="/characters/"]:hover {
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+}
+
+/* 全屏图片预览样式 */
+.fullscreen-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal) ease;
+}
+
+.fullscreen-image.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fullscreen-image img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    box-shadow: 0 0 30px var(--gold-shadow);
+    transform: scale(0.9);
+    transition: transform var(--transition-normal) ease;
+}
+
+.fullscreen-image.active img {
+    transform: scale(1);
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--gold-primary);
+    font-size: 40px;
+    font-weight: bold;
+    transition: all var(--transition-fast) ease;
+    text-shadow: var(--glow-effect);
+}
+
+.close-button:hover {
+    color: var(--gold-light);
+    transform: scale(1.1);
+    text-shadow: var(--hover-glow);
+}
+
+/* 图片放大动画 */
+@keyframes img-zoom-in {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    img[src*="/cg/"], img[src*="/scenes/"] {
+        max-width: 90%;
+    }
+    
+    img[src*="/characters/"] {
+        max-width: 80%;
+    }
+} 

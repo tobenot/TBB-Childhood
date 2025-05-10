@@ -1,0 +1,129 @@
+/* 侧边栏样式 */
+
+/* 侧边栏主容器 */
+#ui-bar {
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 50;
+    background-color: var(--black-primary);
+    border-right: 2px solid var(--gold-primary);
+    box-shadow: 2px 0 10px rgba(212, 175, 55, 0.3);
+    transition: left var(--transition-normal) ease;
+}
+
+/* 收起的侧边栏样式 */
+#ui-bar.stowed {
+    left: calc(-1 * var(--sidebar-width) + var(--sidebar-collapsed-width));
+    background-color: var(--black-primary);
+    border-left: 2px solid var(--gold-primary);
+}
+
+/* 侧边栏切换按钮托盘 */
+#ui-bar-tray {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: var(--spacing-small);
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid var(--gold-primary);
+}
+
+/* 导航按钮 */
+#ui-bar-back, #ui-bar-forward, #ui-bar-author, #ui-bar-settings, #ui-bar-toggle {
+    cursor: pointer;
+    color: var(--gold-primary);
+    transition: all var(--transition-normal) ease;
+    margin-right: var(--spacing-small);
+    padding: 0.3em 0.6em;
+    border-radius: var(--border-radius);
+}
+
+#ui-bar-back:hover, #ui-bar-forward:hover, #ui-bar-author:hover, #ui-bar-settings:hover, #ui-bar-toggle:hover {
+    color: var(--text-bright);
+    text-shadow: var(--glow-effect);
+}
+
+/* 禁用状态按钮 */
+#ui-bar-back.disabled, #ui-bar-forward.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 侧边栏切换按钮 */
+#ui-bar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    background-color: var(--black-primary);
+    border: 1px solid var(--gold-primary);
+    border-radius: var(--border-radius);
+    color: var(--gold-primary);
+}
+
+#ui-bar-toggle:before {
+    content: '≡';
+    font-size: 1.5em;
+}
+
+#ui-bar-toggle:hover {
+    background-color: var(--gold-primary);
+    background-color: rgba(212, 175, 55, 0.4);
+}
+
+/* 侧边栏头部 */
+#ui-bar-header {
+    padding: var(--spacing-medium) var(--spacing-small);
+}
+
+/* 侧边栏主体 */
+#ui-bar-content {
+    padding: var(--spacing-small);
+}
+
+/* 侧边栏菜单 */
+#ui-bar-menu ul.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#ui-bar-menu ul.menu li {
+    margin-bottom: var(--spacing-small);
+}
+
+#ui-bar-menu ul.menu li a {
+    display: block;
+    padding: 0.7em 1em;
+    color: var(--gold-primary);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-normal) ease;
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+#ui-bar-menu ul.menu li a:hover {
+    background-color: rgba(212, 175, 55, 0.3);
+    color: var(--text-bright);
+    text-shadow: var(--glow-effect);
+}
+
+/* 小屏幕适配 */
+@media (max-width: 768px) {
+    #ui-bar {
+        width: 18em;
+    }
+    
+    #ui-bar.stowed {
+        left: -15em;
+    }
+    
+    #story {
+        margin-left: 3em;
+    }
+}

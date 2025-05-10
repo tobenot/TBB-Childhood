@@ -1,0 +1,68 @@
+/* 教程框样式 */
+
+.tutorial-box {
+    background-color: var(--tutorial-bg-color);
+    border: 1px solid var(--tutorial-border-color);
+    border-radius: var(--border-radius);
+    padding: 18px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px var(--tutorial-shadow-color);
+    line-height: 1.6;
+    color: var(--tutorial-text-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.tutorial-box:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--gold-primary);
+}
+
+.tutorial-box .title {
+    font-weight: bold;
+    color: var(--tutorial-title-color);
+    margin-bottom: 12px;
+    display: block;
+    font-size: 1.15em;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* 不同类型的教程框 */
+.tutorial-box.info {
+    border-color: #3498db;
+}
+
+.tutorial-box.info:before {
+    background-color: #3498db;
+}
+
+.tutorial-box.warning {
+    border-color: #f39c12;
+}
+
+.tutorial-box.warning:before {
+    background-color: #f39c12;
+}
+
+.tutorial-box.success {
+    border-color: #2ecc71;
+}
+
+.tutorial-box.success:before {
+    background-color: #2ecc71;
+}
+
+/* 响应式教程框 */
+@media (max-width: 768px) {
+    .tutorial-box {
+        padding: 15px;
+    }
+} 

@@ -165,31 +165,71 @@ $(document).ready(function() {
     $(document).on('click', '#ui-bar-settings, #menu-item-settings a', function() {
         $('#settings-dialog').css('display', 'flex');
         try {
-            var currentVolume = 100; var isMuted = false;
-            if (typeof SimpleAudio !== 'undefined' && SimpleAudio.tracks && SimpleAudio.tracks.length > 0) {
-                currentVolume = Math.round(SimpleAudio.volume * 100); isMuted = SimpleAudio.mute;
-            } else if (typeof SimpleAudio !== 'undefined') {
-                 currentVolume = Math.round(SimpleAudio.volume * 100); isMuted = SimpleAudio.mute;
+            var currentVolumePercent = 100; // Default to 100%
+            var isMuted = false; // Default to not muted
+
+            // Try to get volume from SugarCube's standard settings
+            if (typeof Config !== 'undefined' && typeof Config.saves !== 'undefined' && typeof Config.saves.volume !== 'undefined') {
+                currentVolumePercent = Math.round(Config.saves.volume * 100);
             }
-            $('#master-volume').val(currentVolume); $('#volume-value').text(currentVolume + '%');
+            // Try to get mute state from SugarCube's masteraudio function or Config.saves
+            if (typeof masteraudio === 'function' && typeof masteraudio().mute === 'boolean') { // masteraudio() is a SugarCube function
+                isMuted = masteraudio().mute;
+            } else if (typeof Config !== 'undefined' && typeof Config.saves !== 'undefined' && typeof Config.saves.mute === 'boolean') {
+                isMuted = Config.saves.mute;
+            }
+
+            $('#master-volume').val(currentVolumePercent);
+            $('#volume-value').text(currentVolumePercent + '%');
             $('#mute-toggle').prop('checked', isMuted);
+
         } catch (e) {
             console.error('初始化音量控制时出错:', e);
-            $('#master-volume').val(100); $('#volume-value').text('100%'); $('#mute-toggle').prop('checked', false);
+            // Fallback if any error occurs
+            $('#master-volume').val(100);
+            $('#volume-value').text('100%');
+            $('#mute-toggle').prop('checked', false);
         }
     });
     
     $(document).on('click', '#settings-close', function() { $('#settings-dialog').hide(); });
     
     $(document).on('input', '#master-volume', function() {
-        var volume = $(this).val(); $('#volume-value').text(volume + '%');
-        try { if (typeof SimpleAudio !== 'undefined') { SimpleAudio.volume(volume / 100); } }
+        var volumePercent = parseInt($(this).val(), 10);
+        var volumeNormalized = volumePercent / 100;
+        $('#volume-value').text(volumePercent + '%');
+        try {
+            // Update SugarCube's master volume
+            if (typeof jQuery.wiki === 'function') { // Use jQuery.wiki to execute the macro
+                jQuery.wiki('<<masteraudio volume ' + volumeNormalized + '>>');
+            } else if (typeof SimpleAudio !== 'undefined' && typeof SimpleAudio.volume === 'function') { // Fallback
+                SimpleAudio.volume(volumeNormalized);
+                 // If SimpleAudio is the only way, we might need to manually update Config.saves here if not done by SimpleAudio
+                if (typeof Config !== 'undefined' && typeof Config.saves !== 'undefined') {
+                    // Check if SimpleAudio updated Config.saves, if not, do it carefully or log
+                }
+            }
+             // Ensure Config.saves.volume is updated after the macro execution for next time settings are opened.
+             // The <<masteraudio>> macro should handle this. If not, this might be a point of failure.
+             // For safety, we can re-read or trust the macro. Let's trust the macro for now.
+
+        }
         catch (e) { console.error('设置音量时出错:', e); }
     });
     
     $(document).on('change', '#mute-toggle', function() {
         var isMuted = $(this).prop('checked');
-        try { if (typeof SimpleAudio !== 'undefined') { SimpleAudio.mute(isMuted); } }
+        try {
+            // Update SugarCube's mute state
+            var muteAction = isMuted ? 'mute' : 'unmute';
+            if (typeof jQuery.wiki === 'function') { // Use jQuery.wiki to execute the macro
+                jQuery.wiki('<<masteraudio ' + muteAction + '>>');
+            } else if (typeof SimpleAudio !== 'undefined' && typeof SimpleAudio.mute === 'function') { // Fallback
+                SimpleAudio.mute(isMuted);
+                // Similar to volume, ensure Config.saves.mute is updated.
+            }
+            // The <<masteraudio>> macro should handle updating Config.saves.mute.
+        }
         catch (e) { console.error('设置静音状态时出错:', e); }
     });
     

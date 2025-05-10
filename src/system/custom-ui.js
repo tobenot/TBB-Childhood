@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     // 为速写本（图鉴）按钮添加点击事件
     $('#menu-item-codex a').on('click', function() {
-        Engine.play('PassageCodex');
+        //Engine.play('PassageCodex');
     });
 
     // 初始化UI状态
@@ -83,7 +83,7 @@ $(document).ready(function() {
 
     // 为速写本（图鉴）按钮添加点击事件
     $('#menu-item-codex a').on('click', function() {
-        Engine.play('PassageCodex');
+        //Engine.play('PassageCodex');
     });
     
     // 创建设置菜单项

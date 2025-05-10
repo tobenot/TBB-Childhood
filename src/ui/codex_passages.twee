@@ -1,7 +1,7 @@
 :: PassageCodex [codex nobr]
 <<nobr>>
-    /* 调用JS函数来显示图鉴内容 */
-    <<run $('#passages').empty().wiki(window.displayCodex())>>
+    /* 图鉴现在通过侧边栏按钮在对话框中打开。 */
+    <p>速写本（图鉴）现在可以通过侧边栏的按钮打开。</p>
 <</nobr>>
 
 <div class="codex-navigation">

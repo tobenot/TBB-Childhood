@@ -19,6 +19,7 @@ window.displayCodex = function() {
                 if (entry.discovered) {
                     html += `<p class="preview-desc">${entry.previewDesc}</p>`;
                     if (entry.drawn) {
+                        // Make sure .codex-image class is on the img tag
                         html += `<div class="codex-image-container"><img src="${entry.imagePath}" alt="${entry.title}" class="codex-image"></div>`;
                         html += `<p class="full-desc">${entry.fullDesc || (entry.fullDesc_accepted && State.variables.playerChoice === 'accepted' ? entry.fullDesc_accepted : entry.fullDesc_refused || '')}</p>`;
                         html += `<p class="dominique-comment">多米尼克：${entry.dominiqueComment || (entry.dominiqueComment_accepted && State.variables.playerChoice === 'accepted' ? entry.dominiqueComment_accepted : entry.dominiqueComment_refused || '')}</p>`;
@@ -43,13 +44,23 @@ window.displayCodex = function() {
 window.drawCodexEntry = function(entryId) {
     if (State.variables.codex && State.variables.codex[entryId]) {
         State.variables.codex[entryId].drawn = true;
-        // Potentially add a sound effect or visual feedback here
         console.log(`Entry ${entryId} marked as drawn.`);
-        // Re-render the codex or the specific entry to reflect the change
-        Engine.play(passage(), true); // Refreshes the current passage
+        // Close the current dialog and reopen it to refresh
+        if (Dialog.isOpen()) {
+            Dialog.close();
+            window.openCodexDialog(); // Reopen with updated content
+        }
     } else {
         console.error(`Codex entry ${entryId} not found.`);
     }
+};
+
+// Function to open the codex in a dialog
+window.openCodexDialog = function() {
+    const codexHTML = window.displayCodex();
+    Dialog.setup("速写本", "codex-dialog"); // Title and class for the dialog
+    Dialog.wiki(codexHTML);
+    Dialog.open();
 };
 
 // Event listener for draw buttons (needs to be attached after the codex is rendered)
@@ -88,6 +99,8 @@ if (!$('style#codex-styles').length) {
                 border-radius: 8px;
                 background-color: #fff; /* White background for entries */
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                display: flex; /* Added for better internal alignment if needed */
+                flex-direction: column; /* Added for better internal alignment */
             }
             .codex-entry.locked {
                 opacity: 0.6;
@@ -101,17 +114,18 @@ if (!$('style#codex-styles').length) {
                 font-style: italic;
                 color: #777;
             }
-            .codex-image-container {
+            .codex-image-container { /* MODIFIED */
                 width: 100%;
-                max-height: 200px; /* Limit image height */
-                overflow: hidden; /* Crop if image is too tall */
+                /* max-height: 200px; */ /* REMOVED to unrestrict height */
+                /* overflow: hidden; */   /* REMOVED to unrestrict height */
                 margin-bottom: 10px;
                 border-radius: 4px;
             }
-            .codex-image {
+            .codex-image { /* MODIFIED */
                 width: 100%;
                 height: auto;
                 display: block;
+                cursor: pointer; /* Add cursor to indicate it's clickable */
             }
             .codex-entry .full-desc {
                 margin-top: 10px;
@@ -141,6 +155,7 @@ if (!$('style#codex-styles').length) {
                 cursor: pointer;
                 border-radius: 5px;
                 transition: background-color 0.3s ease;
+                align-self: flex-start; /* Align button if entry is flex container */
             }
             .draw-button:hover {
                 background-color: #b89a2e; /* Darker gold on hover */

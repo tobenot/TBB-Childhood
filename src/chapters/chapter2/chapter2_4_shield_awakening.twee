@@ -1,6 +1,5 @@
-:: Chapter2_BossEncounter [chapter]
+:: Chapter2_BossEncounter
 /* 确保 BGM 切换 */
-<<audio "bgm_action" fadeout>>
 <<BGMCheck "bgm_boss">>\
 /* <<cacheaudio "sfx_chainsaw_rev" "assets/audio/sfx/chainsaw_rev.ogg">> */
 /* <<cacheaudio "sfx_chainsaw_attack" "assets/audio/sfx/chainsaw_attack.ogg">> */

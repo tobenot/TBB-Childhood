@@ -46,16 +46,49 @@ window.displayCodex = function() {
 
 // Function to handle drawing an entry
 window.drawCodexEntry = function(entryId) {
-    if (State.variables.codex && State.variables.codex[entryId]) {
-        State.variables.codex[entryId].drawn = true;
-        console.log(`Entry ${entryId} marked as drawn.`);
+    let codexGlobalStatus = recall('codexGlobalStatus', {});
+    if (State.variables.codex && State.variables.codex[entryId] && codexGlobalStatus && codexGlobalStatus[entryId]) {
+        State.variables.codex[entryId].drawn = true; // Update runtime state
+        codexGlobalStatus[entryId].drawn = true;    // Update persistent state
+        memorize('codexGlobalStatus', codexGlobalStatus); // Persist changes
+
+        // Recalculate drawingsMade for immediate consistency if needed by UI
+        State.variables.drawingsMade = 0;
+        for (const id in codexGlobalStatus) {
+            if (codexGlobalStatus[id].drawn) {
+                State.variables.drawingsMade++;
+            }
+        }
+
+        console.log(`Entry ${entryId} marked as drawn. Global status updated and persisted.`);
         // Close the current dialog and reopen it to refresh
         if (Dialog.isOpen()) {
             Dialog.close();
             window.openCodexDialog(); // Reopen with updated content
         }
     } else {
-        console.error(`Codex entry ${entryId} not found.`);
+        console.error(`Codex entry ${entryId} not found or global codex status not initialized properly.`);
+    }
+};
+
+// Function to mark an entry as discovered
+window.discoverCodexEntry = function(entryId) {
+    let codexGlobalStatus = recall('codexGlobalStatus', {});
+    if (State.variables.codex && State.variables.codex[entryId] && codexGlobalStatus && codexGlobalStatus[entryId]) {
+        if (!State.variables.codex[entryId].discovered) { // Only update if not already discovered
+            State.variables.codex[entryId].discovered = true; // Update runtime state
+            codexGlobalStatus[entryId].discovered = true;    // Update persistent state
+            memorize('codexGlobalStatus', codexGlobalStatus); // Persist changes
+            console.log(`Entry ${entryId} marked as discovered. Global status updated and persisted.`);
+            // If a UI element needs to be refreshed upon discovery, add code here.
+            // For example, if the codex dialog is open, you might want to refresh it.
+            if (Dialog.isOpen() && Dialog.title === "速写本") { // Check if codex dialog is open
+                Dialog.close();
+                window.openCodexDialog();
+            }
+        }
+    } else {
+        console.error(`Codex entry ${entryId} not found for discovery or global codex status not initialized properly.`);
     }
 };
 
@@ -167,3 +200,12 @@ if (!$('style#codex-styles').length) {
         </style>
     `);
 }
+
+window.unlockCodexEntry = function(entryId) {
+    if (Save.slots.metadata && Save.slots.metadata.codexStatus && Save.slots.metadata.codexStatus[entryId]) {
+        Save.slots.metadata.codexStatus[entryId].discovered = true;
+        if (State.variables.codex && State.variables.codex[entryId]) {
+            State.variables.codex[entryId].discovered = true;
+        }
+    }
+};

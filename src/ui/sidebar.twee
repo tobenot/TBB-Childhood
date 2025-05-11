@@ -550,5 +550,10 @@
   <h2>自定义存档/读档</h2>
   <div id="save-slots-list">
     </div>
-  <button id="close-custom-save-menu-button">关闭</button>
+  <div class="custom-save-actions" style="margin-top: 20px; padding: 10px; border-top: 1px solid #d4af37; display: flex; justify-content: space-around;">
+    <button id="export-all-saves-button" class="confirm-button" style="min-width: 120px;">导出全部存档</button>
+    <button id="import-saves-button" class="confirm-button" style="min-width: 120px;">导入存档文件</button>
+    <input type="file" id="import-file-input" accept=".html,.json,text/plain,.save" style="display: none;">
+    <button id="close-custom-save-menu-button">关闭</button>
+  </div>
 </div>

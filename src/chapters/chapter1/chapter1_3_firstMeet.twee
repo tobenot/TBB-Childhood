@@ -93,7 +93,9 @@
     <<set $askedTown = false>> /* 是否问过小镇情况 */
     <<set $askedPurpose = false>> /* 是否问过需要人类的目的 */
     <<set $askedTech = false>> /* 是否问过机械手臂 */
-    <<set $askedMotivation = false>> /* 新增：是否问过玩家动机/异能者 */
+    <<set $askedMotivation = false>> /* 是否问过玩家动机/异能者 */
+    <<set $askedStreetDamage = false>> /* 新增：是否问过街道损坏 */
+    <<set $askedCamera = false>> /* 新增：是否问过监控摄像头 */
     <<set $contactStatus = "pending">> /* 接触状态: pending, accepted, refused_temp, refused_final */
     <<set $tempQuestionResponse = "">> /* 用于临时存储子选项的回应文本 */
 <</silently>>
@@ -171,6 +173,34 @@
 你也知道这不正常。
 
 这死寂本身，就是一种巨大的异常。
+
+<<include "Ch1_DialogueCheck">>
+
+:: 询问街道异常
+<<set $askedStreetDamage = true>>
+你想起在旅馆外看到的景象，问道：“我醒来的时候，在旅馆门前看到一大片融化的路面，还有附近店铺墙上巨大的破洞。你知道那是怎么回事吗？跟你有关吗？”
+
+多米尼克看向你，眼神没有丝毫波动。
+
+“是的，那是我所为。”她平静地承认，“路面的融毁痕迹，是我的臂载式能量投射单元在清除威胁时造成的。墙壁的破洞，则是使用小型定向爆破榴弹的结果。”
+
+她停顿了一下，补充道：“当时情况紧急，未能顾及对周边环境的附带损伤。”
+
+她的坦诚让你有些意外，也更感心惊。但也有些失望——那不是异能者所为。
+
+<<include "Ch1_DialogueCheck">>
+
+:: 询问监控
+<<set $askedCamera = true>>
+你想起在杂货店里看到的那个还在运行的监控摄像头。
+
+“对了，我在小镇的商店里看到过还在工作的监控摄像头。你知道这个小镇的监控中心在哪里吗？如果能看到录像，也许能搞清楚这里发生了什么。”
+
+多米尼克微微摇头。
+
+“监控中心……我的数据库中没有这个小镇的详细地图和设施分布信息。我醒来后便直接遭遇了威胁，未能进行全面的环境侦察。”
+
+她顿了顿，似乎认同你的看法：“不过，你的提议具有逻辑性。如果存在这样的监控中心并且仍在运作，其记录的数据对于理解当前状况确实有价值。在确保基本安全后，可以将其列为调查目标之一。”
 
 <<include "Ch1_DialogueCheck">>
 
@@ -571,17 +601,19 @@
 <<else>> /* pending 状态 */
 <</if>>
 <br>
-<<if not $askedTech>>[[“你的手臂...是什么技术？”|询问机械]]<br><</if>>
 <<if not $askedIdentity>>[[“你是谁？”|询问身份]]<br><</if>>
+<<if not $askedTown>>[[“这个小镇怎么了？”|询问小镇]]<br><</if>>
+<<if not $askedStreetDamage>>[[“旅馆外的路面融毁和墙洞是怎么回事？”|询问街道异常]]<br><</if>>
+<<if not $askedCamera>>[[“你知道小镇的监控中心在哪吗？”|询问监控]]<br><</if>>
+<<if not $askedTech>>[[“你的手臂...是什么技术？”|询问机械]]<br><</if>>
+<<if not $askedMotivation>>[[“你知道‘异能者保留地’吗？”|询问动机]]<br><</if>>
 <<if not $askedPurpose and $contactStatus neq "accepted">> /* 如果已经接受过，则不再问目的 */
     [[“你说需要人类...是什么意思？”|Ch1_AskPurpose]]<br>
 <</if>>
-<<if not $askedTown>>[[“这个小镇怎么了？”|询问小镇]]<br><</if>>
-<<if not $askedMotivation>>[[“你知道‘异能者保留地’吗？”|询问动机]]<br><</if>>
 <br>
 <</nobr>>
 /* 检查是否所有问题都已触发过 */
-<<if $askedIdentity and $askedTown and ($askedPurpose or $contactStatus is "accepted") and $askedTech and $askedMotivation>>
+<<if $askedIdentity and $askedTown and $askedStreetDamage and $askedCamera and ($askedPurpose or $contactStatus is "accepted") and $askedTech and $askedMotivation>>
     /* 所有问题都问完了 (接受后目的问题自动跳过) */\
     <<if $contactStatus is "refused_temp">>
         <hr>
@@ -607,7 +639,7 @@
         <hr>
         你感觉该问的似乎都已经问了。
 
-        但关于这个死寂的小镇，关于眼前这个神秘的机械少女，她从何而来，为何在此，又为何会选择你……无数的谜团反而变得更多、更深了。
+        但关于这个死寂的小镇，关于眼前这个神秘的机械少女，她从何而来，为何在此，又为何是你……无数的谜团反而变得更多、更深了。
 
         多米尼克似乎也完成了某个预设的信息交换与评估的阶段性目标。
 

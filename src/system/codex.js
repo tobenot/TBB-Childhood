@@ -26,7 +26,7 @@ window.displayCodex = function() {
                         // Make sure .codex-image class is on the img tag
                         html += `<div class="codex-image-container"><img src="${entry.imagePath}" alt="${entry.title}" class="codex-image"></div>`;
                         html += `<p class="full-desc">${entry.fullDesc || (entry.fullDesc_accepted && State.variables.playerChoice === 'accepted' ? entry.fullDesc_accepted : entry.fullDesc_refused || '')}</p>`;
-                        html += `<p class="dominique-comment">多米尼克：${entry.dominiqueComment || (entry.dominiqueComment_accepted && State.variables.playerChoice === 'accepted' ? entry.dominiqueComment_accepted : entry.dominiqueComment_refused || '')}</p>`;
+                        html += `<p class="dominique-comment">${entry.dominiqueComment || (entry.dominiqueComment_accepted && State.variables.playerChoice === 'accepted' ? entry.dominiqueComment_accepted : entry.dominiqueComment_refused || '')}</p>`;
                         html += '<p class="status-drawn">已描绘</p>';
                     } else {
                         html += `<button class="draw-button" data-entry-id="${entryId}">描绘此物</button>`;

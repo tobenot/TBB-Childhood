@@ -1,0 +1,35 @@
+{
+  "id": "tbb-childhood",
+  "name": "不止于纸上的故事：童年篇",
+  "short_name": "不止于纸上",
+  "description": "一款以童年噩梦为题材的文字冒险互动故事，跟随主角在空镇与噩梦之间寻找真相。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#1a1a1a",
+  "background_color": "#1a1a1a",
+  "start_url": "./index.html",
+  "scope": "./",
+  "categories": ["games", "entertainment", "books"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
